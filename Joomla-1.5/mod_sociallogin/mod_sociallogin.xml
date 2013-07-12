@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.7">
+	<name>Social Login</name>
+	<license>Open Source License, GPL v2 based</license>
+	<author>OneAll LLC</author>
+	<authorEmail>support@oneall.com</authorEmail>
+	<authorUrl>http://www.oneall.com</authorUrl>
+	<creationDate>2011-11-16</creationDate>
+	<copyright>2011 - 2012, OneAll LLC</copyright>
+	<version>M2</version>
+	<description>
+		<![CDATA[Module for the Social Login Component <br />
+The module displays the social network buttons.<br /><br />
+Visit us: <a target="_blank" href="http://www.oneall.com">OneAll Social Media Integration</a><br />
+Get Support: <a target="_blank" href="http://www.oneall.com/company/contact-us/">http://www.oneall.com/company/contact-us/</a>
+]]></description>
+	<files>
+		<file module="mod_sociallogin">mod_sociallogin.php</file>
+		<folder>classes</folder>
+		<folder>tmpl</folder>		
+	</files>
+</install>

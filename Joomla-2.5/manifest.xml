@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.7" method="upgrade">
+	<name>Social Login</name>
+	<license>Open Source License, GPL v2 based</license>
+	<author>OneAll LLC</author>
+	<authorEmail>support@oneall.com</authorEmail>
+	<authorUrl>http://www.oneall.com</authorUrl>
+	<creationDate>2011-11-16</creationDate>
+	<copyright>OneAll LLC</copyright>
+	<version>PCM1-756</version>
+	<description>
+		<![CDATA[Allow your users to register and login with social
+		networks like Twitter, Facebook, Paypal, LinkedIn, LiveJournal,OpenID,
+		VKontakte, Google and Yahoo amongst others.<br /><br />		
+		Maintained by <a href="http://www.oneall.com" target="_blank">OneAll</a>, a technology company offering a set of web-delivered tools 
+		and services for establishing and optimizing a site's connection with social networks 
+	]]></description>
+
+	<!-- Installation -->		
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<installfile>install/install.php</installfile>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">install/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<uninstallfile>install/uninstall.php</uninstallfile>
+		
+	<!-- Component -->
+	<files folder="com_sociallogin">				
+		<file>index.html</file>
+		<file>sociallogin.php</file>		
+	</files>
+	
+	<!-- Administration -->
+	<administration>
+		<menu>COM_SOCIALLOGIN_CONFIG</menu>
+		<files folder="admin">
+			<folder>assets</folder>
+			<folder>install</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+			<file>index.html</file>
+			<file>controller.php</file>
+			<file>sociallogin.php</file>
+		</files>
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB.com_sociallogin.sys.ini</language>
+		</languages>
+	</administration>	
+	
+	<!-- Modules -->
+	<modules>
+		<module module="mod_sociallogin" title="Social Login" position="position-7" order="8" client="site" language="*" showtitle="0">
+			<files folder="mod_sociallogin">
+				<folder>classes</folder>
+				<folder>tmpl</folder>
+				<file>index.html</file>
+				<file>mod_sociallogin.php</file>
+				<file>mod_sociallogin.xml</file>
+			</files>
+		</module>
+	</modules>	
+	
+	<!-- Plugins -->
+	<plugins>
+		<plugin plugin="sociallogin" title="Social Login" order="-100" group="system">
+			<files folder="plg_sociallogin">
+				<file>index.html</file>
+				<file>helper.php</file>
+				<file>sociallogin.php</file>
+				<file>sociallogin.xml</file>				
+			</files>
+		</plugin>
+	</plugins>	
+</install>
