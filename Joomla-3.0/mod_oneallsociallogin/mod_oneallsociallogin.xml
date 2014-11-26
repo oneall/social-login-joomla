@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.0" client="site">
-	<name>Social Login</name>
+	<name>OneAll Social Login</name>
 	<license>Open Source License, GPL v2 based</license>
 	<author>OneAll LLC</author>
 	<authorEmail>support@oneall.com</authorEmail>
 	<authorUrl>http://www.oneall.com</authorUrl>
-	<creationDate>2011-11-16</creationDate>
-	<copyright>OneAll LLC</copyright>
-	<version>1.0</version>
+	<creationDate>2014-10-29</creationDate>
+	<copyright>2011 - 2014, OneAll LLC</copyright>
+	<version>2.0</version>
 	<description>
-        <![CDATA[Part of the Social Login component.<br />
+        <![CDATA[Part of the OneAll Social Login component.<br />
 The module displays the social network buttons.<br /><br />
 Visit us at <a target="_blank" href="http://www.oneall.com">http://www.oneall.com/</a><br />
 Contact our support at: <a target="_blank" href="http://www.oneall.com/company/contact-us/">http://www.oneall.com/company/contact-us/</a>
 ]]></description>
 	<files>
-		<file module="mod_sociallogin">mod_sociallogin.php</file>
+		<file module="mod_oneallsociallogin">mod_oneallsociallogin.php</file>
 		<folder>classes</folder>
 		<folder>tmpl</folder>
 	</files>

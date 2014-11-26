@@ -1,7 +1,7 @@
 <?php
 /**
- * @package   	SocialLogin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	OneAll Social Login
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -26,9 +26,9 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 jimport ('joomla.application.component.controller');
 
 /**
- * General Controller of SocialLogin component
+ * General Controller of OneAllSocialLogin component
  */
-class SocialLoginController extends JControllerLegacy
+class OneAllSocialLoginController extends JControllerLegacy
 {
 	/**
 	 * Display task
@@ -36,7 +36,7 @@ class SocialLoginController extends JControllerLegacy
 	public function display ($cachable = false, $urlparams = array())
 	{
 		// Set default view if not set
-		JRequest::setVar ('view', JRequest::getCmd ('view', 'SocialLogin'));
+		JRequest::setVar ('view', JRequest::getCmd ('view', 'OneAllSocialLogin'));
 
 		// Call parent behavior
 		parent::display ($cachable);
@@ -49,7 +49,7 @@ class SocialLoginController extends JControllerLegacy
 	{
 		$model = $this->getModel ();
 		$model->saveSettings ();
-		$this->setRedirect (JRoute::_ ('index.php?option=com_sociallogin&view=sociallogin&layout=default', false));
+		$this->setRedirect (JRoute::_ ('index.php?option=com_oneallsociallogin&action=save', false));
 	}
 
 
@@ -249,7 +249,7 @@ class SocialLoginController extends JControllerLegacy
 		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt ($curl, CURLOPT_USERAGENT, 'SocialLogin JM3 (+http://www.oneall.com/)');
+		curl_setopt ($curl, CURLOPT_USERAGENT, 'OneAll Social Login Joomla 3 (+http://www.oneall.com/)');
 
 		// BASIC AUTH?
 		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
@@ -357,7 +357,7 @@ class SocialLoginController extends JControllerLegacy
 		//Create HTTP request
 		$defaults = array (
 				'Host' => "Host: $host",
-				'User-Agent' => 'User-Agent: SocialLogin JM3 (+http://www.oneall.com/)'
+				'User-Agent' => 'User-Agent: OneAll Social Login Joomla 3 (+http://www.oneall.com/)'
 		);
 
 		// BASIC AUTH?

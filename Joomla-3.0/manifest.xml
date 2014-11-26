@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3" method="upgrade">
-	<name>Social Login</name>
+	<name>OneAll Social Login</name>
 	<license>Open Source License, GPL v2 based</license>
 	<author>OneAll LLC</author>
 	<authorEmail>support@oneall.com</authorEmail>
 	<authorUrl>http://www.oneall.com</authorUrl>
-	<creationDate>2011-11-16</creationDate>
-	<copyright>OneAll LLC</copyright>
-	<version>PCM1-010</version>
+	<creationDate>2014-10-29</creationDate>
+	<copyright>2011 - 2014, OneAll LLC</copyright>
+	<version>2.0</version>
 	<description>
 		<![CDATA[Social Login allows your users to register and login with social networks like Twitter, Facebook, Paypal, LinkedIn, LiveJournal,OpenID,	VKontakte, Google and Yahoo amongst others.]]>
 	</description>
@@ -25,17 +25,17 @@
 			<file driver="mysql" charset="utf8">install/uninstall.mysql.utf8.sql</file>
 		</sql>
 	</uninstall>
-	<scriptfile>install/script.sociallogin.php</scriptfile>
+	<scriptfile>install/script.oneallsociallogin.php</scriptfile>
 		
 	<!-- Component -->
-	<files folder="com_sociallogin">				
+	<files folder="com_oneallsociallogin">				
 		<file>index.html</file>
-		<file>sociallogin.php</file>		
+		<file>oneallsociallogin.php</file>		
 	</files>
 	
 	<!-- Administration -->
 	<administration>
-		<menu>COM_SOCIALLOGIN_CONFIG</menu>
+		<menu>COM_ONEALLSOCIALLOGIN</menu>
 		<files folder="admin">
 			<folder>assets</folder>
 			<folder>install</folder>
@@ -43,34 +43,34 @@
 			<folder>views</folder>
 			<file>index.html</file>
 			<file>controller.php</file>
-			<file>sociallogin.php</file>
+			<file>oneallsociallogin.php</file>
 		</files>
 		<languages folder="admin/language">
-			<language tag="en-GB">en-GB.com_sociallogin.sys.ini</language>
+			<language tag="en-GB">en-GB.com_oneallsociallogin.sys.ini</language>
 		</languages>
 	</administration>	
 	
 	<!-- Modules -->
 	<modules>
-		<module module="mod_sociallogin" title="Social Login" position="position-7" order="8" client="site" language="*" showtitle="0">
-			<files folder="mod_sociallogin">
+		<module module="mod_oneallsociallogin" title="OneAll Social Login" position="position-7" order="8" client="site" language="*" showtitle="0">
+			<files folder="mod_oneallsociallogin">
 				<folder>classes</folder>
 				<folder>tmpl</folder>
 				<file>index.html</file>
-				<file>mod_sociallogin.php</file>
-				<file>mod_sociallogin.xml</file>
+				<file>mod_oneallsociallogin.php</file>
+				<file>mod_oneallsociallogin.xml</file>
 			</files>
 		</module>
 	</modules>	
 	
 	<!-- Plugins -->
 	<plugins>
-		<plugin plugin="sociallogin" title="Social Login" order="-100" group="system">
-			<files folder="plg_sociallogin">
+		<plugin plugin="oneallsociallogin" title="OneAll Social Login" order="-100" group="system">
+			<files folder="plg_oneallsociallogin">
 				<file>index.html</file>
 				<file>helper.php</file>
-				<file>sociallogin.php</file>
-				<file>sociallogin.xml</file>				
+				<file>oneallsociallogin.php</file>
+				<file>oneallsociallogin.xml</file>				
 			</files>
 		</plugin>
 	</plugins>	

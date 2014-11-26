@@ -1,7 +1,7 @@
 <?php
 /**
- * @package   	SocialLogin Component
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	OneAll Social Login Component
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -26,14 +26,14 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 jimport ('joomla.filesystem.folder');
 jimport ('joomla.filesystem.file');
 
-class Com_SocialLoginInstallerScript
+class Com_OneAllSocialLoginInstallerScript
 {
 
 
 	/**
 	 * The component's name
 	 */
-	protected $_sociallogin_extension = 'com_sociallogin';
+	protected $_oneallsociallogin_extension = 'com_oneallsociallogin';
 
 
 	/**
@@ -42,7 +42,7 @@ class Com_SocialLoginInstallerScript
 	private $installation_queue = array (
 		'modules' => array (
 			'site' => array (
-				'sociallogin' => array (
+				'oneallsociallogin' => array (
 					'title' => 'Social Login',
 					'position' => 'position-7',
 					'order' => 8,
@@ -54,7 +54,7 @@ class Com_SocialLoginInstallerScript
 		),
 		'plugins' => array (
 			'system' => array (
-				'sociallogin' => array (
+				'oneallsociallogin' => array (
 					'published' => 1
 				)
 			)
@@ -116,7 +116,7 @@ class Com_SocialLoginInstallerScript
 	private function render_post_installation ($status, $parent)
 	{
 		$message = '<br/>Thank you very much for having installed <strong>Social Login</strong>!<br />';
-		$message .= 'Please open the <a href="index.php?option=com_sociallogin">Social Login Configuration</a> to enable this component.<br/><br/>';
+		$message .= 'Please open the <a href="index.php?option=com_oneallsociallogin">Social Login Configuration</a> to enable this component.<br/><br/>';
 		echo $message;
 	}
 
@@ -140,7 +140,7 @@ class Com_SocialLoginInstallerScript
 
 		// Fix broken #__assets records
 		$query = $db->getQuery (true);
-		$query->select ('id')->from ('#__assets')->where ($db->qn ('name') . ' = ' . $db->q ($this->_sociallogin_extension));
+		$query->select ('id')->from ('#__assets')->where ($db->qn ('name') . ' = ' . $db->q ($this->_oneallsociallogin_extension));
 		$db->setQuery ($query);
 		$ids = $db->loadColumn ();
 
@@ -157,7 +157,7 @@ class Com_SocialLoginInstallerScript
 
 		// Fix broken #__extensions records
 		$query = $db->getQuery (true);
-		$query->select ('extension_id')->from ('#__extensions')->where ($db->qn ('element') . ' = ' . $db->q ($this->_sociallogin_extension));
+		$query->select ('extension_id')->from ('#__extensions')->where ($db->qn ('element') . ' = ' . $db->q ($this->_oneallsociallogin_extension));
 		$db->setQuery ($query);
 		$ids = $db->loadColumn ();
 
@@ -174,7 +174,7 @@ class Com_SocialLoginInstallerScript
 
 		// Fix broken #__menu records
 		$query = $db->getQuery (true);
-		$query->select ('id')->from ('#__menu')->where ($db->qn ('type') . ' = ' . $db->q ('component'))->where ($db->qn ('menutype') . ' = ' . $db->q ('main'))->where ($db->qn ('link') . ' LIKE ' . $db->q ('index.php?option=' . $this->_sociallogin_extension));
+		$query->select ('id')->from ('#__menu')->where ($db->qn ('type') . ' = ' . $db->q ('component'))->where ($db->qn ('menutype') . ' = ' . $db->q ('main'))->where ($db->qn ('link') . ' LIKE ' . $db->q ('index.php?option=' . $this->_oneallsociallogin_extension));
 		$db->setQuery ($query);
 		$ids = $db->loadColumn ();
 
@@ -200,7 +200,7 @@ class Com_SocialLoginInstallerScript
 
 		// If there are multiple #__extensions record, keep one of them
 		$query = $db->getQuery (true);
-		$query->select ('extension_id')->from ('#__extensions')->where ($db->qn ('element') . ' = ' . $db->q ($this->_sociallogin_extension));
+		$query->select ('extension_id')->from ('#__extensions')->where ($db->qn ('element') . ' = ' . $db->q ($this->_oneallsociallogin_extension));
 		$db->setQuery ($query);
 		$ids = $db->loadColumn ();
 		if (count ($ids) > 1)
@@ -219,7 +219,7 @@ class Com_SocialLoginInstallerScript
 
 		// If there are multiple assets records, delete all except the oldest one
 		$query = $db->getQuery (true);
-		$query->select ('id')->from ('#__assets')->where ($db->qn ('name') . ' = ' . $db->q ($this->_sociallogin_extension));
+		$query->select ('id')->from ('#__assets')->where ($db->qn ('name') . ' = ' . $db->q ($this->_oneallsociallogin_extension));
 		$db->setQuery ($query);
 		$ids = $db->loadObjectList ();
 		if (count ($ids) > 1)
@@ -238,12 +238,12 @@ class Com_SocialLoginInstallerScript
 
 		// Remove #__menu records for good measure!
 		$query = $db->getQuery (true);
-		$query->select ('id')->from ('#__menu')->where ($db->qn ('type') . ' = ' . $db->q ('component'))->where ($db->qn ('menutype') . ' = ' . $db->q ('main'))->where ($db->qn ('link') . ' LIKE ' . $db->q ('index.php?option=' . $this->_sociallogin_extension));
+		$query->select ('id')->from ('#__menu')->where ($db->qn ('type') . ' = ' . $db->q ('component'))->where ($db->qn ('menutype') . ' = ' . $db->q ('main'))->where ($db->qn ('link') . ' LIKE ' . $db->q ('index.php?option=' . $this->_oneallsociallogin_extension));
 		$db->setQuery ($query);
 		$ids1 = $db->loadColumn ();
 		if (empty ($ids1)) $ids1 = array ();
 		$query = $db->getQuery (true);
-		$query->select ('id')->from ('#__menu')->where ($db->qn ('type') . ' = ' . $db->q ('component'))->where ($db->qn ('menutype') . ' = ' . $db->q ('main'))->where ($db->qn ('link') . ' LIKE ' . $db->q ('index.php?option=' . $this->_sociallogin_extension . '&%'));
+		$query->select ('id')->from ('#__menu')->where ($db->qn ('type') . ' = ' . $db->q ('component'))->where ($db->qn ('menutype') . ' = ' . $db->q ('main'))->where ($db->qn ('link') . ' LIKE ' . $db->q ('index.php?option=' . $this->_oneallsociallogin_extension . '&%'));
 		$db->setQuery ($query);
 		$ids2 = $db->loadColumn ();
 		if (empty ($ids2)) $ids2 = array ();

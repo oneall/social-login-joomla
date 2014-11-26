@@ -1,6 +1,7 @@
+<?php
 /**
- * @package   	SocialLogin Plugin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	OneAll Social Login
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -21,8 +22,14 @@
  * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  */
- 
-CHANGELOG
+defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
+jimport ('joomla.application.component.controller');
 
-1.0
-* Initial port from Joomla 2.5 to 3.0
+// Get an instance of the controller
+$controller = JControllerLegacy::getInstance ('OneAllSocialLogin');
+
+// Perform the requested task
+$controller->execute (JRequest::getCmd ('task', 'display'));
+
+// Redirect if set by the controller
+$controller->redirect ();

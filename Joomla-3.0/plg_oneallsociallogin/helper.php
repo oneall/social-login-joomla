@@ -1,7 +1,7 @@
 <?php
 /**
- * @package   	SocialLogin Plugin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	OneAll Social Login Plugin
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -26,9 +26,9 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 
 
 /**
- * SocialLogin Plugin Helper
+ * OneAllSocialLogin Plugin Helper
  */
-class plgSystemSocialLoginHelper
+class plgSystemOneAllSocialLoginHelper
 {
 
 	/**
@@ -225,7 +225,7 @@ class plgSystemSocialLoginHelper
 		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt ($curl, CURLOPT_USERAGENT, 'SocialLogin JM3 (+http://www.oneall.com/)');
+		curl_setopt ($curl, CURLOPT_USERAGENT, 'OneAll Social Login Joomla (+http://www.oneall.com/)');
 
 		// BASIC AUTH?
 		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
@@ -310,7 +310,7 @@ class plgSystemSocialLoginHelper
 		//Create HTTP request
 		$defaults = array (
 				'Host' => "Host: $host",
-				'User-Agent' => 'User-Agent: SocialLogin JM3 (+http://www.oneall.com/)'
+				'User-Agent' => 'User-Agent: OneAll Social Login Joomla (+http://www.oneall.com/)'
 		);
 
 		// BASIC AUTH?

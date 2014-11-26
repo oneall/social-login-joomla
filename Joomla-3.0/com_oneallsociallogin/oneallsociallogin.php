@@ -1,7 +1,7 @@
 <?php
 /**
- * @package   	SocialLogin Component
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	Oneall Social Login Component
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -26,7 +26,7 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 jimport ('joomla.application.component.controller');
 
 // Get an instance of the controller
-$controller = JControllerLegacy::getInstance ('SocialLogin');
+$controller = JControllerLegacy::getInstance ('OneAllSocialLogin');
 
 // Perform the requested task
 $controller->execute (JRequest::getCmd ('task', 'display'));

@@ -1,7 +1,7 @@
 <?php
 /**
- * @package   	SocialLogin Module
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	Oneall Social Login Module
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -49,7 +49,7 @@ if($user_status == 'logout')
 						}
 					?>
 			  	  <div class="logout-button">
-			    	    <input type="submit" name="Submit" class="button" value="<?php echo JText::_('JLOGOUT'); ?>" />
+			    	    <input type="submit" name="Submit" class="btn btn-primary" value="<?php echo JText::_('JLOGOUT'); ?>" />
 			      	  <input type="hidden" name="option" value="com_users" />
 			        	<input type="hidden" name="task" value="user.logout" />
 			        	<?php echo JHtml::_('form.token'); ?>
@@ -62,12 +62,18 @@ if($user_status == 'logout')
 //User is logged out
 else
 {
+	//Custom CSS
+	$widget_settings['css_theme_uri'] = (! isset ($widget_settings['css_theme_uri']) ? '' : trim ($widget_settings['css_theme_uri']));
+
 	//Check if the subdomain is set
 	if (isset($widget_settings['api_subdomain']) AND strlen (trim ($widget_settings['api_subdomain'])) > 0)
 	{
 		//Check if providers have been selected
 		if (isset($widget_settings['providers']) AND is_array ($widget_settings['providers']))
 		{
+			//Random integer for unique dom element ids;
+			$rnd = rand ();
+
 			?>
 				<div class="oa_social_login<?php echo $moduleclass_sfx ?>">
 
@@ -82,19 +88,14 @@ else
 							<?php
 						}
 					?>
-						<div id="oa_social_login_container<?php echo $moduleclass_sfx ?>"></div>
+						<div id="oa_social_login_container<?php echo $rnd.$moduleclass_sfx ?>"></div>
 						<script type="text/javascript">
-					 		oneall.api.plugins.social_login.build("oa_social_login_container<?php echo $moduleclass_sfx ?>",{
-					  	providers : ["<?php echo implode ('", "', $widget_settings['providers']); ?>"],
-					  	callback_uri: '<?php echo $return_url; ?>'
-							<?php
-								if (isset($widget_settings['css_theme_uri']) AND strlen (trim ($widget_settings['css_theme_uri'])) > 0)
-								{
-									echo ", css_theme_uri: '".trim($widget_settings['css_theme_uri'])."'";
-								}
- 							?>
-					 	});
-						</script><!-- oneall.com / Social Login for Joomla! -->
+							var _oneall = _oneall || [];
+							_oneall.push(['social_login', 'set_providers', ['<?php echo implode ("','", $widget_settings['providers']); ?>']]);
+							_oneall.push(['social_login', 'set_callback_uri', '<?php echo $return_url; ?>']);
+							_oneall.push(['social_login', 'set_custom_css_uri', '<?php echo $widget_settings['css_theme_uri']; ?>']);
+							_oneall.push(['social_login', 'do_render_ui', 'oa_social_login_container<?php echo $rnd.$moduleclass_sfx ?>']);
+						</script><!-- http://www.oneall.com / OneAll Social Login for Joomla! -->
 					<?php
 					?>
 				</div>
@@ -103,14 +104,14 @@ else
 		else
 		{
 			?>
-				<div style="background-color:red;color:white;padding:5px;text-align:center">[<strong>Social Login</strong>] Please select at least one Social Network (Components\Social Login Configuration)</div>
+				<div style="background-color:red;color:white;padding:5px;text-align:center">[<strong>Social Login</strong>] Please select at least one Social Network (Admin: Components\OneAll Social Login)</div>
 			<?php
 		}
 	}
 	else
 	{
 		?>
-			<div style="background-color:red;color:white;padding:5px;text-align:center">[<strong>Social Login</strong>] Please complete your API Settings (Components\Social Login Configuration)</div>
+			<div style="background-color:red;color:white;padding:5px;text-align:center">[<strong>Social Login</strong>] Please complete your API Settings (Admin: Components\OneAll Social Login)</div>
 		<?php
 	}
 }

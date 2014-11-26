@@ -1,7 +1,7 @@
 <?php
 /**
- * @package   	SocialLogin Module
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	OneAll Social Login Module
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -24,7 +24,7 @@
  */
 defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 
-class mod_socialloginHelper
+class mod_oneallsocialloginHelper
 {
 	/**
 	 * Is HTTPS enabled?

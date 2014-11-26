@@ -1,7 +1,7 @@
 <?php
 /**
- * @package   	SocialLogin Plugin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	OneAll Social Login Plugin
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -35,13 +35,13 @@ if ( ! defined ('DS'))
 // Check if plugin correctly installed
 if (!JFile::exists (dirname (__FILE__) . DS . 'helper.php'))
 {
-	JError::raiseNotice ('no_sociallogin_plugin', JText::_ ('The SocialLogin Plugin is not installed correctly. Plugin not executed'));
+	JError::raiseNotice ('no_oneallsociallogin_plugin', JText::_ ('The OneAll Social Login plugin is not installed correctly. Plugin not executed'));
 	return;
 }
 require_once(dirname (__FILE__) . DS . 'helper.php');
 
 
-class plgSystemSocialLogin extends JPlugin
+class plgSystemOneAllSocialLogin extends JPlugin
 {
 	/**
 	 * Authentication
@@ -49,17 +49,17 @@ class plgSystemSocialLogin extends JPlugin
 	private function doAuth ($token)
 	{
 		//Settings
-		$settings = plgSystemSocialLoginHelper::getSettings ();
+		$settings = plgSystemOneAllSocialLoginHelper::getSettings ();
 
 		//Check settings
 		if (empty ($settings ['api_subdomain']) OR empty ($settings ['api_key']) OR empty ($settings ['api_secret']))
 		{
-			JError::raiseNotice ('no_sociallogin_plugin', JText::_ ('The SocialLogin API Component Settings are missing. Please correct these in the administration area.'));
+			JError::raiseNotice ('no_oneallsociallogin_plugin', JText::_ ('The OneAll Social Login API settings are missing. Please correct these in the Joomla administration area.'));
 			return;
 		}
 
 		//Read user data
-		$social_data = plgSystemSocialLoginHelper::makeTokenLookup ($token);
+		$social_data = plgSystemOneAllSocialLoginHelper::makeTokenLookup ($token);
 		if (is_object ($social_data))
 		{
 			$identity = $social_data->response->result->data->user->identity;
@@ -161,7 +161,7 @@ class plgSystemSocialLogin extends JPlugin
 			}
 
 			// Get user by token
-			$user_id = plgSystemSocialLoginHelper::getUserIdForToken ($user_token);
+			$user_id = plgSystemOneAllSocialLoginHelper::getUserIdForToken ($user_token);
 
 			//Not linked, try to link to existing account
 			if (!is_numeric ($user_id))
@@ -173,12 +173,12 @@ class plgSystemSocialLogin extends JPlugin
 					if (!empty ($user_email) AND $user_email_is_verified === true)
 					{
 						//Read existing user
-						if (($user_id_tmp = plgSystemSocialLoginHelper::getUserIdForEmail ($user_email)) !== false)
+						if (($user_id_tmp = plgSystemOneAllSocialLoginHelper::getUserIdForEmail ($user_email)) !== false)
 						{
 							//Link user to token
 							if (is_numeric ($user_id_tmp))
 							{
-								if (plgSystemSocialLoginHelper::setUserIdForToken ($user_token, $user_id_tmp))
+								if (plgSystemOneAllSocialLoginHelper::setUserIdForToken ($user_token, $user_id_tmp))
 								{
 									$user_id = $user_id_tmp;
 								}
@@ -214,7 +214,7 @@ class plgSystemSocialLogin extends JPlugin
 				}
 
 				//Username must be unique
-				if (plgSystemSocialLoginHelper::usernameExists ($user_login))
+				if (plgSystemOneAllSocialLoginHelper::usernameExists ($user_login))
 				{
 					$i = 1;
 					$user_login_tmp = $user_login;
@@ -222,14 +222,14 @@ class plgSystemSocialLogin extends JPlugin
 					{
 						$user_login_tmp = $user_login . ($i++);
 					}
-					while (plgSystemSocialLoginHelper::usernameExists ($user_login_tmp));
+					while (plgSystemOneAllSocialLoginHelper::usernameExists ($user_login_tmp));
 					$user_login = $user_login_tmp;
 				}
 
 				//Email must be unique
-				if (empty ($user_email) OR plgSystemSocialLoginHelper::useremailExists ($user_email))
+				if (empty ($user_email) OR plgSystemOneAllSocialLoginHelper::useremailExists ($user_email))
 				{
-					$user_email = plgSystemSocialLoginHelper::getRandomUseremail ();
+					$user_email = plgSystemOneAllSocialLoginHelper::getRandomUseremail ();
 				}
 
 				//Get the ACL
@@ -279,7 +279,7 @@ class plgSystemSocialLogin extends JPlugin
 				$user_id = $user->get ('id');
 
 				//Link to token
-				plgSystemSocialLoginHelper::setUserIdForToken ($user_token, $user_id);
+				plgSystemOneAllSocialLoginHelper::setUserIdForToken ($user_token, $user_id);
 			}
 			//Returning user
 			else
@@ -311,13 +311,28 @@ class plgSystemSocialLogin extends JPlugin
 						$options = array ();
 						$options ['action'] = 'core.login.site';
 
+						//Return to the original URL
+						/*
+						if ( ! empty ($_REQUEST['return']))
+						{
+							$url = base64_decode (urldecode ($_REQUEST['return']));
+
+							//Registration
+							$settings['redirect_register_url'] = $url;
+
+							//Login
+							$settings['redirect_login_url'] = $url;
+
+						}
+						*/
+
 						//Setup return url for new users
 						if ($new_user === true)
 						{
 							if (isset($settings['redirect_register_url']) AND strlen(trim($settings['redirect_register_url'])) > 0)
 							{
 								$session = JFactory::getSession();
-								$session->set('redirect_url', trim ($settings['redirect_register_url']), 'plg_sociallogin');
+								$session->set('redirect_url', trim ($settings['redirect_register_url']), 'plg_oneallsociallogin');
 							}
 						}
 							//Setup return url for returning users
@@ -326,7 +341,7 @@ class plgSystemSocialLogin extends JPlugin
 							if (isset($settings['redirect_login_url']) AND strlen(trim($settings['redirect_login_url'])) > 0)
 							{
 								$session = JFactory::getSession();
-								$session->set('redirect_url', trim ($settings['redirect_login_url']), 'plg_sociallogin');
+								$session->set('redirect_url', trim ($settings['redirect_login_url']), 'plg_oneallsociallogin');
 							}
 						}
 
@@ -363,11 +378,11 @@ class plgSystemSocialLogin extends JPlugin
 		$session = JFactory::getSession();
 
 		//Check for uri
-		$redirect_url = $session->get('redirect_url', null, 'plg_sociallogin');
+		$redirect_url = $session->get('redirect_url', null, 'plg_oneallsociallogin');
 		if ( ! empty ($redirect_url))
 		{
 			//Clear uri
-			$session->clear('redirect_url', 'plg_sociallogin');
+			$session->clear('redirect_url', 'plg_oneallsociallogin');
 
 			//Redirect
 			$app = JFactory::getApplication();

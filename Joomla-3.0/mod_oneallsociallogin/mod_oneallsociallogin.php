@@ -1,7 +1,7 @@
 <?php
 /**
- * @package   	SocialLogin Module
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @package   	OneAll Social Login Module
+ * @copyright 	Copyright 2011-2014 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -27,13 +27,17 @@ require_once(dirname (__FILE__) . '/classes/helper.php');
 $params->def ('greeting', 1);
 
 //Get settings
-$widget_settings = mod_socialloginHelper::getSettings ();
+$widget_settings = mod_oneallsocialloginHelper::getSettings ();
 
 //Add library
 if (!empty ($widget_settings ['api_subdomain']))
 {
 	$document = JFactory::getDocument ();
-	$document->addScript ((mod_socialloginHelper::is_https_on () ? 'https' : 'http') . '://' . trim($widget_settings ['api_subdomain']) . '.api.oneall.com/socialize/library.js');
+	$document->addScriptDeclaration ("		var oa = document.createElement('script');
+		oa.type = 'text/javascript'; oa.async = true;
+		oa.src = '//" . trim ($widget_settings ['api_subdomain']) . ".api.oneall.com/socialize/library.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(oa, s);");
 }
 
 //Get user status
@@ -47,4 +51,4 @@ $return_url = JURI::getInstance ()->toString ();
 $moduleclass_sfx = htmlspecialchars ($params->get ('moduleclass_sfx'));
 
 //Show template
-require JModuleHelper::getLayoutPath ('mod_sociallogin', $params->get('layout', 'default'));
+require JModuleHelper::getLayoutPath ('mod_oneallsociallogin', $params->get ('layout', 'default'));
