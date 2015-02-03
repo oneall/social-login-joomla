@@ -24,6 +24,9 @@
  
 CHANGELOG
 
+2.1
+* Removing unallowed characters from username
+
 2.0
 * Asynchronous JavaScript
 * Renamed from SocialLogin to OneallSocialLogin
