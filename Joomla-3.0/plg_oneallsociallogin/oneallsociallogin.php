@@ -206,9 +206,13 @@ class plgSystemOneAllSocialLogin extends JPlugin
 					return;
 				}
 
+				//Replace characters that are now allowed by Joomla
+				//See JLIB_DATABASE_ERROR_VALID_AZ09 in libraries/joomla/table/user.php
+				$user_login = preg_replace("#[<>\"'%;()&s\\\\]#", "", $user_login);
+				$user_login = trim (trim($user_login), '.');
 
-				//Username is mandatory
-				if (!isset ($user_login) OR strlen (trim ($user_login)) == 0)
+				//Username must be at least 2 characters long
+				if (strlen ($user_login) < 2)
 				{
 					$user_login = $user_identity_provider . 'User';
 				}
@@ -223,6 +227,8 @@ class plgSystemOneAllSocialLogin extends JPlugin
 						$user_login_tmp = $user_login . ($i++);
 					}
 					while (plgSystemOneAllSocialLoginHelper::usernameExists ($user_login_tmp));
+
+					//Unique user login
 					$user_login = $user_login_tmp;
 				}
 
