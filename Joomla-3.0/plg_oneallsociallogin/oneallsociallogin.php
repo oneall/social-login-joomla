@@ -208,7 +208,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
 
 				//Replace characters that are now allowed by Joomla
 				//See JLIB_DATABASE_ERROR_VALID_AZ09 in libraries/joomla/table/user.php
-				$user_login = preg_replace("#[<>\"'%;()&s\\\\]#", "", $user_login);
+				$user_login = preg_replace('#[<>"\'%;()&\s\\\\]|\\.\\./#', "", $user_login);
 				$user_login = trim (trim($user_login), '.');
 
 				//Username must be at least 2 characters long
@@ -396,3 +396,4 @@ class plgSystemOneAllSocialLogin extends JPlugin
 		}
 	}
 }
+
