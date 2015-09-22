@@ -30,6 +30,8 @@ jimport ('joomla.application.component.controller');
  */
 class SocialLoginController extends JController
 {
+	const version = 'SocialLogin/PCM1.122 Joomla/1.5 (+http://www.oneall.com/)';
+	
 	/**
 	 * Display task
 	 */
@@ -111,7 +113,8 @@ class SocialLoginController extends JController
 			curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
 			curl_setopt ($curl, CURLOPT_FAILONERROR, 0);
-
+			curl_setopt ($curl, CURLOPT_USERAGENT, SocialLoginController::version);
+			
 			if (($json = curl_exec ($curl)) === false)
 			{
 				curl_close ($curl);
@@ -140,7 +143,9 @@ class SocialLoginController extends JController
 			$context = stream_context_create (array (
 				'http' => array (
 					'method' => 'GET',
-					'header' => "Authorization: Basic " . base64_encode ($api_key . ':' . $api_secret)
+					'header' => 
+						"Authorization: Basic " . base64_encode ($api_key . ':' . $api_secret) . "\r\n".
+						"User-Agent: ".SocialLoginController::version."\r\n"
 				)
 			));
 
