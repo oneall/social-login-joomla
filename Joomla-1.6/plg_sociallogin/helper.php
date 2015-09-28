@@ -30,6 +30,9 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
  */
 class plgSystemSocialLoginHelper
 {
+	
+	const version = 'SocialLogin/PCM1.122 Joomla/1.6 (+http://www.oneall.com/)';
+	
 	/**
 	 * Check if username exists
 	 */
@@ -173,6 +176,7 @@ class plgSystemSocialLoginHelper
 			curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
 			curl_setopt ($curl, CURLOPT_FAILONERROR, 0);
+			curl_setopt ($curl, CURLOPT_USERAGENT, self::version);
 
 			//Process
 			if (($json = curl_exec ($curl)) !== false)
@@ -192,8 +196,18 @@ class plgSystemSocialLoginHelper
 		}
 		else
 		{
-			//Process
-			$json = @file_get_contents ('https://' . $api_subdomain . '.api.oneall.com/connections/' . $token . '.json');
+			//Basic Auth
+			$context = stream_context_create (array (
+					'http' => array (
+							'method' => 'GET',
+							'header' =>
+							'Authorization: Basic ' . base64_encode ($api_key . ':' . $api_secret) . '\r\n' .
+							'User-Agent: ' . self::version . '\r\n'
+					)
+			));
+				
+			//Get Contents
+			$json = @file_get_contents ('https://' . $api_subdomain . '.api.oneall.com/connections/' . $token . '.json', false, $context);
 
 			//Decode
 			$json_decoded = @json_decode ($json);
