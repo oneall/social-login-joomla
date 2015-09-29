@@ -31,8 +31,6 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 class plgSystemOneAllSocialLoginHelper
 {
 	
-	const version = 'SocialLogin/2.3 Joomla/3.0 (+http://www.oneall.com/)';
-
 	/**
 	 * Check if the given username exists
 	 */
@@ -227,7 +225,7 @@ class plgSystemOneAllSocialLoginHelper
 		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt ($curl, CURLOPT_USERAGENT, self::version);
+		curl_setopt ($curl, CURLOPT_USERAGENT, OA_USERAGENT);
 
 		// BASIC AUTH?
 		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
@@ -312,7 +310,7 @@ class plgSystemOneAllSocialLoginHelper
 		//Create HTTP request
 		$defaults = array (
 				'Host' => "Host: $host",
-				'User-Agent' => 'User-Agent: ' . self::version
+				'User-Agent' => 'User-Agent: ' . OA_USERAGENT
 		);
 
 		// BASIC AUTH?
