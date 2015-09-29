@@ -140,7 +140,7 @@ class SocialLoginController extends JController
 			$context = stream_context_create (array (
 				'http' => array (
 					'method' => 'GET',
-					'header' => "Authorization: Basic " . base64_encode ($api_key . ':' . $api_secret)
+					'header' => "Authorization: Basic " . base64_encode ($api_key . ':' . $api_secret) . '\r\n'
 				)
 			));
 

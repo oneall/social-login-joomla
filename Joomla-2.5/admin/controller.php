@@ -30,6 +30,9 @@ jimport ('joomla.application.component.controller');
  */
 class SocialLoginController extends JController
 {
+	
+	const version = 'SocialLogin/PCM1.756 Joomla/2.5 (+http://www.oneall.com/)';
+	
 	/**
 	 * Display task
 	 */
@@ -254,6 +257,8 @@ class SocialLoginController extends JController
 		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt ($curl, CURLOPT_USERAGENT, SocialLoginController::version);
+		
 
 		// BASIC AUTH?
 		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
@@ -361,7 +366,7 @@ class SocialLoginController extends JController
 		//Create HTTP request
 		$defaults = array (
 				'Host' => "Host: $host",
-				'User-Agent' => 'User-Agent: OneAllSocialLogin (+http://www.oneall.com/)',
+				'User-Agent' => 'User-Agent: ' . SocialLoginController::version
 		);
 
 		// BASIC AUTH?
