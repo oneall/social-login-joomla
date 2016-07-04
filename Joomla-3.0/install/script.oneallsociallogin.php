@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login Component
- * @copyright 	Copyright 2011-2015 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or

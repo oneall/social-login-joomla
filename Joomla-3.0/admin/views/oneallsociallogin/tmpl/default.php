@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login
- * @copyright 	Copyright 2011-2015 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -50,7 +50,7 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 						Make your Joomla Portal social!
 					</div>
 					<div class="social_login_form_row">
-						Allow your users to comment, login and register with social networks like Twitter, Facebook, LinkedIn, Hyves, Вконтакте, Google or Yahoo.
+						Allow your users to comment, login and register with social networks like for example Twitter, Facebook, LinkedIn, Pinterest, Instagram, Вконтакте, Google or Yahoo.
 						<strong>Draw a larger audience and increase user engagement in a  few simple steps.</strong>
 					</div>
 					<div class="social_login_form_row">

@@ -1,263 +1,303 @@
 .oa_social_login_admin h4 {
-  font-size: 18px;
-  line-height: 16px;
-  margin-top: 30px !important;
-  color: #444;
+	font-size: 18px;
+	line-height: 16px;
+	margin-top: 30px !important;
+	color: #444;
 }
 
 .oa_social_login_admin .error_message {
-  color: red;
-  background: url("../img/status_error.png") no-repeat scroll 0 50% #F6F6F6;
-  padding-left: 25px;
-  font-weight: bold;
-  margin-top: 5px;
+	color: red;
+	background: url("../img/status_error.png") no-repeat scroll 0 50% #F6F6F6;
+	padding-left: 25px;
+	font-weight: bold;
+	margin-top: 5px;
 }
 
 .oa_social_login_admin  .success_message {
-  color: green;
-  background: url("../img/status_ok.png") no-repeat scroll 0 50% #F6F6F6;
-  padding-left: 25px;
-  font-weight: bold;
-  margin-top: 5px;
+	color: green;
+	background: url("../img/status_ok.png") no-repeat scroll 0 50% #F6F6F6;
+	padding-left: 25px;
+	font-weight: bold;
+	margin-top: 5px;
 }
 
 .oa_social_login_admin .working_message {
-  color: blue;
-  background: url("../img/status_loading.gif") no-repeat scroll 0 50% #F6F6F6;
-  padding-left: 25px;
-  font-weight: bold;
-  margin-top: 5px;
+	color: blue;
+	background: url("../img/status_loading.gif") no-repeat scroll 0 50% #F6F6F6;
+	padding-left: 25px;
+	font-weight: bold;
+	margin-top: 5px;
 }
 
 .oa_social_login_provider {
-  background-image: url("../img/provider_sprite_35_35.png");
-  text-indent: -9999px;
-  height: 35px;
-  width: 35px;
-  display: inline-block;
+	background-image: url("../img/provider_sprite_35_35.png");
+	text-indent: -9999px;
+	height: 35px;
+	width: 35px;
+	display: inline-block;
+}
+
+.oa_social_login_provider.oa_social_login_provider_amazon {
+	background-position: -1149px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_aol {
-  background-position: -2px -1px;
+	background-position: -2px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_battlenet {
+	background-position: -1223px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_blogger {
-  background-position: -39px -1px;
+	background-position: -39px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_draugiem {
+	background-position: -446px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_dribbble {
+	background-position: -1260px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_facebook {
-  background-position: -76px -1px;
+	background-position: -76px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_foursquare {
-  background-position: -113px -1px;
+	background-position: -113px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_google {
-  background-position: -150px -1px;
+	background-position: -150px -1px;
 }
 
-.oa_social_login_provider.oa_social_login_provider_hyves {
-  background-position: -187px -1px;
+.oa_social_login_provider.oa_social_login_provider_instagram {
+	background-position: -1186px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_linkedin {
-  background-position: -224px -1px;
+	background-position: -224px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_pinterest {
+	background-position: -1297px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_pixelpin {
+	background-position: -1334px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_windowslive {
-  background-position: -261px -1px;
+	background-position: -261px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_livejournal {
-  background-position: -298px -1px;
+	background-position: -298px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_myspace {
-  background-position: -372px -1px;
+	background-position: -372px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_openid {
-  background-position: -409px -1px;
+	background-position: -409px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_storage {
+	background-position: -1371px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_twitch {
+	background-position: -1112px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_twitter {
-  background-position: -520px -1px;
+	background-position: -520px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_vimeo {
+	background-position: -1410px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_vkontakte {
-  background-position: -631px -1px;
+	background-position: -631px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_wordpress {
-  background-position: -668px -1px;
+	background-position: -668px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_yahoo {
-  background-position: -705px -1px;
+	background-position: -705px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_paypal {
-  background-position: -742px -1px;
+	background-position: -742px -1px;
+}
+
+.oa_social_login_provider.oa_social_login_provider_reddit {
+	background-position: -187px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_stackexchange {
-  background-position: -779px -1px;
+	background-position: -779px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_steam {
-  background-position: -816px -1px;
+	background-position: -816px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_mailru {
-  background-position: -853px -1px;
+	background-position: -853px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_skyrock {
-  background-position: -890px -1px;
+	background-position: -890px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_github {
-  background-position: -927px -1px;
+	background-position: -927px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_disqus {
-  background-position: -964px -1px;
+	background-position: -964px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_youtube {
-  background-position: -1001px -1px;
+	background-position: -1001px -1px;
 }
 
 .oa_social_login_provider.oa_social_login_provider_odnoklassniki {
-  background-position: -1038px -1px;
+	background-position: -1038px -1px;
 }
 
 .social_login_form {
-  width: 800px;
-  padding: 0px;
-  background-color: #fff;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
+	width: 800px;
+	padding: 0px;
+	background-color: #fff;
+	margin-bottom: 20px;
+	border: 1px solid #ddd;
 }
 
 .social_login_form a {
-  text-decoration: underline !important;
+	text-decoration: underline !important;
 }
 
 .social_login_form a:hover {
-  text-decoration: none !important;;
+	text-decoration: none !important;;
 }
 
 .social_login_form legend {
-  margin: 0;
-  background-color: #fff;
+	margin: 0;
+	background-color: #fff;
 }
 
 .social_login_form input[type="text"] {
-  display: block;
-  width: 97%;
+	display: block;
+	width: 97%;
 }
 
 .social_login_form input[type="radio"] {
-  float: left;
-  margin: 0 5px;
+	float: left;
+	margin: 0 5px;
 }
 
 .social_login_form .social_login_form_row {
-  padding: 5px 10px;
-  font-size: 12px;
-  clear: both;
-  overflow: hidden;
+	padding: 5px 10px;
+	font-size: 12px;
+	clear: both;
+	overflow: hidden;
 }
 
 .social_login_form .social_login_form_row_provider {
-  line-height: 40px;
+	line-height: 40px;
 }
 
 .social_login_form .social_login_form_row_provider .provider_icon {
-  float: left;
-  clear: none;
-  cursor: pointer;
+	float: left;
+	clear: none;
+	cursor: pointer;
 }
 
 .social_login_form .social_login_form_row_provider .provider_check {
-  float: left;
-  clear: none;
-  margin: 12px;
+	float: left;
+	clear: none;
+	margin: 12px;
 }
 
 .social_login_form .social_login_form_row_provider .provider_name {
-  clear: none;
-  float: left;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  line-height: 40px;
-  font-weight: bold;
+	clear: none;
+	float: left;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	line-height: 40px;
+	font-weight: bold;
 }
 
 .social_login_form .social_login_form_row_odd {
-  background-color: #ddd;
-  color: #222;
+	background-color: #ddd;
+	color: #222;
 }
 
 .social_login_form .social_login_form_row_even {
-  background-color: #eee;
+	background-color: #eee;
 }
 
 .social_login_form .social_login_form_row_title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
 }
 
 .social_login_form .social_login_form_row_button {
-  background-color: #F6F6F6;
-  border-top: 1px dotted #ddd;
-  padding: 5px 10px;
+	background-color: #F6F6F6;
+	border-top: 1px dotted #ddd;
+	padding: 5px 10px;
 }
 
 .social_login_form .social_login_form_row_button_link {
-  font-size: 14px;
-  font-weight: bold;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .social_login_form .social_login_form_row_description {
-  padding: 5px 0 10px 10px;
-  font-weight: bold;
+	padding: 5px 0 10px 10px;
+	font-weight: bold;
 }
 
 .social_login_form_info {
-  background-color: #FFFFE0;
-  padding-top: 10px;
+	background-color: #FFFFE0;
+	padding-top: 10px;
 }
 
 .social_login_form_info .social_login_form_row {
-  padding: 0 10px 10px !important;
+	padding: 0 10px 10px !important;
 }
 
 .social_login_form_welcome {
-  background-color: #E1EDFF;
-  border: 1px solid #CACFF2;
+	background-color: #E1EDFF;
+	border: 1px solid #CACFF2;
 }
 
 .social_login_form_saved {
-  background-color: #DFF0D8;
-  border: 1px solid #D6E9C6;
-  color: #468847;
+	background-color: #DFF0D8;
+	border: 1px solid #D6E9C6;
+	color: #468847;
 }
 
-.social_login_form_saved .social_login_form_row_title{
-  margin:10px 0;
-  font-size:18px;
+.social_login_form_saved .social_login_form_row_title {
+	margin: 10px 0;
+	font-size: 18px;
 }
 
 .social_login_form_welcome .social_login_form_row {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .social_login_form_welcome .social_login_form_row_button {
-  padding-bottom: 0 !important;
-  background-color: #E1EDFF;
+	padding-bottom: 0 !important;
+	background-color: #E1EDFF;
 }

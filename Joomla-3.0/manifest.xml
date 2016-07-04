@@ -6,10 +6,10 @@
 	<authorEmail>support@oneall.com</authorEmail>
 	<authorUrl>http://www.oneall.com</authorUrl>
 	<creationDate>2014-10-29</creationDate>
-	<copyright>2011 - 2015, OneAll LLC</copyright>
+	<copyright>2011 - 2016, OneAll LLC</copyright>
 	<version>2.2</version>
 	<description>
-		<![CDATA[Social Login allows your users to register and login with social networks like Twitter, Facebook, Paypal, LinkedIn, LiveJournal,OpenID,	VKontakte, Google and Yahoo amongst others.]]>
+		<![CDATA[Social Login allows your users to register and login with social networks like for example Twitter, Facebook, Paypal, LinkedIn, LiveJournal, OpenID, VKontakte, Google and Yahoo amongst others.]]>
 	</description>
 
 	<!-- SQL query files to execute on installation -->	
