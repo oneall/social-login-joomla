@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	SocialLogin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @copyright 	Copyright 2011-2017 http://www.oneall.com - All rights reserved.
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -44,7 +44,7 @@ JHtml::_('behavior.tooltip');
 						and setup a Site. After having created your account and setup your Site, please enter the Site settings in the form below.
 					</div>
 					<div class="row row_description">
-						You are in good company, 35000+ websites already trust us!
+						You are in good company, 250.000+ websites already trust us!
 					</div>
 					<div class="row row_button">
 						<div class="button2-left">
@@ -59,11 +59,11 @@ JHtml::_('behavior.tooltip');
 			{
 				?>
 					<div class="row row_title">
-							Your API Account is setup correctly
+						Your API connection is setup correctly!
 					</div>
 					<div class="row">
-							<a href="https://app.oneall.com/signin/" target="_blank">Login to your account</a> to manage your providers and access your <a href="https://app.oneall.com/insights/"  target="_blank">Social Insights</a>.
-							Determine which social networks are popular amongst your users and tailor your registration experience to increase your users' engagement.
+						<a href="https://app.oneall.com/signin/" target="_blank">Login to your account</a> to manage the social network configuration and to access your <a href="https://app.oneall.com/insights/"  target="_blank">Social Analytics</a>.
+						Determine which social networks are popular amongst your users and tailor your registration experience to increase your users' engagement.
 					</div>
 					<div class="row row_button">
 						<div class="button2-left">
@@ -84,9 +84,9 @@ JHtml::_('behavior.tooltip');
 					<a target="_blank" href="http://www.twitter.com/oneall">Follow us on Twitter</a> to stay informed about updates;
 				</li>
 				<li>
-					<a target="_blank" href="http://docs.oneall.com/plugins/">Read the online documentation</a> for more information about this plugin;</li>
+					<a target="_blank" href="http://docs.oneall.com/plugins/guide/social-login-joomla/">Read the online documentation</a> for more information about this plugin;</li>
 				<li>
-					<a target="_blank" href="http://www.oneall.com/company/contact-us/">Contact us</a> if you have feedback or need assistance.
+					<a target="_blank" href="http://support.oneall.com/forums/">Contact us</a> if you have feedback or need assistance.
 				</li>
 			</ul>
 		</div>

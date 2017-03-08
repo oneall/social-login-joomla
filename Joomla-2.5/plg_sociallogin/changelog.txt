@@ -24,6 +24,10 @@
  
 CHANGELOG
 
+2.0
+* New social networks added
+* Version numbering changed
+
 1.7
 * Non-static method calls fixed
 

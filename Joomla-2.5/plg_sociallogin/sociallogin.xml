@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install type="plugin" version="1.7" group="system">
+<install type="plugin" version="2.0" group="system">
 	<name>System - Social Login</name>
 	<license>Open Source License, GPL v2 based</license>
 	<author>OneAll LLC</author>
 	<authorEmail>support@oneall.com</authorEmail>
 	<authorUrl>http://www.oneall.com</authorUrl>
 	<creationDate>2011-11-16</creationDate>
-	<copyright>2011 - 2013, OneAll LLC</copyright>
-	<version>1.6</version>
+	<copyright>OneAll LLC</copyright>
+	<version>2.0</version>
 	<description>
 		<![CDATA[Plugin for the Social Login Component <br />
 The plugin handles the authentication process through a social network account.<br /><br />

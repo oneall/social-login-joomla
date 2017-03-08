@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	SocialLogin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @copyright 	Copyright 2011-2017 http://www.oneall.com - All rights reserved.
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -35,8 +35,7 @@ class SocialLoginViewSocialLogin extends JView
 	public $providers;
 
 	/**
-	 * SocialLogin - Display administration area
-	 * @return void
+	 * Display administration area
 	 */
 	public function display ($tpl = null)
 	{
@@ -65,8 +64,7 @@ class SocialLoginViewSocialLogin extends JView
 	}
 
 	/**
-	 * SocialLogin - Add Toolbar
-	 * @return void
+	 * Add Toolbar
 	 */
 	protected function addToolbar ()
 	{

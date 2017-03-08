@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install type="component" version="1.7" method="upgrade">
+<install type="component" version="2.0" method="upgrade">
 	<name>Social Login</name>
 	<license>Open Source License, GPL v2 based</license>
 	<author>OneAll LLC</author>
@@ -7,7 +7,7 @@
 	<authorUrl>http://www.oneall.com</authorUrl>
 	<creationDate>2011-11-16</creationDate>
 	<copyright>OneAll LLC</copyright>
-	<version>PCM1-756</version>
+	<version>2.0</version>
 	<description>
 		<![CDATA[Allow your users to register and login with social
 		networks like Twitter, Facebook, Paypal, LinkedIn, LiveJournal,OpenID,

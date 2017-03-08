@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	SocialLogin Plugin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @copyright 	Copyright 2011-2017 http://www.oneall.com - All rights reserved.
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -30,8 +30,7 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
  */
 class plgSystemSocialLoginHelper
 {
-
-	const version = 'SocialLogin/PCM1.756 Joomla/2.5 (+http://www.oneall.com/)';
+	const USER_AGENT = 'SocialLogin/2.0 Joomla/2.5 (+http://www.oneall.com/)';
 	
 	/**
 	 * Check if the given username exists
@@ -228,7 +227,7 @@ class plgSystemSocialLoginHelper
 		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt ($curl, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt ($curl, CURLOPT_USERAGENT, self::version);
+		curl_setopt ($curl, CURLOPT_USERAGENT, self::USER_AGENT);
 
 		// BASIC AUTH?
 		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
@@ -312,8 +311,8 @@ class plgSystemSocialLoginHelper
 
 		//Create HTTP request
 		$defaults = array (
-			'Host' => "Host: $host",
-			'User-Agent' => 'User-Agent: ' . self::version
+			'Host' => 'Host: '.$host,
+			'User-Agent' => 'User-Agent: ' . self::USER_AGENT
 		);
 
 		// BASIC AUTH?

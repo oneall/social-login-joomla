@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	SocialLogin Plugin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @copyright 	Copyright 2011-2017 http://www.oneall.com - All rights reserved.
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -26,10 +26,10 @@ defined ('_JEXEC') or die ('Restricted access');
 jimport ('joomla.plugin.plugin');
 jimport ('joomla.filesystem.file');
 
-// Check if plugin correctly installed
+// Check if plugin is correctly installed
 if (!JFile::exists (dirname (__FILE__) . DS . 'helper.php'))
 {
-	JError::raiseNotice ('no_sociallogin_plugin', JText::_ ('The SocialLogin Plugin is not installed correctly. Plugin not executed'));
+	JError::raiseNotice ('no_sociallogin_plugin', JText::_ ('The SocialLogin Plugin is not installed correctly. Plugin not executed.'));
 	return;
 }
 require_once(dirname (__FILE__) . DS . 'helper.php');

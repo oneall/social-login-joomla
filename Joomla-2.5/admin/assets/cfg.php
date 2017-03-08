@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	SocialLogin
- * @copyright 	Copyright 2012 http://www.oneall.com - All rights reserved.
+ * @copyright 	Copyright 2011-2017 http://www.oneall.com - All rights reserved.
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -26,71 +26,98 @@
 /**
  * Supported Providers
  */
-$social_login_providers = array (
-	'facebook' => array (
-		'name' => 'Facebook'
+$social_login_providers = array(
+	'amazon' => array(
+		'name' => 'Amazon' 
 	),
-	'twitter' => array (
-		'name' => 'Twitter'
+	'battlenet' => array(
+		'name' => 'Battle.net' 
 	),
-	'google' => array (
-		'name' => 'Google'
+	'blogger' => array(
+		'name' => 'Blogger' 
 	),
-	'linkedin' => array (
-		'name' => 'LinkedIn'
+	'disqus' => array(
+		'name' => 'Disqus' 
 	),
-	'yahoo' => array (
-		'name' => 'Yahoo'
+	'draugiem' => array(
+		'name' => 'Draugiem' 
 	),
-	'github' => array (
-		'name' => 'Github.com'
+	'dribbble' => array(
+		'name' => 'Dribbble' 
 	),
-	'disqus' => array (
-		'name' => 'Disqus'
+	'facebook' => array(
+		'name' => 'Facebook' 
 	),
-	'skyrock' => array (
-		'name' => 'Skyrock.com'
+	'foursquare' => array(
+		'name' => 'Foursquare' 
 	),
-	'openid' => array (
-		'name' => 'OpenID'
+	'github' => array(
+		'name' => 'Github.com' 
 	),
-	'wordpress' => array (
-		'name' => 'Wordpress.com'
+	'google' => array(
+		'name' => 'Google' 
 	),
-	'hyves' => array (
-		'name' => 'Hyves'
+	'instagram' => array(
+		'name' => 'Instagram' 
 	),
-	'blogger' => array (
-		'name' => 'Blogger'
+	'linkedin' => array(
+		'name' => 'LinkedIn' 
 	),
-	'paypal' => array (
-		'name' => 'PayPal'
+	'livejournal' => array(
+		'name' => 'LiveJournal' 
 	),
-	'foursquare' => array (
-		'name' => 'Foursquare'
+	'mailru' => array(
+		'name' => 'Mail.ru' 
 	),
-	'livejournal' => array (
-		'name' => 'LiveJournal'
+	'odnoklassniki' => array(
+		'name' => 'Odnoklassniki' 
 	),
-	'steam' => array (
-		'name' => 'Steam'
+	'openid' => array(
+		'name' => 'OpenID' 
 	),
-	'youtube' => array (
-		'name' => 'YouTube',
+	'paypal' => array(
+		'name' => 'PayPal' 
 	),
-	'windowslive' => array (
-		'name' => 'Windows Live'
+	'pinterest' => array(
+		'name' => 'Pinterest' 
 	),
-	'stackexchange' => array (
-		'name' => 'StackExchange'
+	'pixelpin' => array(
+		'name' => 'PixelPin' 
 	),
-	'vkontakte' => array (
-		'name' => 'VKontakte (Вконтакте)'
+	'reddit' => array(
+		'name' => 'Reddit' 
 	),
-	'mailru' => array (
-		'name' => 'Mail.ru'
+	'skyrock' => array(
+		'name' => 'Skyrock.com' 
 	),
-	'odnoklassniki' => array (
-		'name' => 'Odnoklassniki'
-	)
+	'stackexchange' => array(
+		'name' => 'StackExchange' 
+	),
+	'steam' => array(
+		'name' => 'Steam' 
+	),
+	'twitch' => array(
+		'name' => 'Twitch.tv' 
+	),
+	'twitter' => array(
+		'name' => 'Twitter' 
+	),
+	'vimeo' => array(
+		'name' => 'Vimeo' 
+	),
+	'vkontakte' => array(
+		'name' => 'VKontakte' 
+	),
+	'windowslive' => array(
+		'name' => 'Windows Live' 
+	),
+	'wordpress' => array(
+		'name' => 'WordPress.com' 
+	),
+	'yahoo' => array(
+		'name' => 'Yahoo' 
+	),
+	'youtube' => array(
+		'name' => 'YouTube' 
+	) 
 );
