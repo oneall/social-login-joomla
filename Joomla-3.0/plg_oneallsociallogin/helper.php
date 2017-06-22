@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login Plugin
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -24,80 +24,76 @@
  */
 defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 
-
 /**
  * OneAllSocialLogin Plugin Helper
  */
 class plgSystemOneAllSocialLoginHelper
 {
-	
+
 	/**
 	 * Check if the given username exists
 	 */
 	public static function usernameExists ($username)
 	{
-		//Database handler
+		// Database handler
 		$db = JFactory::getDBO ();
 
-		//Get user for username
+		// Get user for username
 		$sql = "SELECT id FROM #__users WHERE username = " . $db->quote ($username);
 		$db->setQuery ($sql);
 		$user_id = $db->loadResult ();
 
-		//Done
-		return (!empty ($user_id) AND is_numeric ($user_id));
+		// Done
+		return (!empty ($user_id) and is_numeric ($user_id));
 	}
-
 
 	/**
 	 * Check if the given email exists
 	 */
 	public static function useremailExists ($email)
 	{
-		//Database handler
+		// Database handler
 		$db = JFactory::getDBO ();
 
-		//Get user for email
+		// Get user for email
 		$sql = "SELECT id FROM #__users WHERE email = " . $db->quote ($email);
 		$db->setQuery ($sql);
 		$user_id = $db->loadResult ();
 
-		//Done
-		return (!empty ($user_id) AND is_numeric ($user_id));
+		// Done
+		return (!empty ($user_id) and is_numeric ($user_id));
 	}
-
 
 	/**
 	 * Create random email
 	 */
 	public static function getRandomUseremail ()
 	{
-		//Create unique email
+		// Create unique email
 		do
 		{
 			$email = md5 (uniqid (rand (10000, 99000))) . "@example.com";
 		}
-		while (self::useremailExists ($email));
+		while ( self::useremailExists ($email) );
 
-		//Done
+		// Done
 		return $email;
 	}
-
 
 	/**
 	 * Link token to userid
 	 */
 	public static function setUserIdForToken ($token, $user_id)
 	{
-		//Database handler
+		// Database handler
 		$db = JFactory::getDBO ();
 
-		//Remove
+		// Remove
 		$sql = "DELETE FROM #__oasl_user_mapping WHERE token = " . $db->quote ($token);
 		$db->setQuery ($sql);
 		if ($db->query ())
 		{
-			//Add
+			// Add
 			$sql = "INSERT INTO #__oasl_user_mapping SET token = " . $db->quote ($token) . ",  user_id = " . $db->Quote ($user_id);
 			$db->setQuery ($sql);
 			if ($db->query ())
@@ -108,16 +104,15 @@ class plgSystemOneAllSocialLoginHelper
 		return false;
 	}
 
-
 	/**
 	 * Check if we have a userid for the given token
 	 */
 	public static function getUserIdForToken ($token)
 	{
-		//Database handler
+		// Database handler
 		$db = JFactory::getDBO ();
 
-		//Read user
+		// Read user
 		$sql = "SELECT u.ID FROM #__oasl_user_mapping AS um	INNER JOIN  #__users AS u ON (um.user_id=u.ID) WHERE um.token = " . $db->quote ($token);
 		$db->setQuery ($sql);
 		$user_id = $db->loadResult ();
@@ -128,16 +123,15 @@ class plgSystemOneAllSocialLoginHelper
 		return false;
 	}
 
-
 	/**
 	 * Get the userid for a given email
 	 */
 	public static function getUserIdForEmail ($email)
 	{
-		//Database handler
+		// Database handler
 		$db = JFactory::getDBO ();
 
-		//Read user
+		// Read user
 		$sql = "SELECT id FROM #__users WHERE email = " . $db->quote ($email);
 		$db->setQuery ($sql);
 		$user_id = $db->loadResult ();
@@ -148,47 +142,49 @@ class plgSystemOneAllSocialLoginHelper
 		return false;
 	}
 
-
 	/**
 	 * Make an API Request to obtain the data for a given connection_token
 	 */
 	public static function makeTokenLookup ($token)
 	{
-		//Read settings
+		// Read settings
 		$settings = self::getSettings ();
 
-		//API Settings
-		$api_subdomain = (!empty ($settings ['api_subdomain']) ? trim($settings ['api_subdomain']) : '');
+		// API Settings
+		$api_subdomain = (!empty ($settings ['api_subdomain']) ? trim ($settings ['api_subdomain']) : '');
 		$api_key = (!empty ($settings ['api_key']) ? $settings ['api_key'] : '');
 		$api_secret = (!empty ($settings ['api_secret']) ? $settings ['api_secret'] : '');
 
-		//API Connection
-		$api_connection_handler = ((!empty ($settings ['api_connection_handler']) AND $settings ['api_connection_handler'] == 'fsockopen') ? 'fsockopen' : 'curl');
-		$api_connection_port = ((!empty ($settings ['api_connection_port']) AND $settings ['api_connection_port'] == 80) ? 80 : 443);
+		// API Connection
+		$api_connection_handler = ((!empty ($settings ['api_connection_handler']) and $settings ['api_connection_handler'] == 'fsockopen') ? 'fsockopen' : 'curl');
+		$api_connection_port = ((!empty ($settings ['api_connection_port']) and $settings ['api_connection_port'] == 80) ? 80 : 443);
 		$api_connection_secure = ($api_connection_port == 443);
 
 		$api_resource = ($api_connection_secure ? 'https' : 'http') . '://' . $api_subdomain . '.api.oneall.com/connections/' . $token . '.json';
 
-		//Send request to the API
-		$result = self::makeHttpRequest($api_connection_handler, $api_resource, array ('api_key' => $api_key, 'api_secret' => $api_secret));
+		// Send request to the API
+		$result = self::makeHttpRequest ($api_connection_handler, $api_resource, array(
+			'api_key' => $api_key,
+			'api_secret' => $api_secret
+		));
 
-		//Parse result
-		if (is_object ($result) AND property_exists ($result, 'http_data') AND property_exists ($result, 'http_code') AND $result->http_code == 200)
+		// Parse result
+		if (is_object ($result) and property_exists ($result, 'http_data') and property_exists ($result, 'http_code') and $result->http_code == 200)
 		{
-			//Result
+			// Result
 			$json = $result->http_data;
 
-			//Decode
+			// Decode
 			$json_decoded = @json_decode ($json);
 
-			//Check format
-			if (is_object ($json_decoded) AND !empty ($json_decoded->response->request->status->code) AND $json_decoded->response->request->status->code == 200)
+			// Check format
+			if (is_object ($json_decoded) and !empty ($json_decoded->response->request->status->code) and $json_decoded->response->request->status->code == 200)
 			{
 				$social_data = $json_decoded;
 			}
 		}
 
-		return ((isset ($social_data) AND is_object ($social_data)) ? $social_data : null);
+		return ((isset ($social_data) and is_object ($social_data)) ? $social_data : null);
 	}
 
 	/**
@@ -196,15 +192,15 @@ class plgSystemOneAllSocialLoginHelper
 	 */
 	public static function makeHttpRequest ($handler, $url, $options = array (), $timeout = 15)
 	{
-		//FSOCKOPEN
+		// FSOCKOPEN
 		if ($handler == 'fsockopen')
 		{
-			return self::makeFsockopenRequest($url, $options, $timeout);
+			return self::makeFsockopenRequest ($url, $options, $timeout);
 		}
-		//CURL
+		// CURL
 		else
 		{
-			return self::makeCurlRequest($url, $options, $timeout);
+			return self::makeCurlRequest ($url, $options, $timeout);
 		}
 	}
 
@@ -213,10 +209,10 @@ class plgSystemOneAllSocialLoginHelper
 	 */
 	public static function makeCurlRequest ($url, $options = array (), $timeout = 15)
 	{
-		//Store the result
+		// Store the result
 		$result = new stdClass ();
 
-		//Send request
+		// Send request
 		$curl = curl_init ();
 		curl_setopt ($curl, CURLOPT_URL, $url);
 		curl_setopt ($curl, CURLOPT_HEADER, 0);
@@ -228,12 +224,12 @@ class plgSystemOneAllSocialLoginHelper
 		curl_setopt ($curl, CURLOPT_USERAGENT, OA_USERAGENT);
 
 		// BASIC AUTH?
-		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
+		if (isset ($options ['api_key']) and isset ($options ['api_secret']))
 		{
 			curl_setopt ($curl, CURLOPT_USERPWD, $options ['api_key'] . ":" . $options ['api_secret']);
 		}
 
-		//Make request
+		// Make request
 		if (($http_data = curl_exec ($curl)) !== false)
 		{
 			$result->http_code = curl_getinfo ($curl, CURLINFO_HTTP_CODE);
@@ -247,7 +243,7 @@ class plgSystemOneAllSocialLoginHelper
 			$result->http_error = curl_error ($curl);
 		}
 
-		//Done
+		// Done
 		return $result;
 	}
 
@@ -256,10 +252,10 @@ class plgSystemOneAllSocialLoginHelper
 	 */
 	public static function makeFsockopenRequest ($url, $options = array (), $timeout = 15)
 	{
-		//Store the result
+		// Store the result
 		$result = new stdClass ();
 
-		//Make that this is a valid URL
+		// Make that this is a valid URL
 		if (($uri = parse_url ($url)) == false)
 		{
 			$result->http_code = -1;
@@ -268,30 +264,30 @@ class plgSystemOneAllSocialLoginHelper
 			return $result;
 		}
 
-		//Make sure we can handle the schema
+		// Make sure we can handle the schema
 		switch ($uri ['scheme'])
 		{
-			case 'http':
+			case 'http' :
 				$port = (isset ($uri ['port']) ? $uri ['port'] : 80);
 				$host = ($uri ['host'] . ($port != 80 ? ':' . $port : ''));
 				$fp = @fsockopen ($uri ['host'], $port, $errno, $errstr, $timeout);
-				break;
+			break;
 
-			case 'https':
+			case 'https' :
 				$port = (isset ($uri ['port']) ? $uri ['port'] : 443);
 				$host = ($uri ['host'] . ($port != 443 ? ':' . $port : ''));
 				$fp = @fsockopen ('ssl://' . $uri ['host'], $port, $errno, $errstr, $timeout);
-				break;
+			break;
 
-			default:
+			default :
 				$result->http_code = -1;
 				$result->http_data = null;
 				$result->http_error = 'invalid_schema';
 				return $result;
-				break;
+			break;
 		}
 
-		//Make sure the socket opened properly
+		// Make sure the socket opened properly
 		if (!$fp)
 		{
 			$result->http_code = -$errno;
@@ -300,87 +296,86 @@ class plgSystemOneAllSocialLoginHelper
 			return $result;
 		}
 
-		//Construct the path to act on
+		// Construct the path to act on
 		$path = (isset ($uri ['path']) ? $uri ['path'] : '/');
 		if (isset ($uri ['query']))
 		{
 			$path .= '?' . $uri ['query'];
 		}
 
-		//Create HTTP request
-		$defaults = array (
-				'Host' => "Host: $host",
-				'User-Agent' => 'User-Agent: ' . OA_USERAGENT
+		// Create HTTP request
+		$defaults = array(
+			'Host' => "Host: $host",
+			'User-Agent' => 'User-Agent: ' . OA_USERAGENT
 		);
 
 		// BASIC AUTH?
-		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
+		if (isset ($options ['api_key']) and isset ($options ['api_secret']))
 		{
 			$defaults ['Authorization'] = 'Authorization: Basic ' . base64_encode ($options ['api_key'] . ":" . $options ['api_secret']);
 		}
 
-		//Build and send request
+		// Build and send request
 		$request = 'GET ' . $path . " HTTP/1.0\r\n";
 		$request .= implode ("\r\n", $defaults);
 		$request .= "\r\n\r\n";
 		fwrite ($fp, $request);
 
-		//Fetch response
+		// Fetch response
 		$response = '';
-		while (!feof ($fp))
+		while ( !feof ($fp) )
 		{
 			$response .= fread ($fp, 1024);
 		}
 
-		//Close connection
+		// Close connection
 		fclose ($fp);
 
-		//Parse response
-		list($response_header, $response_body) = explode ("\r\n\r\n", $response, 2);
+		// Parse response
+		list ($response_header, $response_body) = explode ("\r\n\r\n", $response, 2);
 
-		//Parse header
+		// Parse header
 		$response_header = preg_split ("/\r\n|\n|\r/", $response_header);
-		list($header_protocol, $header_code, $header_status_message) = explode (' ', trim (array_shift ($response_header)), 3);
+		list ($header_protocol, $header_code, $header_status_message) = explode (' ', trim (array_shift ($response_header)), 3);
 
-		//Build result
+		// Build result
 		$result->http_code = $header_code;
 		$result->http_data = $response_body;
 
-		//Done
+		// Done
 		return $result;
 	}
-
 
 	/**
 	 * Get settings
 	 */
 	public static function getSettings ()
 	{
-		//Container
-		$settings = array ();
+		// Container
+		$settings = array();
 
-		//Get database handle
+		// Get database handle
 		$db = JFactory::getDBO ();
 
-		//Read settings
+		// Read settings
 		$sql = "SELECT * FROM #__oasl_settings";
 		$db->setQuery ($sql);
 		$rows = $db->LoadAssocList ();
 
 		if (is_array ($rows))
 		{
-			foreach ($rows AS $key => $data)
+			foreach ($rows as $key => $data)
 			{
 				if ($data ['setting'] == 'providers')
 				{
 					$tmp = @unserialize ($data ['value']);
-					if ($tmp !== false AND is_array ($tmp))
+					if ($tmp !== false and is_array ($tmp))
 					{
 						$settings [$data ['setting']] = $tmp;
 					}
 					else
 					{
-						$settings [$data ['setting']] = array ();
+						$settings [$data ['setting']] = array();
 					}
 				}
 				else

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	Oneall Social Login Module
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -24,94 +24,94 @@
  */
 defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 
-
 // User is logged in
-if($user_status == 'logout')
+if ($user_status == 'logout')
 {
-	//Display a Logout button?
-	if (isset($widget_settings['show_logout_button']) AND $widget_settings['show_logout_button'] == '1')
+	// Display a Logout button?
+	if (isset ($widget_settings ['show_logout_button']) and $widget_settings ['show_logout_button'] == '1')
 	{
 		?>
-			<div class="oa_social_login<?php echo $moduleclass_sfx; ?>">
+		<div class="oa_social_login<?php echo $moduleclass_sfx; ?>">
 				<form action="<?php echo JRoute::_('index.php', true, $params->get('usesecure')); ?>" method="post" id="login-form">
-					<?php
-						//Display text above the Logout button?
-						if (isset ($widget_settings['logout_button_text']) AND strlen (trim ($widget_settings['logout_button_text'])) > 0)
-						{
-							?>
-								<div class="login-greeting">
-									<?php
-										$username = htmlspecialchars(($params->get('name') == 0) ? $user->get('name') : $user->get('username'));
-										echo str_replace ('%s', $username, $widget_settings['logout_button_text']);
-									?>
-								</div>
-							<?php
-						}
-					?>
-			  	  <div class="logout-button">
-			    	    <input type="submit" name="Submit" class="btn btn-primary" value="<?php echo JText::_('JLOGOUT'); ?>" />
-			      	  <input type="hidden" name="option" value="com_users" />
-			        	<input type="hidden" name="task" value="user.logout" />
-			        	<?php echo JHtml::_('form.token'); ?>
-			    	</div>
-				</form>
-			</div>
+				<?php
+					// Display text above the Logout button?
+					if (isset ($widget_settings ['logout_button_text']) and strlen (trim ($widget_settings ['logout_button_text'])) > 0)
+					{
+						?>
+						<div class="login-greeting">
+						<?php
+							$username = htmlspecialchars (($params->get ('name') == 0) ? $user->get ('name') : $user->get ('username'));
+							echo str_replace ('%s', $username, $widget_settings ['logout_button_text']);
+						?>
+						</div>
+						<?php
+					}
+				?>
+				<div class="logout-button">
+					<input type="submit" name="Submit" class="btn btn-primary" value="<?php echo JText::_('JLOGOUT'); ?>" />
+					<input type="hidden" name="option" value="com_users" /> <input type="hidden" name="task" value="user.logout" />
+					<?php echo JHtml::_('form.token'); ?>
+				</div>
+			</form>
+		</div>
 		<?php
 	}
 }
-//User is logged out
+// User is logged out
 else
 {
-	//Custom CSS
-	$widget_settings['css_theme_uri'] = (! isset ($widget_settings['css_theme_uri']) ? '' : trim ($widget_settings['css_theme_uri']));
+	// Custom CSS
+	$widget_settings ['css_theme_uri'] = (!isset ($widget_settings ['css_theme_uri']) ? '' : trim ($widget_settings ['css_theme_uri']));
 
-	//Check if the subdomain is set
-	if (isset($widget_settings['api_subdomain']) AND strlen (trim ($widget_settings['api_subdomain'])) > 0)
+	// Check if the subdomain is set
+	if (isset ($widget_settings ['api_subdomain']) and strlen (trim ($widget_settings ['api_subdomain'])) > 0)
 	{
-		//Check if providers have been selected
-		if (isset($widget_settings['providers']) AND is_array ($widget_settings['providers']))
+		// Check if providers have been selected
+		if (isset ($widget_settings ['providers']) and is_array ($widget_settings ['providers']))
 		{
-			//Random integer for unique dom element ids;
+			// Random integer for unique dom element ids;
 			$rnd = rand ();
 
 			?>
-				<div class="oa_social_login<?php echo $moduleclass_sfx ?>">
-
-					<?php
-						//Check if we have a caption
-						if (isset($widget_settings['mod_caption']) AND strlen (trim ($widget_settings['mod_caption'])) > 0)
-						{
-							?>
-								<p class="oa_social_login_caption<?php echo $moduleclass_sfx ?>">
-									<strong><?php echo JText::_($widget_settings['mod_caption']);?></strong>
-								</p>
-							<?php
-						}
+			<div class="oa_social_login<?php echo $moduleclass_sfx ?>">
+				<?php
+				// Check if we have a caption
+				if (isset ($widget_settings ['mod_caption']) and strlen (trim ($widget_settings ['mod_caption'])) > 0)
+				{
 					?>
-						<div id="oa_social_login_container<?php echo $rnd.$moduleclass_sfx ?>"></div>
-						<script type="text/javascript">
-							var _oneall = _oneall || [];
-							_oneall.push(['social_login', 'set_providers', ['<?php echo implode ("','", $widget_settings['providers']); ?>']]);
-							_oneall.push(['social_login', 'set_callback_uri', '<?php echo $return_url; ?>']);
-							_oneall.push(['social_login', 'set_custom_css_uri', '<?php echo $widget_settings['css_theme_uri']; ?>']);
-							_oneall.push(['social_login', 'do_render_ui', 'oa_social_login_container<?php echo $rnd.$moduleclass_sfx ?>']);
-						</script><!-- http://www.oneall.com / OneAll Social Login for Joomla! -->
+					<p class="oa_social_login_caption<?php echo $moduleclass_sfx ?>">
+						<strong><?php echo JText::_($widget_settings['mod_caption']);?></strong>
+					</p>
 					<?php
-					?>
-				</div>
+				}
+				?>
+				<div id="oa_social_login_container<?php echo $rnd.$moduleclass_sfx ?>"></div>
+				<script type="text/javascript">
+					var _oneall = _oneall || [];
+					_oneall.push(['social_login', 'set_providers', ['<?php echo implode ("','", $widget_settings['providers']); ?>']]);
+					_oneall.push(['social_login', 'set_callback_uri', '<?php echo $return_url; ?>']);
+					_oneall.push(['social_login', 'set_custom_css_uri', '<?php echo $widget_settings['css_theme_uri']; ?>']);
+					_oneall.push(['social_login', 'do_render_ui', 'oa_social_login_container<?php echo $rnd.$moduleclass_sfx ?>']);
+				</script>
+				<!-- http://www.oneall.com / OneAll Social Login for Joomla! -->
+			</div>
 			<?php
 		}
 		else
 		{
 			?>
-				<div style="background-color:red;color:white;padding:5px;text-align:center">[<strong>Social Login</strong>] Please select at least one Social Network (Admin: Components\OneAll Social Login)</div>
+				<div style="background-color: red; color: white; padding: 5px; text-align: center">
+					[<strong>Social Login</strong>] Please select at least one Social Network (Admin: Components\OneAll Social Login)
+				</div>
 			<?php
 		}
 	}
 	else
 	{
 		?>
-			<div style="background-color:red;color:white;padding:5px;text-align:center">[<strong>Social Login</strong>] Please complete your API Settings (Admin: Components\OneAll Social Login)</div>
+			<div style="background-color: red; color: white; padding: 5px; text-align: center">
+				[<strong>Social Login</strong>] Please complete your API Settings (Admin: Components\OneAll Social Login)
+			</div>
 		<?php
 	}
 }

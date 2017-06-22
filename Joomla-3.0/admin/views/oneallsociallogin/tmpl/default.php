@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -43,6 +43,7 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 
 	<fieldset class="social_login_form social_login_form_welcome">
 		<?php
+
 			if ( empty ($this->settings ['api_settings_verified']))
 			{
 				?>
@@ -66,17 +67,18 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 			{
 				?>
 					<div class="social_login_form_row social_login_form_row_title">
-							Your API Connection is setup correctly!
+						Your API Connection is setup correctly!
 					</div>
 					<div class="social_login_form_row">
-							<a href="https://app.oneall.com/signin/" target="_blank">Login to your OneAll account</a> to manage your Social Networks and to access your <a href="https://app.oneall.com/insights/"  target="_blank">Social Insights</a>.
-							Determine which social networks are popular amongst your users and tailor your registration experience to increase your users' engagement.
+						<a href="https://app.oneall.com/signin/" target="_blank">Login to your OneAll account</a> to manage your Social Networks and to access your <a href="https://app.oneall.com/insights/"  target="_blank">Social Insights</a>.
+						Determine which social networks are popular amongst your users and tailor your registration experience to increase your users' engagement.
 					</div>
 					<div class="social_login_form_row social_login_form_row_button">
 						<div class="social_login_form_row_button_link"><a href="https://app.oneall.com/signin/" target="_blank">Click here to login to your OneAll account</a></div>
 					</div>
 				<?php
 			}
+
 		?>
 	</fieldset>
 
@@ -242,7 +244,7 @@ defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 	<h4>Enter an URL to a CSS stylesheet to be used by Social Login:</h4>
 	<fieldset class="social_login_form">
 		<div class="social_login_form_row social_login_form_row_even">
-			<label for="css_theme_uri">You need a <a href="http://www.oneall.com/pricing-and-plans/" target="_blank">Basic Plan</a> (or higher) to use your own CSS Stylesheet</label>
+			<label for="css_theme_uri">You need a <a href="http://www.oneall.com/pricing-and-plans/" target="_blank">Starter</a> (or higher plan) to use your own CSS Stylesheet</label>
 			<input type="text" id="css_theme_uri" name="settings[css_theme_uri]" size="86" value="<?php echo (isset ($this->settings ['css_theme_uri']) ? htmlspecialchars ($this->settings ['css_theme_uri']) : ''); ?>" />
 		</div>
 	</fieldset>

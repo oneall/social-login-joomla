@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login Module
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -23,13 +23,13 @@
  *
  */
 defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
-require_once(dirname (__FILE__) . '/classes/helper.php');
+require_once (dirname (__FILE__) . '/classes/helper.php');
 $params->def ('greeting', 1);
 
-//Get settings
+// Get settings
 $widget_settings = mod_oneallsocialloginHelper::getSettings ();
 
-//Add library
+// Add library
 if (!empty ($widget_settings ['api_subdomain']))
 {
 	$document = JFactory::getDocument ();
@@ -40,15 +40,15 @@ if (!empty ($widget_settings ['api_subdomain']))
 		s.parentNode.insertBefore(oa, s);");
 }
 
-//Get user status
+// Get user status
 $user = JFactory::getUser ();
 $user_status = ((!$user->get ('guest')) ? 'logout' : 'login');
 
-//Return URL
+// Return URL
 $return_url = JURI::getInstance ()->toString ();
 
-//Get Module Class Suffix
+// Get Module Class Suffix
 $moduleclass_sfx = htmlspecialchars ($params->get ('moduleclass_sfx'));
 
-//Show template
+// Show template
 require JModuleHelper::getLayoutPath ('mod_oneallsociallogin', $params->get ('layout', 'default'));

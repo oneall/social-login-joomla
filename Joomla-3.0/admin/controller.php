@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -30,7 +30,7 @@ jimport ('joomla.application.component.controller');
  */
 class OneAllSocialLoginController extends JControllerLegacy
 {
-	
+
 	/**
 	 * Display task
 	 */
@@ -53,13 +53,12 @@ class OneAllSocialLoginController extends JControllerLegacy
 		$this->setRedirect (JRoute::_ ('index.php?option=com_oneallsociallogin&action=save', false));
 	}
 
-
 	/**
 	 * Autodetect API Connection Handler
 	 */
 	public function autodetect_api_connection_handler ()
 	{
-		//CURL Works on port 443
+		// CURL Works on port 443
 		if ($this->is_curl_available (true) === true)
 		{
 			die ('success_autodetect_api_curl_443');
@@ -71,7 +70,7 @@ class OneAllSocialLoginController extends JControllerLegacy
 			die ('success_autodetect_api_fsockopen_443');
 		}
 
-		//CURL Works on port 80
+		// CURL Works on port 80
 		if ($this->is_curl_available (false) === true)
 		{
 			die ('success_autodetect_api_curl_80');
@@ -83,10 +82,9 @@ class OneAllSocialLoginController extends JControllerLegacy
 			die ('success_autodetect_api_fsockopen_80');
 		}
 
-		//No working handler found
+		// No working handler found
 		die ('error_autodetect_api_no_handler');
 	}
-
 
 	/**
 	 * Check API Settings
@@ -95,93 +93,95 @@ class OneAllSocialLoginController extends JControllerLegacy
 	{
 		$model = $this->getModel ();
 
-		//Check if all fields have been filled out
-		if (empty ($_POST ['api_subdomain']) OR empty ($_POST ['api_key']) OR empty ($_POST ['api_secret']))
+		// Check if all fields have been filled out
+		if (empty ($_POST ['api_subdomain']) or empty ($_POST ['api_key']) or empty ($_POST ['api_secret']))
 		{
 			$model->setSetting ('api_settings_verified', 0);
 			die ('error_not_all_fields_filled_out');
 		}
 
-		//Check the handler
-		$api_connection_handler = ((!empty ($_POST ['api_connection_handler']) AND $_POST ['api_connection_handler'] == 'fsockopen') ? 'fsockopen' : 'curl');
-		$api_connection_port = ((!empty ($_POST ['api_connection_port']) AND $_POST ['api_connection_port'] == 80) ? 80 : 443);
+		// Check the handler
+		$api_connection_handler = ((!empty ($_POST ['api_connection_handler']) and $_POST ['api_connection_handler'] == 'fsockopen') ? 'fsockopen' : 'curl');
+		$api_connection_port = ((!empty ($_POST ['api_connection_port']) and $_POST ['api_connection_port'] == 80) ? 80 : 443);
 		$api_connection_secure = ($api_connection_port == 443);
 
-		//FSOCKOPEN
+		// FSOCKOPEN
 		if ($api_connection_handler == 'fsockopen')
 		{
-			if ($this->is_fsockopen_available($api_connection_secure) !== true)
+			if ($this->is_fsockopen_available ($api_connection_secure) !== true)
 			{
 				$model->setSetting ('api_settings_verified', 0);
-				die('error_selected_handler_faulty');
+				die ('error_selected_handler_faulty');
 			}
 		}
-		//CURL
+		// CURL
 		else
 		{
-			if ($this->is_curl_available($api_connection_secure) !== true)
+			if ($this->is_curl_available ($api_connection_secure) !== true)
 			{
 				$model->setSetting ('api_settings_verified', 0);
-				die('error_selected_handler_faulty');
+				die ('error_selected_handler_faulty');
 			}
 		}
 
-		//Parameters
+		// Parameters
 		$api_subdomain = trim (strtolower ($_POST ['api_subdomain']));
 		$api_key = $_POST ['api_key'];
 		$api_secret = $_POST ['api_secret'];
 
-		//Full domain entered
+		// Full domain entered
 		if (preg_match ("/([a-z0-9\-]+)\.api\.oneall\.com/i", $api_subdomain, $matches))
 		{
-			$api_subdomain = trim($matches [1]);
+			$api_subdomain = trim ($matches [1]);
 		}
 
-		//Check subdomain format
+		// Check subdomain format
 		if (!preg_match ("/^[a-z0-9\-]+$/i", $api_subdomain))
 		{
 			$model->setSetting ('api_settings_verified', 0);
 			die ('error_subdomain_wrong_syntax');
 		}
 
-		//Domain
+		// Domain
 		$api_domain = $api_subdomain . '.api.oneall.com';
 
-		//Resource URI
+		// Resource URI
 		$api_resource_url = ($api_connection_secure ? 'https' : 'http') . '://' . $api_domain . '/tools/ping.json';
 
-		//Get connection details
-		$result = $this->make_api_request ($api_connection_handler, $api_resource_url, array ('api_key' => $api_key, 'api_secret' => $api_secret), 15);
+		// Get connection details
+		$result = $this->make_api_request ($api_connection_handler, $api_resource_url, array(
+			'api_key' => $api_key,
+			'api_secret' => $api_secret
+		), 15);
 
-		//Parse result
-		if (is_object ($result) AND property_exists ($result, 'http_code') AND property_exists ($result, 'http_data'))
+		// Parse result
+		if (is_object ($result) and property_exists ($result, 'http_code') and property_exists ($result, 'http_data'))
 		{
 			switch ($result->http_code)
 			{
-				//Success
-				case 200:
+				// Success
+				case 200 :
 					$model->setSetting ('api_settings_verified', 1);
 					die ('success');
 				break;
 
-				//Authentication Error
-				case 401:
+				// Authentication Error
+				case 401 :
 					$model->setSetting ('api_settings_verified', 0);
 					die ('error_authentication_credentials_wrong');
 				break;
 
-				//Wrong Subdomain
-				case 404:
+				// Wrong Subdomain
+				case 404 :
 					$model->setSetting ('api_settings_verified', 0);
 					die ('error_subdomain_wrong');
 				break;
 
-				//Other error
-				default:
+				// Other error
+				default :
 					$model->setSetting ('api_settings_verified', 0);
 					die ('error_communication');
 				break;
-
 			}
 		}
 
@@ -194,31 +194,31 @@ class OneAllSocialLoginController extends JControllerLegacy
 	 */
 	function make_api_request ($handler, $url, $options = array (), $timeout = 15)
 	{
-		//FSOCKOPEN
+		// FSOCKOPEN
 		if ($handler == 'fsockopen')
 		{
-			return $this->make_fsockopen_request($url, $options, $timeout);
+			return $this->make_fsockopen_request ($url, $options, $timeout);
 		}
-		//CURL
+		// CURL
 		else
 		{
-			return $this->make_curl_request($url, $options, $timeout);
+			return $this->make_curl_request ($url, $options, $timeout);
 		}
 	}
 
-	/////////////////////////////////////////////////////////////////////////////
+	// ///////////////////////////////////////////////////////////////////////////
 	// CURL
-	/////////////////////////////////////////////////////////////////////////////
+	// ///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Check if CURL can be used
 	 */
 	public function is_curl_available ($secure = true)
 	{
-		if (in_array ('curl', get_loaded_extensions ()) AND function_exists('curl_exec'))
+		if (in_array ('curl', get_loaded_extensions ()) and function_exists ('curl_exec'))
 		{
 			$result = $this->make_curl_request (($secure ? 'https' : 'http') . '://www.oneall.com/ping.html');
-			if (is_object ($result) AND property_exists ($result, 'http_code') AND $result->http_code == 200)
+			if (is_object ($result) and property_exists ($result, 'http_code') and $result->http_code == 200)
 			{
 				if (property_exists ($result, 'http_data'))
 				{
@@ -232,16 +232,15 @@ class OneAllSocialLoginController extends JControllerLegacy
 		return false;
 	}
 
-
 	/**
 	 * Send a CURL request
 	 */
 	public function make_curl_request ($url, $options = array (), $timeout = 15)
 	{
-		//Store the result
+		// Store the result
 		$result = new stdClass ();
 
-		//Send request
+		// Send request
 		$curl = curl_init ();
 		curl_setopt ($curl, CURLOPT_URL, $url);
 		curl_setopt ($curl, CURLOPT_HEADER, 0);
@@ -253,12 +252,12 @@ class OneAllSocialLoginController extends JControllerLegacy
 		curl_setopt ($curl, CURLOPT_USERAGENT, OA_USERAGENT);
 
 		// BASIC AUTH?
-		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
+		if (isset ($options ['api_key']) and isset ($options ['api_secret']))
 		{
 			curl_setopt ($curl, CURLOPT_USERPWD, $options ['api_key'] . ":" . $options ['api_secret']);
 		}
 
-		//Make request
+		// Make request
 		if (($http_data = curl_exec ($curl)) !== false)
 		{
 			$result->http_code = curl_getinfo ($curl, CURLINFO_HTTP_CODE);
@@ -272,13 +271,13 @@ class OneAllSocialLoginController extends JControllerLegacy
 			$result->http_error = curl_error ($curl);
 		}
 
-		//Done
+		// Done
 		return $result;
 	}
 
-	/////////////////////////////////////////////////////////////////////////////
+	// ///////////////////////////////////////////////////////////////////////////
 	// FSOCKOPEN
-	/////////////////////////////////////////////////////////////////////////////
+	// ///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Check if fsockopen can be used
@@ -286,7 +285,7 @@ class OneAllSocialLoginController extends JControllerLegacy
 	public function is_fsockopen_available ($secure = true)
 	{
 		$result = $this->make_fsockopen_request (($secure ? 'https' : 'http') . '://www.oneall.com/ping.html');
-		if (is_object ($result) AND property_exists ($result, 'http_code') AND $result->http_code == 200)
+		if (is_object ($result) and property_exists ($result, 'http_code') and $result->http_code == 200)
 		{
 			if (property_exists ($result, 'http_data'))
 			{
@@ -304,10 +303,10 @@ class OneAllSocialLoginController extends JControllerLegacy
 	 */
 	public function make_fsockopen_request ($url, $options = array (), $timeout = 15)
 	{
-		//Store the result
+		// Store the result
 		$result = new stdClass ();
 
-		//Make that this is a valid URL
+		// Make that this is a valid URL
 		if (($uri = parse_url ($url)) == false)
 		{
 			$result->http_code = -1;
@@ -316,30 +315,30 @@ class OneAllSocialLoginController extends JControllerLegacy
 			return $result;
 		}
 
-		//Make sure we can handle the schema
+		// Make sure we can handle the schema
 		switch ($uri ['scheme'])
 		{
-			case 'http':
+			case 'http' :
 				$port = (isset ($uri ['port']) ? $uri ['port'] : 80);
 				$host = ($uri ['host'] . ($port != 80 ? ':' . $port : ''));
 				$fp = @fsockopen ($uri ['host'], $port, $errno, $errstr, $timeout);
-				break;
+			break;
 
-			case 'https':
+			case 'https' :
 				$port = (isset ($uri ['port']) ? $uri ['port'] : 443);
 				$host = ($uri ['host'] . ($port != 443 ? ':' . $port : ''));
 				$fp = @fsockopen ('ssl://' . $uri ['host'], $port, $errno, $errstr, $timeout);
-				break;
+			break;
 
-			default:
+			default :
 				$result->http_code = -1;
 				$result->http_data = null;
 				$result->http_error = 'invalid_schema';
 				return $result;
-				break;
+			break;
 		}
 
-		//Make sure the socket opened properly
+		// Make sure the socket opened properly
 		if (!$fp)
 		{
 			$result->http_code = -$errno;
@@ -348,53 +347,53 @@ class OneAllSocialLoginController extends JControllerLegacy
 			return $result;
 		}
 
-		//Construct the path to act on
+		// Construct the path to act on
 		$path = (isset ($uri ['path']) ? $uri ['path'] : '/');
 		if (isset ($uri ['query']))
 		{
 			$path .= '?' . $uri ['query'];
 		}
 
-		//Create HTTP request
-		$defaults = array (
-				'Host' => "Host: $host",
-				'User-Agent' => 'User-Agent: ' . OA_USERAGENT
+		// Create HTTP request
+		$defaults = array(
+			'Host' => "Host: $host",
+			'User-Agent' => 'User-Agent: ' . OA_USERAGENT
 		);
 
 		// BASIC AUTH?
-		if (isset ($options ['api_key']) AND isset ($options ['api_secret']))
+		if (isset ($options ['api_key']) and isset ($options ['api_secret']))
 		{
 			$defaults ['Authorization'] = 'Authorization: Basic ' . base64_encode ($options ['api_key'] . ":" . $options ['api_secret']);
 		}
 
-		//Build and send request
+		// Build and send request
 		$request = 'GET ' . $path . " HTTP/1.0\r\n";
 		$request .= implode ("\r\n", $defaults);
 		$request .= "\r\n\r\n";
 		fwrite ($fp, $request);
 
-		//Fetch response
+		// Fetch response
 		$response = '';
-		while (!feof ($fp))
+		while ( !feof ($fp) )
 		{
 			$response .= fread ($fp, 1024);
 		}
 
-		//Close connection
+		// Close connection
 		fclose ($fp);
 
-		//Parse response
-		list($response_header, $response_body) = explode ("\r\n\r\n", $response, 2);
+		// Parse response
+		list ($response_header, $response_body) = explode ("\r\n\r\n", $response, 2);
 
-		//Parse header
+		// Parse header
 		$response_header = preg_split ("/\r\n|\n|\r/", $response_header);
-		list($header_protocol, $header_code, $header_status_message) = explode (' ', trim (array_shift ($response_header)), 3);
+		list ($header_protocol, $header_code, $header_status_message) = explode (' ', trim (array_shift ($response_header)), 3);
 
-		//Build result
+		// Build result
 		$result->http_code = $header_code;
 		$result->http_data = $response_body;
 
-		//Done
+		// Done
 		return $result;
 	}
 }

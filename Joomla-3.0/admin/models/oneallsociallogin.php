@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -30,34 +30,35 @@ jimport ('joomla.application.component.modellist');
  */
 class OneAllSocialLoginModelOneAllSocialLogin extends JModelList
 {
+
 	/**
 	 * Save Settings
 	 */
 	public function saveSettings ()
 	{
-		//Get database handle
+		// Get database handle
 		$db = $this->getDbo ();
 
-		//Read Settings
+		// Read Settings
 		$settings = JRequest::getVar ('settings');
 
-		//Cleanup subdomain
+		// Cleanup subdomain
 		if (!empty ($settings ['api_subdomain']))
 		{
 			$settings ['api_subdomain'] = strtolower (trim ($settings ['api_subdomain']));
 
-			//Full domain entered
+			// Full domain entered
 			if (preg_match ("/([a-z0-9\-]+)\.api\.oneall\.com/i", $settings ['api_subdomain'], $matches))
 			{
 				$settings ['api_subdomain'] = trim ($matches [1]);
 			}
 		}
 
-		//Save providers
-		$providers = array ();
-		if (isset ($settings ['providers']) AND is_array ($settings ['providers']))
+		// Save providers
+		$providers = array();
+		if (isset ($settings ['providers']) and is_array ($settings ['providers']))
 		{
-			foreach ($settings ['providers'] AS $key => $value)
+			foreach ($settings ['providers'] as $key => $value)
 			{
 				if (!empty ($value))
 				{
@@ -67,12 +68,12 @@ class OneAllSocialLoginModelOneAllSocialLogin extends JModelList
 		}
 		$settings ['providers'] = serialize ($providers);
 
-		//Remove current settings
+		// Remove current settings
 		$sql = "DELETE FROM #__oasl_settings WHERE setting <> 'api_settings_verified'";
 		$db->setQuery ($sql);
 		$db->query ();
 
-		//Insert new settings
+		// Insert new settings
 		foreach ($settings as $k => $v)
 		{
 			$sql = "INSERT INTO #__oasl_settings ( setting, value )" . " VALUES ( " . $db->Quote ($k) . ", " . $db->Quote ($v) . " )";
@@ -86,20 +87,20 @@ class OneAllSocialLoginModelOneAllSocialLogin extends JModelList
 	 */
 	public function getSettings ()
 	{
-		//Container
-		$settings = array ();
+		// Container
+		$settings = array();
 
-		//Get database handle
+		// Get database handle
 		$db = $this->getDbo ();
 
-		//Read settings
+		// Read settings
 		$sql = "SELECT * FROM #__oasl_settings";
 		$db->setQuery ($sql);
 		$rows = $db->LoadAssocList ();
 
 		if (is_array ($rows))
 		{
-			foreach ($rows AS $key => $data)
+			foreach ($rows as $key => $data)
 			{
 				if ($data ['setting'] == 'providers')
 				{
@@ -110,7 +111,7 @@ class OneAllSocialLoginModelOneAllSocialLogin extends JModelList
 					}
 					else
 					{
-						$settings [$data ['setting']] = array ();
+						$settings [$data ['setting']] = array();
 					}
 				}
 				else
@@ -128,15 +129,15 @@ class OneAllSocialLoginModelOneAllSocialLogin extends JModelList
 	 */
 	public function setSetting ($key, $value)
 	{
-		//Get database handle
+		// Get database handle
 		$db = $this->getDbo ();
 
-		//Delete setting
+		// Delete setting
 		$sql = "DELETE FROM #__oasl_settings WHERE setting = " . $db->Quote ($key) . "";
 		$db->setQuery ($sql);
 		$db->query ();
 
-		//Insert new value
+		// Insert new value
 		$sql = "INSERT INTO #__oasl_settings ( setting, value )" . " VALUES ( " . $db->Quote ($key) . ", " . $db->Quote ($value) . " )";
 		$db->setQuery ($sql);
 		$db->query ();

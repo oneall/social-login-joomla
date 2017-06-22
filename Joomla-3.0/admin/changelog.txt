@@ -1,6 +1,6 @@
 /**
  * @package   	OneAll Social Login Plugin
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -24,6 +24,16 @@
   
 CHANGELOG
 
+2.4
+* Meetup added
+* Soundcloud added
+* Line added
+* Pixelpin added
+* Instagram added
+* Pinterest added
+* Undefined index language fixed
+* User registration disabled message fixed
+
 2.1
 * Removing unallowed characters from username
 
@@ -33,4 +43,3 @@ CHANGELOG
 
 1.0
 * Initial port from Joomla 2.5 to 3.0
-* Social provider Odnoklassniki added

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -28,96 +28,111 @@
  */
 $social_login_providers = array(
 	'amazon' => array(
-		'name' => 'Amazon' 
+		'name' => 'Amazon'
 	),
 	'battlenet' => array(
-		'name' => 'Battle.net' 
+		'name' => 'Battle.net'
 	),
 	'blogger' => array(
-		'name' => 'Blogger' 
+		'name' => 'Blogger'
+	),
+	'storage' => array(
+		'name' => 'Cloud Storage'
 	),
 	'disqus' => array(
-		'name' => 'Disqus' 
+		'name' => 'Disqus'
 	),
 	'draugiem' => array(
-		'name' => 'Draugiem' 
+		'name' => 'Draugiem'
 	),
 	'dribbble' => array(
-		'name' => 'Dribbble' 
+		'name' => 'Dribbble'
 	),
 	'facebook' => array(
-		'name' => 'Facebook' 
+		'name' => 'Facebook'
 	),
 	'foursquare' => array(
-		'name' => 'Foursquare' 
+		'name' => 'Foursquare'
 	),
 	'github' => array(
-		'name' => 'Github.com' 
+		'name' => 'Github.com'
 	),
 	'google' => array(
-		'name' => 'Google' 
+		'name' => 'Google'
 	),
 	'instagram' => array(
-		'name' => 'Instagram' 
+		'name' => 'Instagram'
+	),
+	'line' => array(
+		'name' => 'Line'
 	),
 	'linkedin' => array(
-		'name' => 'LinkedIn' 
+		'name' => 'LinkedIn'
 	),
 	'livejournal' => array(
-		'name' => 'LiveJournal' 
+		'name' => 'LiveJournal'
 	),
 	'mailru' => array(
-		'name' => 'Mail.ru' 
+		'name' => 'Mail.ru'
+	),
+	'meetup' => array(
+		'name' => 'Meetup'
 	),
 	'odnoklassniki' => array(
-		'name' => 'Odnoklassniki' 
+		'name' => 'Odnoklassniki'
 	),
 	'openid' => array(
-		'name' => 'OpenID' 
+		'name' => 'OpenID'
 	),
 	'paypal' => array(
-		'name' => 'PayPal' 
+		'name' => 'PayPal'
 	),
 	'pinterest' => array(
-		'name' => 'Pinterest' 
+		'name' => 'Pinterest'
 	),
 	'pixelpin' => array(
-		'name' => 'PixelPin' 
+		'name' => 'PixelPin'
 	),
 	'reddit' => array(
-		'name' => 'Reddit' 
+		'name' => 'Reddit'
 	),
 	'skyrock' => array(
-		'name' => 'Skyrock.com' 
+		'name' => 'Skyrock.com'
+	),
+	'soundcloud' => array(
+		'name' => 'SoundCloud'
 	),
 	'stackexchange' => array(
-		'name' => 'StackExchange' 
+		'name' => 'StackExchange'
 	),
 	'steam' => array(
-		'name' => 'Steam' 
+		'name' => 'Steam'
 	),
 	'twitch' => array(
-		'name' => 'Twitch.tv' 
+		'name' => 'Twitch.tv'
 	),
 	'twitter' => array(
-		'name' => 'Twitter' 
+		'name' => 'Twitter'
 	),
 	'vimeo' => array(
-		'name' => 'Vimeo' 
+		'name' => 'Vimeo'
 	),
 	'vkontakte' => array(
-		'name' => 'VKontakte' 
+		'name' => 'VKontakte'
 	),
 	'windowslive' => array(
-		'name' => 'Windows Live' 
+		'name' => 'Windows Live'
 	),
 	'wordpress' => array(
-		'name' => 'WordPress.com' 
+		'name' => 'WordPress.com'
+	),
+	'xing' => array(
+		'name' => 'XING'
 	),
 	'yahoo' => array(
-		'name' => 'Yahoo' 
+		'name' => 'Yahoo'
 	),
 	'youtube' => array(
-		'name' => 'YouTube' 
-	) 
+		'name' => 'YouTube'
+	)
 );

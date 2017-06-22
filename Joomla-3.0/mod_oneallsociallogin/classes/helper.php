@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login Module
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -23,33 +23,32 @@
  *
  */
 defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
-
 class mod_oneallsocialloginHelper
 {
 	/**
 	 * Is HTTPS enabled?
 	 */
-	public static function is_https_on()
+	public static function is_https_on ()
 	{
-		if ( ! empty ($_SERVER ['SERVER_PORT']))
+		if (!empty ($_SERVER ['SERVER_PORT']))
 		{
-			if (trim($_SERVER ['SERVER_PORT']) == '443')
+			if (trim ($_SERVER ['SERVER_PORT']) == '443')
 			{
 				return true;
 			}
 		}
 
-		if ( ! empty ($_SERVER ['HTTP_X_FORWARDED_PROTO']))
+		if (!empty ($_SERVER ['HTTP_X_FORWARDED_PROTO']))
 		{
-			if (strtolower(trim($_SERVER ['HTTP_X_FORWARDED_PROTO'])) == 'https')
+			if (strtolower (trim ($_SERVER ['HTTP_X_FORWARDED_PROTO'])) == 'https')
 			{
 				return true;
 			}
 		}
 
-		if ( ! empty ($_SERVER ['HTTPS']))
+		if (!empty ($_SERVER ['HTTPS']))
 		{
-			if (strtolower(trim($_SERVER ['HTTPS'])) == 'on' OR trim($_SERVER ['HTTPS']) == '1')
+			if (strtolower (trim ($_SERVER ['HTTPS'])) == 'on' or trim ($_SERVER ['HTTPS']) == '1')
 			{
 				return true;
 			}
@@ -58,42 +57,41 @@ class mod_oneallsocialloginHelper
 		return false;
 	}
 
-
 	/**
 	 * Get settings
 	 */
 	public static function getSettings ()
 	{
-		//Container
-		$settings = array ();
+		// Container
+		$settings = array();
 
-		//Get database handle
+		// Get database handle
 		$db = JFactory::getDBO ();
 
-		//Read settings
+		// Read settings
 		$sql = "SELECT * FROM #__oasl_settings";
 		$db->setQuery ($sql);
 		$rows = $db->LoadAssocList ();
 
 		if (is_array ($rows))
 		{
-			foreach ($rows AS $key => $data)
+			foreach ($rows as $key => $data)
 			{
-				if ($data['setting'] == 'providers')
+				if ($data ['setting'] == 'providers')
 				{
 					$tmp = @unserialize ($data ['value']);
 					if (is_array ($tmp))
 					{
-						$settings [$data['setting']] = $tmp;
+						$settings [$data ['setting']] = $tmp;
 					}
 					else
 					{
-						$settings [$data['setting']] = array();
+						$settings [$data ['setting']] = array();
 					}
 				}
 				else
 				{
-					$settings [$data['setting']] = $data ['value'];
+					$settings [$data ['setting']] = $data ['value'];
 				}
 			}
 		}

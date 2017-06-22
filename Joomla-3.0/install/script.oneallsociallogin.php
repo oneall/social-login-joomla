@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login Component
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -25,24 +25,21 @@
 defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
 jimport ('joomla.filesystem.folder');
 jimport ('joomla.filesystem.file');
-
 class Com_OneAllSocialLoginInstallerScript
 {
-
 
 	/**
 	 * The component's name
 	 */
 	protected $_oneallsociallogin_extension = 'com_oneallsociallogin';
 
-
 	/**
 	 * The list of extra modules and plugins to install
 	 */
-	private $installation_queue = array (
-		'modules' => array (
-			'site' => array (
-				'oneallsociallogin' => array (
+	private $installation_queue = array(
+		'modules' => array(
+			'site' => array(
+				'oneallsociallogin' => array(
 					'title' => 'Social Login',
 					'position' => 'position-7',
 					'order' => 8,
@@ -52,15 +49,14 @@ class Com_OneAllSocialLoginInstallerScript
 				)
 			)
 		),
-		'plugins' => array (
-			'system' => array (
-				'oneallsociallogin' => array (
+		'plugins' => array(
+			'system' => array(
+				'oneallsociallogin' => array(
 					'published' => 1
 				)
 			)
 		)
 	);
-
 
 	/**
 	 * Runs before install, update or discover_install
@@ -69,20 +65,19 @@ class Com_OneAllSocialLoginInstallerScript
 	{
 		switch ($type)
 		{
-			case 'install':
-			case 'discover_install':
+			case 'install' :
+			case 'discover_install' :
 				$this->bugfix_db_function_returned_no_error ();
-				break;
+			break;
 
-			case 'update':
+			case 'update' :
 				$this->bugfix_cannot_build_admin_menus ();
-				break;
+			break;
 		}
 
 		// Only allow to install on Joomla! 3 or later
 		return version_compare (JVERSION, '3', 'ge');
 	}
-
 
 	/**
 	 * Runs after install, update or discover_update
@@ -96,7 +91,6 @@ class Com_OneAllSocialLoginInstallerScript
 		$this->render_post_installation ($status, $parent);
 	}
 
-
 	/**
 	 * Runs on uninstallation
 	 */
@@ -109,7 +103,6 @@ class Com_OneAllSocialLoginInstallerScript
 		$this->render_post_uninstallation ($status, $parent);
 	}
 
-
 	/**
 	 * Renders the post-installation message
 	 */
@@ -120,7 +113,6 @@ class Com_OneAllSocialLoginInstallerScript
 		echo $message;
 	}
 
-
 	/**
 	 * Renders the post-uninstallation message
 	 */
@@ -129,7 +121,6 @@ class Com_OneAllSocialLoginInstallerScript
 		$message = '<strong>Social Login</strong> has been uninstalled successfully.';
 		echo $message;
 	}
-
 
 	/**
 	 * Joomla! bugfix for "DB function returned no error"
@@ -190,7 +181,6 @@ class Com_OneAllSocialLoginInstallerScript
 		}
 	}
 
-
 	/**
 	 * Joomla! bugfix for "Can not build admin menus"
 	 */
@@ -241,20 +231,23 @@ class Com_OneAllSocialLoginInstallerScript
 		$query->select ('id')->from ('#__menu')->where ($db->qn ('type') . ' = ' . $db->q ('component'))->where ($db->qn ('menutype') . ' = ' . $db->q ('main'))->where ($db->qn ('link') . ' LIKE ' . $db->q ('index.php?option=' . $this->_oneallsociallogin_extension));
 		$db->setQuery ($query);
 		$ids1 = $db->loadColumn ();
-		if (empty ($ids1)) $ids1 = array ();
+		if (empty ($ids1))
+			$ids1 = array();
 		$query = $db->getQuery (true);
 		$query->select ('id')->from ('#__menu')->where ($db->qn ('type') . ' = ' . $db->q ('component'))->where ($db->qn ('menutype') . ' = ' . $db->q ('main'))->where ($db->qn ('link') . ' LIKE ' . $db->q ('index.php?option=' . $this->_oneallsociallogin_extension . '&%'));
 		$db->setQuery ($query);
 		$ids2 = $db->loadColumn ();
-		if (empty ($ids2)) $ids2 = array ();
+		if (empty ($ids2))
+			$ids2 = array();
 		$ids = array_merge ($ids1, $ids2);
-		if (!empty ($ids)) foreach ($ids as $id)
-		{
-			$query = $db->getQuery (true);
-			$query->delete ('#__menu')->where ($db->qn ('id') . ' = ' . $db->q ($id));
-			$db->setQuery ($query);
-			$db->query ();
-		}
+		if (!empty ($ids))
+			foreach ($ids as $id)
+			{
+				$query = $db->getQuery (true);
+				$query->delete ('#__menu')->where ($db->qn ('id') . ' = ' . $db->q ($id));
+				$db->setQuery ($query);
+				$db->query ();
+			}
 	}
 
 	/**
@@ -268,11 +261,11 @@ class Com_OneAllSocialLoginInstallerScript
 
 		// The subextension installation status
 		$status = new JObject ();
-		$status->modules = array ();
-		$status->plugins = array ();
+		$status->modules = array();
+		$status->plugins = array();
 
 		// Modules installation
-		if (isset ($this->installation_queue ['modules']) AND is_array ($this->installation_queue ['modules']))
+		if (isset ($this->installation_queue ['modules']) and is_array ($this->installation_queue ['modules']))
 		{
 			foreach ($this->installation_queue ['modules'] as $folder => $modules)
 			{
@@ -280,7 +273,7 @@ class Com_OneAllSocialLoginInstallerScript
 				{
 					foreach ($modules as $module => $module_preferences)
 					{
-						//Look for the temporary installation folder
+						// Look for the temporary installation folder
 						$path = $src . '/modules/' . $folder . '/' . $module;
 
 						if (!is_dir ($path))
@@ -313,13 +306,13 @@ class Com_OneAllSocialLoginInstallerScript
 						$db->setQuery ($sql);
 						$count = $db->loadResult ();
 
-						//Install
-						$installer = new JInstaller;
+						// Install
+						$installer = new JInstaller ();
 						$installer->setOverwrite (true);
 						$result = $installer->install ($path);
 
-						//Store status
-						$status->modules [] = array (
+						// Store status
+						$status->modules [] = array(
 							'name' => 'mod_' . $module,
 							'client' => $folder,
 							'result' => $result
@@ -343,7 +336,7 @@ class Com_OneAllSocialLoginInstallerScript
 							}
 
 							// Do not display the title?
-							if ( ! $module_showtitle)
+							if (!$module_showtitle)
 							{
 								$sql->set ($db->qn ('showtitle') . ' = ' . $db->q ('0'));
 							}
@@ -358,7 +351,7 @@ class Com_OneAllSocialLoginInstallerScript
 								$query->select ('MAX(' . $db->qn ('ordering') . ')')->from ($db->qn ('#__modules'))->where ($db->qn ('position') . '=' . $db->q ($module_position));
 								$db->setQuery ($query);
 								$position = $db->loadResult ();
-								$position++;
+								$position ++;
 
 								$query = $db->getQuery (true);
 								$query->update ($db->qn ('#__modules'))->set ($db->qn ('ordering') . ' = ' . $db->q ($position))->where ($db->qn ('module') . ' = ' . $db->q ('mod_' . $module));
@@ -380,7 +373,7 @@ class Com_OneAllSocialLoginInstallerScript
 							$isAssigned = !empty ($assignments);
 							if (!$isAssigned)
 							{
-								$o = (object) array (
+								$o = (object) array(
 									'moduleid' => $moduleid,
 									'menuid' => 0
 								);
@@ -393,7 +386,7 @@ class Com_OneAllSocialLoginInstallerScript
 		}
 
 		// Plugins installation
-		if (isset ($this->installation_queue ['plugins']) AND is_array ($this->installation_queue ['plugins']))
+		if (isset ($this->installation_queue ['plugins']) and is_array ($this->installation_queue ['plugins']))
 		{
 			foreach ($this->installation_queue ['plugins'] as $folder => $plugins)
 			{
@@ -401,7 +394,7 @@ class Com_OneAllSocialLoginInstallerScript
 				{
 					foreach ($plugins as $plugin => $plugin_preferences)
 					{
-						//Look for the temporary installation folder
+						// Look for the temporary installation folder
 						$path = $src . '/plugins/' . $folder . '/$plugin';
 
 						if (!is_dir ($path))
@@ -434,18 +427,18 @@ class Com_OneAllSocialLoginInstallerScript
 						$db->setQuery ($query);
 						$count = $db->loadResult ();
 
-						//Install
-						$installer = new JInstaller;
+						// Install
+						$installer = new JInstaller ();
 						$result = $installer->install ($path);
 
-						//Store status
-						$status->plugins [] = array (
+						// Store status
+						$status->plugins [] = array(
 							'name' => 'plg_' . $plugin,
 							'group' => $folder,
 							'result' => $result
 						);
 
-						//Publish plugin
+						// Publish plugin
 						if (!empty ($plugin_preferences ['published']) && !$count)
 						{
 							$query = $db->getQuery (true)->update ($db->qn ('#__extensions'))->set ($db->qn ('enabled') . ' = ' . $db->q ('1'))->where ($db->qn ('element') . ' = ' . $db->q ($plugin))->where ($db->qn ('folder') . ' = ' . $db->q ($folder));
@@ -460,7 +453,6 @@ class Com_OneAllSocialLoginInstallerScript
 		return $status;
 	}
 
-
 	/**
 	 * Uninstalls subextensions (modules, plugins) bundled with the main extension
 	 */
@@ -468,16 +460,16 @@ class Com_OneAllSocialLoginInstallerScript
 	{
 		jimport ('joomla.installer.installer');
 
-		//Database handler
+		// Database handler
 		$db = JFactory::getDBO ();
 
-		//Uninstall status
+		// Uninstall status
 		$status = new JObject ();
-		$status->modules = array ();
-		$status->plugins = array ();
+		$status->modules = array();
+		$status->plugins = array();
 
 		// Modules uninstallation
-		if (isset ($this->installation_queue ['modules']) AND is_array ($this->installation_queue ['modules']))
+		if (isset ($this->installation_queue ['modules']) and is_array ($this->installation_queue ['modules']))
 		{
 			foreach ($this->installation_queue ['modules'] as $folder => $modules)
 			{
@@ -493,9 +485,9 @@ class Com_OneAllSocialLoginInstallerScript
 						// Uninstall the module
 						if ($id)
 						{
-							$installer = new JInstaller;
+							$installer = new JInstaller ();
 							$result = $installer->uninstall ('module', $id, 1);
-							$status->modules [] = array (
+							$status->modules [] = array(
 								'name' => 'mod_' . $module,
 								'client' => $folder,
 								'result' => $result
@@ -507,7 +499,7 @@ class Com_OneAllSocialLoginInstallerScript
 		}
 
 		// Plugins uninstallation
-		if (isset ($this->installation_queue ['plugins']) AND is_array ($this->installation_queue ['plugins']))
+		if (isset ($this->installation_queue ['plugins']) and is_array ($this->installation_queue ['plugins']))
 		{
 			foreach ($this->installation_queue ['plugins'] as $folder => $plugins)
 			{
@@ -523,9 +515,9 @@ class Com_OneAllSocialLoginInstallerScript
 						// Uninstall the plugin
 						if ($id)
 						{
-							$installer = new JInstaller;
+							$installer = new JInstaller ();
 							$result = $installer->uninstall ('plugin', $id, 1);
-							$status->plugins [] = array (
+							$status->plugins [] = array(
 								'name' => 'plg_' . $plugin,
 								'group' => $folder,
 								'result' => $result

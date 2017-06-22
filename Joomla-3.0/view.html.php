@@ -1,7 +1,7 @@
 <?php
 /**
  * @package   	OneAll Social Login
- * @copyright 	Copyright 2011-2016 http://www.oneall.com, all rights reserved
+ * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
  * @license   	GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
@@ -30,33 +30,34 @@ jimport ('joomla.application.component.view');
  */
 class oneallsocialloginViewOneAllSocialLogin extends JViewLegacy
 {
-	//Config
+	// Config
 	public $settings;
 	public $providers;
 
 	/**
 	 * OneAllSocialLogin - Display administration area
+	 *
 	 * @return void
 	 */
 	public function display ($tpl = null)
 	{
-		//Require settings
-		require_once(JPATH_BASE . '/components/com_oneallsociallogin/assets/cfg.php');
+		// Require settings
+		require_once (JPATH_BASE . '/components/com_oneallsociallogin/assets/cfg.php');
 
-		//Build document
+		// Build document
 		$document = JFactory::getDocument ();
 		$document->addStyleSheet ('components/com_oneallsociallogin/assets/css/oneallsociallogin.css');
 		$document->addScript ('components/com_oneallsociallogin/assets/js/jquery.js');
 		$document->addScript ('components/com_oneallsociallogin/assets/js/oneallsociallogin.js');
 
-		//Read settings
+		// Read settings
 		$model = $this->getModel ();
 		$this->settings = $model->getSettings ();
 
-		//Read providers
+		// Read providers
 		$this->providers = $social_login_providers;
 
-		//Build page
+		// Build page
 		$this->form = $this->get ('Form');
 		$this->addToolbar ();
 
@@ -66,6 +67,7 @@ class oneallsocialloginViewOneAllSocialLogin extends JViewLegacy
 
 	/**
 	 * OneAllSocialLogin - Add Toolbar
+	 *
 	 * @return void
 	 */
 	protected function addToolbar ()
