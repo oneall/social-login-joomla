@@ -28,67 +28,116 @@
  */
 
 $social_login_providers = array(
-    'facebook' => array(
-        'name' => 'Facebook'
+
+    'amazon' => array(
+        'name' => 'Amazon'
     ),
-    'twitter' => array(
-        'name' => 'Twitter'
-    ),
-    'google' => array(
-        'name' => 'Google'
-    ),
-    'linkedin' => array(
-        'name' => 'LinkedIn'
-    ),
-    'yahoo' => array(
-        'name' => 'Yahoo'
-    ),
-    'github' => array(
-        'name' => 'Github.com'
-    ),
-    'foursquare' => array(
-        'name' => 'Foursquare'
-    ),
-    'youtube' => array(
-        'name' => 'YouTube'
-    ),
-    'skyrock' => array(
-        'name' => 'Skyrock.com'
-    ),
-    'openid' => array(
-        'name' => 'OpenID'
-    ),
-    'wordpress' => array(
-        'name' => 'Wordpress.com'
-    ),
-    'paypal' => array(
-        'name' => 'PayPal'
-    ),
-    'livejournal' => array(
-        'name' => 'LiveJournal'
-    ),
-    'steam' => array(
-        'name' => 'Steam Community'
-    ),
-    'windowslive' => array(
-        'name' => 'Windows Live'
+    'battlenet' => array(
+        'name' => 'BattleNet'
     ),
     'blogger' => array(
         'name' => 'Blogger'
     ),
+    'discord' => array(
+        'name' => 'Discord'
+    ),
     'disqus' => array(
         'name' => 'Disqus'
     ),
-    'stackexchange' => array(
-        'name' => 'StackExchange'
+    'draugiem' => array(
+        'name' => 'Draugiem'
     ),
-    'vkontakte' => array(
-        'name' => 'VKontakte (Вконтакте)'
+    'dribble' => array(
+        'name' => 'Dribbble'
+    ),
+    'facebook' => array(
+        'name' => 'Facebook'
+    ),
+    'foursquare' => array(
+        'name' => 'Foursquare'
+    ),
+    'github' => array(
+        'name' => 'Github.com'
+    ),
+    'google' => array(
+        'name' => 'Google'
+    ),
+    'instagram' => array(
+        'name' => 'Instagram'
+    ),
+    'line' => array(
+        'name' => 'Line'
+    ),
+    'linkedin' => array(
+        'name' => 'LinkedIn'
+    ),
+    'livejournal' => array(
+        'name' => 'LiveJournal'
+    ),
+    'mailru' => array(
+        'name' => 'Mail.ru'
+    ),
+    'meetup' => array(
+        'name' => 'Meetup'
     ),
     'odnoklassniki' => array(
         'name' => 'Odnoklassniki.ru'
     ),
-    'mailru' => array(
-        'name' => 'Mail.ru'
+    'openid' => array(
+        'name' => 'OpenID'
+    ),
+    'paypal' => array(
+        'name' => 'PayPal'
+    ),
+    'pinterest' => array(
+        'name' => 'Pinterest'
+    ),
+    'pixelpin' => array(
+        'name' => 'PixelPin'
+    ),
+    'reddit' => array(
+        'name' => 'Reddit'
+    ),
+    'skyrock' => array(
+        'name' => 'Skyrock.com'
+    ),
+    'soundcloud' => array(
+        'name' => 'SoundCloud'
+    ),
+    'stackexchange' => array(
+        'name' => 'StackExchange'
+    ),
+    'steam' => array(
+        'name' => 'Steam Community'
+    ),
+    'tumblr' => array(
+        'name' => 'Tumblr'
+    ),
+    'twitch' => array(
+        'name' => 'Twitch'
+    ),
+    'twitter' => array(
+        'name' => 'Twitter'
+    ),
+    'yahoo' => array(
+        'name' => 'Yahoo'
+    ),
+    'youtube' => array(
+        'name' => 'YouTube'
+    ),
+    'vimeo' => array(
+        'name' => 'Vimeo'
+    ),
+    'weibo' => array(
+        'name' => 'Weibo'
+    ),
+    'vkontakte' => array(
+        'name' => 'VKontakte (Вконтакте)'
+    ),
+    'windowslive' => array(
+        'name' => 'Windows Live'
+    ),
+    'wordpress' => array(
+        'name' => 'Wordpress.com'
     )
 );
