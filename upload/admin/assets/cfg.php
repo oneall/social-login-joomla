@@ -119,25 +119,28 @@ $social_login_providers = array(
     'twitter' => array(
         'name' => 'Twitter'
     ),
-    'yahoo' => array(
-        'name' => 'Yahoo'
-    ),
-    'youtube' => array(
-        'name' => 'YouTube'
-    ),
     'vimeo' => array(
         'name' => 'Vimeo'
     ),
-    'weibo' => array(
-        'name' => 'Weibo'
-    ),
     'vkontakte' => array(
         'name' => 'VKontakte (Вконтакте)'
+    ),
+    'weibo' => array(
+        'name' => 'Weibo'
     ),
     'windowslive' => array(
         'name' => 'Windows Live'
     ),
     'wordpress' => array(
         'name' => 'Wordpress.com'
+    ),
+    'xing' => array(
+        'name' => 'Xing'
+    ),
+    'yahoo' => array(
+        'name' => 'Yahoo'
+    ),
+    'youtube' => array(
+        'name' => 'YouTube'
     )
 );
