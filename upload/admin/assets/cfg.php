@@ -36,6 +36,9 @@ $social_login_providers = array(
     'blogger' => array(
         'name' => 'Blogger'
     ),
+    'discord' => array(
+        'name' => 'Discord'
+    ),
     'disqus' => array(
         'name' => 'Disqus'
     ),
@@ -60,6 +63,9 @@ $social_login_providers = array(
     'instagram' => array(
         'name' => 'Instagram'
     ),
+    'line' => array(
+        'name' => 'Line'
+    ),
     'linkedin' => array(
         'name' => 'LinkedIn'
     ),
@@ -68,6 +74,9 @@ $social_login_providers = array(
     ),
     'mailru' => array(
         'name' => 'Mail.ru'
+    ),
+    'meetup' => array(
+        'name' => 'Meetup'
     ),
     'odnoklassniki' => array(
         'name' => 'Odnoklassniki'
@@ -90,14 +99,20 @@ $social_login_providers = array(
     'skyrock' => array(
         'name' => 'Skyrock.com'
     ),
+    'soundcloud' => array(
+        'name' => 'SoundCloud'
+    ),
     'stackexchange' => array(
         'name' => 'StackExchange'
     ),
     'steam' => array(
         'name' => 'Steam'
     ),
+    'tumblr' => array(
+        'name' => 'Tumblr'
+    ),
     'twitch' => array(
-        'name' => 'Twitch.tv'
+        'name' => 'Twitch'
     ),
     'twitter' => array(
         'name' => 'Twitter'
@@ -113,6 +128,9 @@ $social_login_providers = array(
     ),
     'wordpress' => array(
         'name' => 'WordPress.com'
+    ),
+    'xing' => array(
+        'name' => 'Xing'
     ),
     'yahoo' => array(
         'name' => 'Yahoo'
