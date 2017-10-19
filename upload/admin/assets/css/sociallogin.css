@@ -121,6 +121,63 @@
 }
 
 
+/* Buttons */
+.oa_social_login_provider_vimeo {
+  background-position: -2px -1px;
+}
+
+.oa_social_login_provider_blogger {
+  background-position: -39px -1px;
+}
+
+.oa_social_login_provider_facebook {
+  background-position: -76px -1px;
+}
+
+.oa_social_login_provider_foursquare {
+  background-position: -113px -1px;
+}
+
+.oa_social_login_provider_google {
+  background-position: -150px -1px;
+}
+
+.oa_social_login_provider_reddit {
+  background-position: -187px -1px;
+}
+
+.oa_social_login_provider_linkedin {
+  background-position: -224px -1px;
+}
+
+.oa_social_login_provider_windowslive {
+  background-position: -261px -1px;
+}
+
+.oa_social_login_provider_livejournal {
+  background-position: -298px -1px;
+}
+
+.oa_social_login_provider_myspace {
+  background-position: -372px -1px;
+}
+
+.oa_social_login_provider_openid {
+  background-position: -409px -1px;
+}
+
+.oa_social_login_provider_draugiem {
+  background-position: -446px -1px;
+}
+
+.oa_social_login_provider_twitter {
+  background-position: -520px -1px;
+}
+
+.oa_social_login_provider_vkontakte {
+  background-position: -631px -1px;
+}
+
 .oa_social_login_provider_wordpress {
   background-position: -668px -1px;
 }
@@ -165,70 +222,67 @@
   background-position: -1038px -1px;
 }
 
-.oa_social_login_provider_meetup {
-    background-position: -1408px -1px;
-}
-
-.oa_social_login_provider_instagram {
-    background-position: -1186px -1px;
-}
-
-.oa_social_login_provider_line {
-    background-position: -1445px -1px;
-}
-
-.oa_social_login_provider_draugiem {
-    background-position: -446px -1px;
-}
-
-.oa_social_login_provider_dribbble {
-    background-position: -1260px -1px;
-}
-
-.oa_social_login_provider_amazon {
-    background-position: -1149px -1px;
-}
-
-.oa_social_login_provider_battlenet {
-    background-position: -1223px -1px;
-}
-
-.oa_social_login_provider_pinterest {
-    background-position: -1297px -1px;
-}
-
-.oa_social_login_provider_pixelpin {
-    background-position: -1334px -1px;
-}
-
-.oa_social_login_provider_reddit {
-    background-position: -187px -1px;
-}
-
-.oa_social_login_provider_soundcloud {
-    background-position: -1482px -1px;
+.oa_social_login_provider_deviantart {
+  background-position: -1075px -1px;
 }
 
 .oa_social_login_provider_twitch {
-    background-position: -1112px -1px;
+  background-position: -1112px -1px;
 }
 
-.oa_social_login_provider_vimeo {
-    background-position: -2px -1px;
+.oa_social_login_provider_amazon {
+  background-position: -1149px -1px;
 }
 
-.oa_social_login_provider_discord {
-    background-position: -1519px -1px;
+.oa_social_login_provider_instagram {
+  background-position: -1186px -1px;
 }
 
-.oa_social_login_provider_weibo {
-    background-position: -1556px -1px;
+.oa_social_login_provider_battlenet {
+  background-position: -1223px -1px;
 }
 
-.oa_social_login_provider_tumblr {
-    background-position: -1593px -1px;
+.oa_social_login_provider_dribbble {
+  background-position: -1260px -1px;
+}
+
+.oa_social_login_provider_pinterest {
+  background-position: -1297px -1px;
+}
+
+.oa_social_login_provider_pixelpin {
+  background-position: -1334px -1px;
+}
+
+.oa_social_login_provider_storage {
+  background-position: -1371px -1px;
+}
+
+.oa_social_login_provider_meetup {
+  background-position: -1408px -1px;
 }
 
 .oa_social_login_provider_xing {
     background-position: -483px -1px;
 }
+
+.oa_social_login_provider_line {
+  background-position: -1445px -1px;
+}
+
+.oa_social_login_provider_soundcloud {
+  background-position: -1482px -1px;
+}
+
+.oa_social_login_provider_discord {
+  background-position: -1519px -1px;
+}
+
+.oa_social_login_provider_weibo {
+  background-position: -1556px -1px;
+}
+
+.oa_social_login_provider_tumblr {
+  background-position: -1593px -1px;
+}
+
