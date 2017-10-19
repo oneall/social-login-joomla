@@ -16,34 +16,39 @@ new users and provides permission-based social data retrieved from the social ne
 
 ## Supported Social Networks
 * Amazon
-* Battle
+* Battle.net
 * Blogger
+* Cloud Storage
 * Disqus
 * Draugiem
 * Dribbble
 * Facebook
 * Foursquare
-* Github
+* Github.com
 * Google
 * Instagram
+* Line
 * LinkedIn
 * LiveJournal
-* Mail
+* Mail.ru
+* Meetup
 * Odnoklassniki
 * OpenID
 * PayPal
 * Pinterest
 * PixelPin
 * Reddit
-* Skyrock
+* Skyrock.com
+* SoundCloud
 * StackExchange
 * Steam
-* Twitch
+* Twitch.tv
 * Twitter
 * Vimeo
 * VKontakte
-* Windows
-* WordPress
+* Windows Live
+* WordPress.com
+* XING
 * Yahoo
 * YouTube
 
