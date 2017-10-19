@@ -36,7 +36,7 @@ if (empty($this->settings['api_settings_verified']))
 						Make your Joomla Portal social!
 					</div>
 					<div class="row">
-						Allow your users to comment, login and register with social networks like Twitter, Facebook, LinkedIn, Hyves, Вконтакте, Google or Yahoo.
+						Allow your users to comment, login and register with social networks like Twitter, Facebook, LinkedIn,  Вконтакте, Google or Yahoo.
 						<strong>Draw a larger audience and increase user engagement in a  few simple steps.</strong>
 					</div>
 					<div class="row">

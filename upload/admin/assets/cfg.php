@@ -55,10 +55,6 @@ $social_login_providers = array(
         'name' => 'Wordpress.com',
         'default_enabled' => true
     ),
-    'hyves' => array(
-        'name' => 'Hyves',
-        'default_enabled' => false
-    ),
     'paypal' => array(
         'name' => 'PayPal',
         'default_enabled' => false
