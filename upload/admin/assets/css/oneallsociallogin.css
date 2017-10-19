@@ -30,7 +30,7 @@
 }
 
 .oa_social_login_provider {
-    background-image: url("../img/provider_sprite_35_35.png");
+    background-image: url("../img/sprite_35_35.png");
     text-indent: -9999px;
     height: 35px;
     width: 35px;
@@ -165,6 +165,7 @@
     padding-bottom: 0 !important;
     background-color: #E1EDFF;
 }
+
 
 
 
