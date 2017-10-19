@@ -24,7 +24,13 @@
  
 CHANGELOG
 
-2.4
+5.3.0
+* Discord added
+* Tumblr added
+* Weibo added
+* Cloud Storage removed
+
+5.2.4
 * Meetup added
 * Soundcloud added
 * Line added
@@ -34,12 +40,12 @@ CHANGELOG
 * Undefined index language fixed
 * User registration disabled message fixed
 
-2.1
+5.2.1
 * Removing unallowed characters from username
 
-2.0
+5.2.0
 * Asynchronous JavaScript
 * Renamed from SocialLogin to OneallSocialLogin
 
-1.0
+4.0
 * Initial port from Joomla 2.5 to 3.0
