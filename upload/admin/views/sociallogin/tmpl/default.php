@@ -138,7 +138,7 @@ foreach ($this->providers as $key => $provider_data)
 {
     ?>
 						<div class="row <?php echo ((($i++) % 2) == 0) ? 'row_even' : 'row_odd' ?> row_provider">
-							<label class="provider_icon" for="oneall_social_login_provider_<?php echo $key; ?>"><span class="oa_provider oa_provider_<?php echo $key; ?>" title="<?php echo htmlspecialchars($provider_data['name']); ?>"><?php echo htmlspecialchars($provider_data['name']); ?></span></label>
+							<label class="provider_icon" for="oneall_social_login_provider_<?php echo $key; ?>"><span class="oa_provider oa_social_login_provider_<?php echo $key; ?>" title="<?php echo htmlspecialchars($provider_data['name']); ?>"><?php echo htmlspecialchars($provider_data['name']); ?></span></label>
 							<input class="provider_check" type="checkbox" id="oneall_social_login_provider_<?php echo $key; ?>" name="settings[providers][<?php echo $key; ?>]" value="1" <?php echo (in_array($key, $this->settings['providers']) ? 'checked="checked"' : ''); ?> />
 							<label class="provider_name" for="oneall_social_login_provider_<?php echo $key; ?>"><?php echo htmlspecialchars($provider_data['name']); ?></label>
 							<div class="clr"></div>
