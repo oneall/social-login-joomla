@@ -5,7 +5,7 @@
 * [Social Login for Joomla 2.5+](https://github.com/oneall/social-login-joomla/tree/joomla/2.5+)
 * [Social Login for Joomla 3.0+](https://github.com/oneall/social-login-joomla/tree/joomla/3.0+)
 
-# Social Login 3.1.122 for Joomla 1.7+
+# Social Login 3.2.0 for Joomla 1.7+
 
 Social Login for Joomla allows your users to login and register with 35+ social networks. 
 It increases your Joomla user registration rate by simplifying the registration process for 
@@ -15,27 +15,44 @@ new users and provides permission-based social data retrieved from the social ne
 * [Social Login Installation guide](http://docs.oneall.com/plugins/guide/social-login-joomla/)
 
 ## Supported Social Networks
-* Facebook
-* Twitter
-* Google
-* LinkedIn
-* Yahoo
-* Github.com
-* Foursquare
-* YouTube
-* Skyrock.com		
-* OpenID
-* WordPress.com
-* PayPal
-* LiveJournal
-* Steam
-* Windows Live
+* Amazon
+* BattleNet
 * Blogger
+* Draugiem
+* Dribbble
+* Discord
 * Disqus
-* StackExchange
-* VKontakte
-* Odnoklassniki
+* Facebook
+* Foursquare
+* Github.com
+* Google
+* Instagram
+* Line
+* LinkedIn
+* LiveJournal
 * Mail.ru
+* Meetup
+* Odnoklassniki
+* OpenID
+* PayPal
+* Pinterest
+* PixelPin
+* Reddit
+* Skyrock.com		
+* SoundCloud		
+* StackExchange
+* Steam
+* Tumblr
+* Twitch.tv
+* Twitter
+* Vimeo
+* VKontakte
+* Weibo
+* Windows Live
+* WordPress.com
+* Xing
+* Yahoo
+* YouTube
 
 
 ## About Us

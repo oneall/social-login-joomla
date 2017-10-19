@@ -4,3 +4,25 @@ All notable changes to this project will be documented in this file. This projec
 
 
 ## [Unreleased]
+
+## [3.2.0] - 2017-10-19
+### Added
+New providers added :
+- Amazon
+- BattleNet
+- Draugiem
+- Dribbble
+- Discord
+- Instagram
+- Line
+- Meetup
+- Pinterest
+- PixelPin
+- Reddit
+- SoundCloud		
+- Tumblr
+- Twitch.tv
+- Xing
+- Vimeo
+- Weibo
+

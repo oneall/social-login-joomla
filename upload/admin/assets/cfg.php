@@ -27,44 +27,152 @@
  * Supported Providers
  */
 $social_login_providers = array(
+    'amazon' => array(
+        'name' => 'Amazon',
+        'default_enabled' => false
+    ),
+    'battlenet' => array(
+        'name' => 'BattleNet',
+        'default_enabled' => false
+    ),
+    'blogger' => array(
+        'name' => 'Blogger',
+        'default_enabled' => false
+    ),
+    'discord' => array(
+        'name' => 'Discord',
+        'default_enabled' => false
+    ),
+    'disqus' => array(
+        'name' => 'Disqus',
+        'default_enabled' => false
+    ),
+    'draugiem' => array(
+        'name' => 'Draugiem',
+        'default_enabled' => false
+    ),
+    'dribble' => array(
+        'name' => 'Dribbble',
+        'default_enabled' => false
+    ),
     'facebook' => array(
         'name' => 'Facebook',
         'default_enabled' => true
     ),
-    'twitter' => array(
-        'name' => 'Twitter',
-        'default_enabled' => true
+    'foursquare' => array(
+        'name' => 'Foursquare',
+        'default_enabled' => false
+    ),
+    'github' => array(
+        'name' => 'Github.com',
+        'default_enabled' => false
     ),
     'google' => array(
         'name' => 'Google',
         'default_enabled' => true
     ),
+    'instagram' => array(
+        'name' => 'Instagram',
+        'default_enabled' => false
+    ),
+    'line' => array(
+        'name' => 'Line',
+        'default_enabled' => false
+    ),
     'linkedin' => array(
         'name' => 'LinkedIn',
         'default_enabled' => true
-    ),
-    'yahoo' => array(
-        'name' => 'Yahoo',
-        'default_enabled' => true
-    ),
-    'openid' => array(
-        'name' => 'OpenID',
-        'default_enabled' => true
-    ),
-    'wordpress' => array(
-        'name' => 'Wordpress.com',
-        'default_enabled' => true
-    ),
-    'paypal' => array(
-        'name' => 'PayPal',
-        'default_enabled' => false
     ),
     'livejournal' => array(
         'name' => 'LiveJournal',
         'default_enabled' => false
     ),
+    'mailru' => array(
+        'name' => 'Mail.ru',
+        'default_enabled' => false
+    ),
+    'meetup' => array(
+        'name' => 'Meetup',
+        'default_enabled' => false
+    ),
+    'odnoklassniki' => array(
+        'name' => 'Odnoklassniki.ru',
+        'default_enabled' => false
+    ),
+    'openid' => array(
+        'name' => 'OpenID',
+        'default_enabled' => false
+    ),
+    'paypal' => array(
+        'name' => 'PayPal',
+        'default_enabled' => false
+    ),
+    'pinterest' => array(
+        'name' => 'Pinterest',
+        'default_enabled' => false
+    ),
+    'pixelpin' => array(
+        'name' => 'PixelPin',
+        'default_enabled' => false
+    ),
+    'reddit' => array(
+        'name' => 'Reddit',
+        'default_enabled' => false
+    ),
+    'skyrock' => array(
+        'name' => 'Skyrock.com',
+        'default_enabled' => false
+    ),
+    'soundcloud' => array(
+        'name' => 'SoundCloud',
+        'default_enabled' => false
+    ),
+    'stackexchange' => array(
+        'name' => 'StackExchange',
+        'default_enabled' => false
+    ),
+    'steam' => array(
+        'name' => 'Steam Community',
+        'default_enabled' => false
+    ),
+    'tumblr' => array(
+        'name' => 'Tumblr',
+        'default_enabled' => false
+    ),
+    'twitch' => array(
+        'name' => 'Twitch',
+        'default_enabled' => false
+    ),
+    'twitter' => array(
+        'name' => 'Twitter',
+        'default_enabled' => true
+    ),
+    'yahoo' => array(
+        'name' => 'Yahoo',
+        'default_enabled' => false
+    ),
+    'youtube' => array(
+        'name' => 'YouTube',
+        'default_enabled' => false
+    ),
+    'vimeo' => array(
+        'name' => 'Vimeo',
+        'default_enabled' => false
+    ),
+    'weibo' => array(
+        'name' => 'Weibo',
+        'default_enabled' => false
+    ),
     'vkontakte' => array(
-        'name' => 'VKontakte (Вконтактеµ)',
+        'name' => 'VKontakte (Вконтакте)',
+        'default_enabled' => false
+    ),
+    'windowslive' => array(
+        'name' => 'Windows Live',
+        'default_enabled' => false
+    ),
+    'wordpress' => array(
+        'name' => 'Wordpress.com',
         'default_enabled' => false
     )
 );
