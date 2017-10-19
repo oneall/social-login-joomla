@@ -1,0 +1,234 @@
+.error_message {
+ color: red;
+ font-weight: bold;
+}
+
+.success_message {
+ color: green;
+ font-weight: bold;
+}
+
+.oa_provider {
+ background-image: url("../img/sprite_35_35.png");
+ text-indent: -9999px;
+ height: 35px;
+ width: 35px;
+ display: inline-block;
+}
+
+.social_login_form {
+ width: 650px;
+ padding: 0;
+ background-color: #fff;
+}
+
+.social_login_form a {
+ text-decoration: underline !important;
+}
+
+.social_login_form .blank a {
+ text-decoration: none !important;
+ padding: 0 15px !important;
+ font-weight: bold;
+}
+
+.social_login_form a:hover {
+ text-decoration: none !important;;
+}
+
+.social_login_form legend {
+ margin-left: 10px;
+ line-height: 30px;
+}
+
+.social_login_form .row {
+ padding: 5px 10px;
+ font-size: 12px;
+ clear: both;
+ overflow: hidden;
+}
+
+.social_login_form .row_provider {
+ line-height: 40px;
+}
+
+.social_login_form .row_provider .provider_icon {
+ float: left;
+ clear: none;
+ cursor: pointer;
+}
+
+.social_login_form .row_provider .provider_check {
+ float: left;
+ clear: none;
+ margin: 15px;
+}
+
+.social_login_form .row_provider .provider_name {
+ clear: none;
+ float: left;
+ margin: 0;
+ padding: 0;
+ cursor: pointer;
+}
+
+.social_login_form .row_odd {
+ background-color: #e7e7e7;
+ color: #222;
+}
+
+.social_login_form .row_even {
+ background-color: #fff;
+}
+
+.social_login_form .row_title {
+ font-size: 14px;
+ font-weight: bold;
+ margin-top: 15px;
+}
+
+.social_login_form .row_button {
+ background-color: #F6F6F6;
+ border-top: 1px dotted #ddd;
+ margin-top: 14px;
+ padding: 5px 10px;
+}
+
+.social_login_form .row_description {
+ padding: 5px 0 10px 10px;
+ font-weight: bold;
+}
+
+.social_login_form_info {
+ background-color: #FFFFE0;
+}
+
+.social_login_form_info .row {
+ padding: 0 10px 10px !important;
+}
+
+.social_login_form_welcome {
+ background-color: #E1EDFF;
+}
+
+.social_login_form_welcome .row {
+ margin-bottom: 10px;
+}
+
+.social_login_form_welcome .row_button {
+ padding-bottom: 0 !important;
+ background-color: #E1EDFF;
+}
+
+
+.oa_social_login_provider_wordpress {
+  background-position: -668px -1px;
+}
+
+.oa_social_login_provider_yahoo {
+  background-position: -705px -1px;
+}
+
+.oa_social_login_provider_paypal {
+  background-position: -742px -1px;
+}
+
+.oa_social_login_provider_stackexchange {
+  background-position: -779px -1px;
+}
+
+.oa_social_login_provider_steam {
+  background-position: -816px -1px;
+}
+
+.oa_social_login_provider_mailru {
+  background-position: -853px -1px;
+}
+
+.oa_social_login_provider_skyrock {
+  background-position: -890px -1px;
+}
+
+.oa_social_login_provider_github {
+  background-position: -927px -1px;
+}
+
+.oa_social_login_provider_disqus {
+  background-position: -964px -1px;
+}
+
+.oa_social_login_provider_youtube {
+  background-position: -1001px -1px;
+}
+
+.oa_social_login_provider_odnoklassniki {
+  background-position: -1038px -1px;
+}
+
+.oa_social_login_provider_meetup {
+    background-position: -1408px -1px;
+}
+
+.oa_social_login_provider_instagram {
+    background-position: -1186px -1px;
+}
+
+.oa_social_login_provider_line {
+    background-position: -1445px -1px;
+}
+
+.oa_social_login_provider_draugiem {
+    background-position: -446px -1px;
+}
+
+.oa_social_login_provider_dribbble {
+    background-position: -1260px -1px;
+}
+
+.oa_social_login_provider_amazon {
+    background-position: -1149px -1px;
+}
+
+.oa_social_login_provider_battlenet {
+    background-position: -1223px -1px;
+}
+
+.oa_social_login_provider_pinterest {
+    background-position: -1297px -1px;
+}
+
+.oa_social_login_provider_pixelpin {
+    background-position: -1334px -1px;
+}
+
+.oa_social_login_provider_reddit {
+    background-position: -187px -1px;
+}
+
+.oa_social_login_provider_soundcloud {
+    background-position: -1482px -1px;
+}
+
+.oa_social_login_provider_twitch {
+    background-position: -1112px -1px;
+}
+
+.oa_social_login_provider_vimeo {
+    background-position: -2px -1px;
+}
+
+.oa_social_login_provider_discord {
+    background-position: -1519px -1px;
+}
+
+.oa_social_login_provider_weibo {
+    background-position: -1556px -1px;
+}
+
+.oa_social_login_provider_tumblr {
+    background-position: -1593px -1px;
+}
+
+.oa_social_login_provider_xing {
+    background-position: -483px -1px;
+}
