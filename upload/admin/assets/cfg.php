@@ -132,9 +132,6 @@ $social_login_providers = array(
     'wordpress' => array(
         'name' => 'WordPress.com'
     ),
-    'xing' => array(
-        'name' => 'XING'
-    ),
     'yahoo' => array(
         'name' => 'Yahoo'
     ),
