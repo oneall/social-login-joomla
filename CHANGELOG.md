@@ -22,7 +22,6 @@ New providers added :
 - SoundCloud		
 - Tumblr
 - Twitch.tv
-- Xing
 - Vimeo
 - Weibo
 
