@@ -52,7 +52,6 @@ new users and provides permission-based social data retrieved from the social ne
 * Weibo
 * Windows Live
 * WordPress.com
-* Xing
 * Yahoo
 * YouTube
 
