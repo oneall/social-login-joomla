@@ -14,4 +14,3 @@ New providers added :
 - SoundCloud		
 - Tumblr
 - Weibo
-- Xing

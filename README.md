@@ -50,7 +50,6 @@ new users and provides permission-based social data retrieved from the social ne
 * Weibo
 * Windows
 * WordPress
-* Xing
 * Yahoo
 * YouTube
 
