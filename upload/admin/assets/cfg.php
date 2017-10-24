@@ -147,14 +147,6 @@ $social_login_providers = array(
         'name' => 'Twitter',
         'default_enabled' => true
     ),
-    'yahoo' => array(
-        'name' => 'Yahoo',
-        'default_enabled' => false
-    ),
-    'youtube' => array(
-        'name' => 'YouTube',
-        'default_enabled' => false
-    ),
     'vimeo' => array(
         'name' => 'Vimeo',
         'default_enabled' => false
@@ -173,6 +165,18 @@ $social_login_providers = array(
     ),
     'wordpress' => array(
         'name' => 'Wordpress.com',
+        'default_enabled' => false
+    ),
+    'xing' => array(
+        'name' => 'Xing',
+        'default_enabled' => false
+    ),
+    'yahoo' => array(
+        'name' => 'Yahoo',
+        'default_enabled' => false
+    ),
+    'youtube' => array(
+        'name' => 'YouTube',
         'default_enabled' => false
     )
 );

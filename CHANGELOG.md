@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [3.3.0] - 2017-10-24
+### Added
+New provider added :
+- Xing
+
 ## [3.2.0] - 2017-10-19
 ### Added
 New providers added :
