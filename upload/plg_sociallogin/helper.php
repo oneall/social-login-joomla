@@ -29,7 +29,7 @@ defined('_JEXEC') or die('Direct Access to this location is not allowed.');
  */
 class plgSystemSocialLoginHelper
 {
-    const version = 'SocialLogin/2.1.122 Joomla/1.6 (+http://www.oneall.com/)';
+    const version = 'SocialLogin/2.3.0 Joomla/1.6 (+http://www.oneall.com/)';
 
     /**
      * Check if username exists
