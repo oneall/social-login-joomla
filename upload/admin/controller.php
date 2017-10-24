@@ -30,7 +30,7 @@ jimport('joomla.application.component.controller');
  */
 class SocialLoginController extends JController
 {
-    const version = 'SocialLogin/1.2.0 Joomla/1.5 (+http://www.oneall.com/)';
+    const version = 'SocialLogin/1.3.0 Joomla/1.5 (+http://www.oneall.com/)';
 
     /**
      * Display task

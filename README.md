@@ -7,7 +7,7 @@
 
 
 
-# Social Login 1.2.0 for Joomla 1.5+
+# Social Login 1.3.0 for Joomla 1.5+
 
 Social Login for Joomla allows your users to login and register with 35+ social networks. 
 It increases your Joomla user registration rate by simplifying the registration process for 
@@ -52,6 +52,7 @@ new users and provides permission-based social data retrieved from the social ne
 * Weibo
 * Windows Live
 * WordPress.com
+* Xing
 * Yahoo
 * YouTube
 
