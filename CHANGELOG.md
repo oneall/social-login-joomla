@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [5.4.1] - 2018-01-12
+### Fixed
+* Trigger 'onUserAfterLogin' event after a successful login
+
 ## [5.4.0] - 2017-10-19
 ### Added
 New provider added :

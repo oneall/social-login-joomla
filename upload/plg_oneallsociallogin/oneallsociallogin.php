@@ -360,14 +360,26 @@ class plgSystemOneAllSocialLogin extends JPlugin
 
                         $response = new stdClass();
                         $response->username = $result->username;
-                        $result = $app->triggerEvent('onUserLogin', array(
-                            (array) $response,
-                            $options
-                        ));
+                        $response->fullname = $result->username;
+                        $response->password = $result->password;
+                        $response->type = 'oneall-social-login';
+                        $response->status = \JAuthentication::STATUS_SUCCESS;
 
-                        // Done
+                        $loginResult = $app->triggerEvent('onUserLogin', array((array) $response, $options));
 
+                        $user = \JFactory::getUser();
+                        if (in_array(false, $loginResult, true) == false)
+                        {
+                            $options['user'] = $user;
+                            $options['responseType'] = $response->type;
+
+                            // The user is successfully logged in. Run the after login events
+                            $app->triggerEvent('onUserAfterLogin', array($options));
+                        }
+
+                        //Done
                         return true;
+
                     }
                 }
             }
