@@ -1,8 +1,8 @@
 ## Available Versions
-* [Social Login for Joomla 1.5+](https://github.com/oneall/social-login-joomla/tree/joomla/1.5+)
+* [Social Login for Joomla 1.5](https://github.com/oneall/social-login-joomla/tree/joomla/1.5+)
 * [Social Login for Joomla 1.6+](https://github.com/oneall/social-login-joomla/tree/joomla/1.6+)
 * [Social Login for Joomla 1.7+](https://github.com/oneall/social-login-joomla/tree/joomla/1.7+)
-* [Social Login for Joomla 2.5+](https://github.com/oneall/social-login-joomla/tree/joomla/2.5+)
+* [Social Login for Joomla 2.5-2.9.x](https://github.com/oneall/social-login-joomla/tree/joomla/2.5-2.9.x)
 * **Social Login for Joomla 3.0+**
 
 # Social Login 5.5.0 for Joomla 3.0+
