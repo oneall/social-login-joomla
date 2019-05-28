@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [4.5.0] - 2019-05-28
+### Added
+New provider added :
+- Mixer
+
 ## [4.4.0] - 2017-10-24
 ### Added
 New provider added :
