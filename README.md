@@ -5,9 +5,9 @@
 * [Social Login for Joomla 2.5+](https://github.com/oneall/social-login-joomla/tree/joomla/2.5+)
 * **Social Login for Joomla 3.0+**
 
-# Social Login 5.4.0 for Joomla 3.0+
+# Social Login 5.5.0 for Joomla 3.0+
 
-Social Login for Joomla allows your users to login and register with 35+ social networks. 
+Social Login for Joomla allows your users to login and register with 40+ social networks. 
 It increases your Joomla user registration rate by simplifying the registration process for 
 new users and provides permission-based social data retrieved from the social network profiles.
 
@@ -32,6 +32,7 @@ new users and provides permission-based social data retrieved from the social ne
 * LiveJournal
 * Mail.ru
 * Meetup
+* Mixer
 * Odnoklassniki
 * OpenID
 * PayPal

@@ -24,6 +24,9 @@
  
 CHANGELOG
 
+5.5.0
+* Mixer added
+
 5.4.0
 * Xing added
 

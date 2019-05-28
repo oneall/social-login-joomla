@@ -78,6 +78,9 @@ $social_login_providers = array(
     'meetup' => array(
         'name' => 'Meetup'
     ),
+    'mixer' => array(
+        'name' => 'Mixer'
+    ),
     'odnoklassniki' => array(
         'name' => 'Odnoklassniki'
     ),

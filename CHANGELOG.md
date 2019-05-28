@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [5.5.0] - 2019-05-28
+### Added
+New provider added :
+- Mixer
+
 ## [5.4.1] - 2018-01-12
 ### Fixed
 * Trigger 'onUserAfterLogin' event after a successful login

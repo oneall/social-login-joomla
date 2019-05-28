@@ -41,7 +41,7 @@ if (!JFile::exists(dirname(__FILE__) . DS . 'helper.php'))
 }
 require_once dirname(__FILE__) . DS . 'helper.php';
 
-define('OA_USERAGENT', 'SocialLogin/5.4.0 Joomla/3.0 (+http://www.oneall.com/)');
+define('OA_USERAGENT', 'SocialLogin/5.5.0 Joomla/3.0 (+http://www.oneall.com/)');
 class plgSystemOneAllSocialLogin extends JPlugin
 {
     /**
@@ -378,8 +378,8 @@ class plgSystemOneAllSocialLogin extends JPlugin
                         }
 
                         //Done
-                        return true;
 
+                        return true;
                     }
                 }
             }
