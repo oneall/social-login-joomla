@@ -30,7 +30,7 @@ jimport('joomla.application.component.controller');
  */
 class SocialLoginController extends JController
 {
-    const USER_AGENT = 'SocialLogin/4.5.0 Joomla/2.5 (+http://www.oneall.com/)';
+    const USER_AGENT = 'SocialLogin/4.6.0 Joomla/2.5 (+http://www.oneall.com/)';
 
     /**
      * Display task
