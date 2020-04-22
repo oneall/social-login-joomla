@@ -24,6 +24,9 @@
  
 CHANGELOG
 
+5.6.0
+* Patreon added
+
 5.5.0
 * Mixer added
 
