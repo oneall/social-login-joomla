@@ -30,6 +30,9 @@ $social_login_providers = array(
     'amazon' => array(
         'name' => 'Amazon'
     ),
+    'apple' => array(
+        'name' => 'Apple'
+    ),
     'battlenet' => array(
         'name' => 'Battle.net'
     ),
