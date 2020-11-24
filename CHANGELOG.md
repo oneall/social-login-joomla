@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [4.6.0] - 2020-11-24
+### Added
+New provider added :
+- Apple
+
 ## [4.6.0] - 2020-04-22
 ### Added
 New provider added :
