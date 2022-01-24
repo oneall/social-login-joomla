@@ -24,6 +24,12 @@
   
 CHANGELOG
 
+5.8.0
+* Epic Games added
+* Spotify added
+* Strava added
+* Yandex added
+
 5.7.0
 * Apple added
 

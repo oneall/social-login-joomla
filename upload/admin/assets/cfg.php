@@ -51,6 +51,9 @@ $social_login_providers = array(
     'dribbble' => array(
         'name' => 'Dribbble'
     ),
+    'epicgames' => array(
+        'name' => 'Epic Games'
+    ),
     'facebook' => array(
         'name' => 'Facebook'
     ),
@@ -111,11 +114,17 @@ $social_login_providers = array(
     'soundcloud' => array(
         'name' => 'SoundCloud'
     ),
+    'spotify' => array(
+        'name' => 'Spotify'
+    ),
     'stackexchange' => array(
         'name' => 'StackExchange'
     ),
     'steam' => array(
         'name' => 'Steam'
+    ),
+    'strava' => array(
+        'name' => 'Strava'
     ),
     'tumblr' => array(
         'name' => 'Tumblr'
@@ -146,6 +155,9 @@ $social_login_providers = array(
     ),
     'yahoo' => array(
         'name' => 'Yahoo'
+    ),
+    'yandex' => array(
+        'name' => 'Yandex'
     ),
     'youtube' => array(
         'name' => 'YouTube'
