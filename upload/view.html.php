@@ -1,8 +1,8 @@
 <?php
 /**
- * @package   	OneAll Social Login
- * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
- * @license   	GNU/GPL 2 or later
+ * @package       OneAll Social Login
+ * @copyright     Copyright 2011-Today http://www.oneall.com, all rights reserved
+ * @license       GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -22,58 +22,58 @@
  * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  */
-defined ('_JEXEC') or die ('Restricted access');
-jimport ('joomla.application.component.view');
+defined('_JEXEC') or die('Restricted access');
+jimport('joomla.application.component.view');
 
 /**
  * OneallSocialLogin View
  */
 class oneallsocialloginViewOneAllSocialLogin extends JViewLegacy
 {
-	// Config
-	public $settings;
-	public $providers;
+    // Config
+    public $settings;
+    public $providers;
 
-	/**
-	 * OneAllSocialLogin - Display administration area
-	 *
-	 * @return void
-	 */
-	public function display ($tpl = null)
-	{
-		// Require settings
-		require_once (JPATH_BASE . '/components/com_oneallsociallogin/assets/cfg.php');
+    /**
+     * OneAllSocialLogin - Display administration area
+     *
+     * @return void
+     */
+    public function display($tpl = null)
+    {
+        // Require settings
+        require_once JPATH_BASE . '/components/com_oneallsociallogin/assets/cfg.php';
 
-		// Build document
-		$document = JFactory::getDocument ();
-		$document->addStyleSheet ('components/com_oneallsociallogin/assets/css/oneallsociallogin.css');
-		$document->addScript ('components/com_oneallsociallogin/assets/js/jquery.js');
-		$document->addScript ('components/com_oneallsociallogin/assets/js/oneallsociallogin.js');
+        // Build document
+        $document = JFactory::getDocument();
+        $document->addStyleSheet('components/com_oneallsociallogin/assets/css/oneallsociallogin.css');
+        $document->addScript('components/com_oneallsociallogin/assets/js/jquery.js');
+        $document->addScript('components/com_oneallsociallogin/assets/js/oneallsociallogin.js');
 
-		// Read settings
-		$model = $this->getModel ();
-		$this->settings = $model->getSettings ();
+        // Read settings
+        $model = $this->getModel();
+        $this->settings = $model->getSettings();
 
-		// Read providers
-		$this->providers = $social_login_providers;
+        // Read providers
+        $this->providers = $social_login_providers;
 
-		// Build page
-		$this->form = $this->get ('Form');
-		$this->addToolbar ();
+        // Build page
+        $this->form = $this->get('Form');
+        $this->addToolbar();
 
-		// Display the template
-		parent::display ($tpl);
-	}
+        // Display the template
+        parent::display($tpl);
+    }
 
-	/**
-	 * OneAllSocialLogin - Add Toolbar
-	 *
-	 * @return void
-	 */
-	protected function addToolbar ()
-	{
-		JRequest::setVar ('hidemainmenu', false);
-		JToolBarHelper::title (JText::_ ('Social Login Configuration'), 'weblinks.png');
-		JToolBarHelper::apply ('apply');
-	}
+    /**
+     * OneAllSocialLogin - Add Toolbar
+     *
+     * @return void
+     */
+    protected function addToolbar()
+    {
+        Joomla\CMS\Factory::getApplication()->getInput()->set('hidemainmenu', false);
+        JToolBarHelper::title(JText::_('Social Login Configuration'), 'weblinks.png');
+        JToolBarHelper::apply('apply');
+    }
 }
