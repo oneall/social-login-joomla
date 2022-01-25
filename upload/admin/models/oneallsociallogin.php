@@ -70,14 +70,14 @@ class OneAllSocialLoginModelOneAllSocialLogin extends JModelList
         // Remove current settings
         $sql = "DELETE FROM #__oasl_settings WHERE setting <> 'api_settings_verified'";
         $db->setQuery($sql);
-        $db->query();
+        $db->execute();
 
         // Insert new settings
         foreach ($settings as $k => $v)
         {
             $sql = "INSERT INTO #__oasl_settings ( setting, value )" . " VALUES ( " . $db->Quote($k) . ", " . $db->Quote($v) . " )";
             $db->setQuery($sql);
-            $db->query();
+            $db->execute();
         }
     }
 
@@ -134,11 +134,11 @@ class OneAllSocialLoginModelOneAllSocialLogin extends JModelList
         // Delete setting
         $sql = "DELETE FROM #__oasl_settings WHERE setting = " . $db->Quote($key) . "";
         $db->setQuery($sql);
-        $db->query();
+        $db->execute();
 
         // Insert new value
         $sql = "INSERT INTO #__oasl_settings ( setting, value )" . " VALUES ( " . $db->Quote($key) . ", " . $db->Quote($value) . " )";
         $db->setQuery($sql);
-        $db->query();
+        $db->execute();
     }
 }
