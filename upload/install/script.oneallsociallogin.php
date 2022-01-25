@@ -23,6 +23,7 @@
  *
  */
 defined('_JEXEC') or die('Direct Access to this location is not allowed.');
+
 jimport('joomla.filesystem.folder');
 jimport('joomla.filesystem.file');
 class Com_OneAllSocialLoginInstallerScript
