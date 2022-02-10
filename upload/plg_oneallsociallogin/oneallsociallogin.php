@@ -35,7 +35,7 @@ if (!defined('DS'))
 // Check if plugin correctly installed
 if (!JFile::exists(dirname(__FILE__) . DS . 'helper.php'))
 {
-    JFactory::getApplication()->enqueueMessage(JText::_('The OneAll Social Login plugin is not installed correctly. Plugin not executed'), 'info');
+    JFactory::getApplication()->enqueueMessage(JText::_('The OneAll Social Login plugin is not installed correctly. Plugin not executed'), 'INFO');
 
     return;
 }
@@ -55,7 +55,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
         // Check settings
         if (empty($settings['api_subdomain']) or empty($settings['api_key']) or empty($settings['api_secret']))
         {
-            JFactory::getApplication()->enqueueMessage(JText::_('The OneAll Social Login API settings are missing. Please correct these in the Joomla administration area.'), 'info');
+            JFactory::getApplication()->enqueueMessage(JText::_('The OneAll Social Login API settings are missing. Please correct these in the Joomla administration area.'), 'INFO');
 
             return;
         }
@@ -206,7 +206,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
                 // Make sure user registration is allowed.
                 if ($usersParams->get('allowUserRegistration') == '0' && !$usersParams->get('override_allow_user_registration', 0))
                 {
-                    JFactory::getApplication()->enqueueMessage(JText::_('Sorry, but your account could not be created as the registration of new users has been disabled by the administrator of this website.'), 'error');
+                    JFactory::getApplication()->enqueueMessage(JText::_('Sorry, but your account could not be created as the registration of new users has been disabled by the administrator of this website.'), 'ERROR');
 
                     return false;
                 }
@@ -276,7 +276,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
                 // Bind the data to the JUser Object
                 if (!$user->bind($data))
                 {
-                    JFactory::getApplication()->enqueueMessage(JText::_('Could not bind data to user') . ': ' . JText::_($user->getError()), 'warning');
+                    JFactory::getApplication()->enqueueMessage(JText::_('Could not bind data to user') . ': ' . JText::_($user->getError()), 'WARNING');
 
                     return false;
                 }
@@ -284,7 +284,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
                 // Save the user
                 if (!$user->save())
                 {
-                    JFactory::getApplication()->enqueueMessage(JText::_('Could not create user') . ': ' . JText::_($user->getError()), 'warning');
+                    JFactory::getApplication()->enqueueMessage(JText::_('Could not create user') . ': ' . JText::_($user->getError()), 'WARNING');
 
                     return false;
                 }
@@ -323,21 +323,6 @@ class plgSystemOneAllSocialLogin extends JPlugin
                         // Setup options
                         $options = array();
                         $options['action'] = 'core.login.site';
-
-                        // Return to the original URL
-                        /*
-                         * if ( ! empty ($_REQUEST['return']))
-                         * {
-                         * $url = base64_decode (urldecode ($_REQUEST['return']));
-                         *
-                         * //Registration
-                         * $settings['redirect_register_url'] = $url;
-                         *
-                         * //Login
-                         * $settings['redirect_login_url'] = $url;
-                         *
-                         * }
-                         */
 
                         // Setup return url for new users
                         if ($new_user === true)
