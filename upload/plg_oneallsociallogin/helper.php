@@ -1,8 +1,8 @@
 <?php
 /**
- * @package   	OneAll Social Login Plugin
- * @copyright 	Copyright 2011-Today http://www.oneall.com, all rights reserved
- * @license   	GNU/GPL 2 or later
+ * @package       OneAll Social Login Plugin
+ * @copyright     Copyright 2011-Today http://www.oneall.com, all rights reserved
+ * @license       GNU/GPL 2 or later
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -22,369 +22,378 @@
  * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  */
-defined ('_JEXEC') or die ('Direct Access to this location is not allowed.');
+defined('_JEXEC') or die('Direct Access to this location is not allowed.');
 
 /**
  * OneAllSocialLogin Plugin Helper
  */
 class plgSystemOneAllSocialLoginHelper
 {
+    /**
+     * Check if the given username exists
+     */
+    public static function usernameExists($username)
+    {
+        // Database handler
+        $db = JFactory::getDBO();
 
-	/**
-	 * Check if the given username exists
-	 */
-	public static function usernameExists ($username)
-	{
-		// Database handler
-		$db = JFactory::getDBO ();
+        // Get user for username
+        $sql = "SELECT id FROM #__users WHERE username = " . $db->quote($username);
+        $db->setQuery($sql);
+        $user_id = $db->loadResult();
 
-		// Get user for username
-		$sql = "SELECT id FROM #__users WHERE username = " . $db->quote ($username);
-		$db->setQuery ($sql);
-		$user_id = $db->loadResult ();
+        // Done
 
-		// Done
-		return (!empty ($user_id) and is_numeric ($user_id));
-	}
+        return (!empty($user_id) and is_numeric($user_id));
+    }
 
-	/**
-	 * Check if the given email exists
-	 */
-	public static function useremailExists ($email)
-	{
-		// Database handler
-		$db = JFactory::getDBO ();
+    /**
+     * Check if the given email exists
+     */
+    public static function useremailExists($email)
+    {
+        // Database handler
+        $db = JFactory::getDBO();
 
-		// Get user for email
-		$sql = "SELECT id FROM #__users WHERE email = " . $db->quote ($email);
-		$db->setQuery ($sql);
-		$user_id = $db->loadResult ();
+        // Get user for email
+        $sql = "SELECT id FROM #__users WHERE email = " . $db->quote($email);
+        $db->setQuery($sql);
+        $user_id = $db->loadResult();
 
-		// Done
-		return (!empty ($user_id) and is_numeric ($user_id));
-	}
+        // Done
 
-	/**
-	 * Create random email
-	 */
-	public static function getRandomUseremail ()
-	{
-		// Create unique email
-		do
-		{
-			$email = md5 (uniqid (rand (10000, 99000))) . "@example.com";
-		}
-		while ( self::useremailExists ($email) );
+        return (!empty($user_id) and is_numeric($user_id));
+    }
 
-		// Done
-		return $email;
-	}
+    /**
+     * Create random email
+     */
+    public static function getRandomUseremail()
+    {
+        // Create unique email
+        do
+        {
+            $email = md5(uniqid(rand(10000, 99000))) . "@example.com";
+        } while (self::useremailExists($email));
 
-	/**
-	 * Link token to userid
-	 */
-	public static function setUserIdForToken ($token, $user_id)
-	{
-		// Database handler
-		$db = JFactory::getDBO ();
+        // Done
 
-		// Remove
-		$sql = "DELETE FROM #__oasl_user_mapping WHERE token = " . $db->quote ($token);
-		$db->setQuery ($sql);
-		if ($db->query ())
-		{
-			// Add
-			$sql = "INSERT INTO #__oasl_user_mapping SET token = " . $db->quote ($token) . ",  user_id = " . $db->Quote ($user_id);
-			$db->setQuery ($sql);
-			if ($db->query ())
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+        return $email;
+    }
 
-	/**
-	 * Check if we have a userid for the given token
-	 */
-	public static function getUserIdForToken ($token)
-	{
-		// Database handler
-		$db = JFactory::getDBO ();
+    /**
+     * Link token to userid
+     */
+    public static function setUserIdForToken($token, $user_id)
+    {
+        // Database handler
+        $db = JFactory::getDBO();
 
-		// Read user
-		$sql = "SELECT u.ID FROM #__oasl_user_mapping AS um	INNER JOIN  #__users AS u ON (um.user_id=u.ID) WHERE um.token = " . $db->quote ($token);
-		$db->setQuery ($sql);
-		$user_id = $db->loadResult ();
-		if ($user_id)
-		{
-			return $user_id;
-		}
-		return false;
-	}
+        // Remove
+        $sql = "DELETE FROM #__oasl_user_mapping WHERE token = " . $db->quote($token);
+        $db->setQuery($sql);
+        if ($db->execute())
+        {
+            // Add
+            $sql = "INSERT INTO #__oasl_user_mapping SET token = " . $db->quote($token) . ",  user_id = " . $db->Quote($user_id);
+            $db->setQuery($sql);
+            if ($db->execute())
+            {
+                return true;
+            }
+        }
 
-	/**
-	 * Get the userid for a given email
-	 */
-	public static function getUserIdForEmail ($email)
-	{
-		// Database handler
-		$db = JFactory::getDBO ();
+        return false;
+    }
 
-		// Read user
-		$sql = "SELECT id FROM #__users WHERE email = " . $db->quote ($email);
-		$db->setQuery ($sql);
-		$user_id = $db->loadResult ();
-		if ($user_id)
-		{
-			return $user_id;
-		}
-		return false;
-	}
+    /**
+     * Check if we have a userid for the given token
+     */
+    public static function getUserIdForToken($token)
+    {
+        // Database handler
+        $db = JFactory::getDBO();
 
-	/**
-	 * Make an API Request to obtain the data for a given connection_token
-	 */
-	public static function makeTokenLookup ($token)
-	{
-		// Read settings
-		$settings = self::getSettings ();
+        // Read user
+        $sql = "SELECT u.ID FROM #__oasl_user_mapping AS um	INNER JOIN  #__users AS u ON (um.user_id=u.ID) WHERE um.token = " . $db->quote($token);
+        $db->setQuery($sql);
+        $user_id = $db->loadResult();
+        if ($user_id)
+        {
+            return $user_id;
+        }
 
-		// API Settings
-		$api_subdomain = (!empty ($settings ['api_subdomain']) ? trim ($settings ['api_subdomain']) : '');
-		$api_key = (!empty ($settings ['api_key']) ? $settings ['api_key'] : '');
-		$api_secret = (!empty ($settings ['api_secret']) ? $settings ['api_secret'] : '');
+        return false;
+    }
 
-		// API Connection
-		$api_connection_handler = ((!empty ($settings ['api_connection_handler']) and $settings ['api_connection_handler'] == 'fsockopen') ? 'fsockopen' : 'curl');
-		$api_connection_port = ((!empty ($settings ['api_connection_port']) and $settings ['api_connection_port'] == 80) ? 80 : 443);
-		$api_connection_secure = ($api_connection_port == 443);
+    /**
+     * Get the userid for a given email
+     */
+    public static function getUserIdForEmail($email)
+    {
+        // Database handler
+        $db = JFactory::getDBO();
 
-		$api_resource = ($api_connection_secure ? 'https' : 'http') . '://' . $api_subdomain . '.api.oneall.com/connections/' . $token . '.json';
+        // Read user
+        $sql = "SELECT id FROM #__users WHERE email = " . $db->quote($email);
+        $db->setQuery($sql);
+        $user_id = $db->loadResult();
+        if ($user_id)
+        {
+            return $user_id;
+        }
 
-		// Send request to the API
-		$result = self::makeHttpRequest ($api_connection_handler, $api_resource, array(
-			'api_key' => $api_key,
-			'api_secret' => $api_secret
-		));
+        return false;
+    }
 
-		// Parse result
-		if (is_object ($result) and property_exists ($result, 'http_data') and property_exists ($result, 'http_code') and $result->http_code == 200)
-		{
-			// Result
-			$json = $result->http_data;
+    /**
+     * Make an API Request to obtain the data for a given connection_token
+     */
+    public static function makeTokenLookup($token)
+    {
+        // Read settings
+        $settings = self::getSettings();
 
-			// Decode
-			$json_decoded = @json_decode ($json);
+        // API Settings
+        $api_subdomain = (!empty($settings['api_subdomain']) ? trim($settings['api_subdomain']) : '');
+        $api_key = (!empty($settings['api_key']) ? $settings['api_key'] : '');
+        $api_secret = (!empty($settings['api_secret']) ? $settings['api_secret'] : '');
 
-			// Check format
-			if (is_object ($json_decoded) and !empty ($json_decoded->response->request->status->code) and $json_decoded->response->request->status->code == 200)
-			{
-				$social_data = $json_decoded;
-			}
-		}
+        // API Connection
+        $api_connection_handler = ((!empty($settings['api_connection_handler']) and $settings['api_connection_handler'] == 'fsockopen') ? 'fsockopen' : 'curl');
+        $api_connection_port = ((!empty($settings['api_connection_port']) and $settings['api_connection_port'] == 80) ? 80 : 443);
+        $api_connection_secure = ($api_connection_port == 443);
 
-		return ((isset ($social_data) and is_object ($social_data)) ? $social_data : null);
-	}
+        $api_resource = ($api_connection_secure ? 'https' : 'http') . '://' . $api_subdomain . '.api.oneall.com/connections/' . $token . '.json';
 
-	/**
-	 * Send a HTTP request by using the given handler
-	 */
-	public static function makeHttpRequest ($handler, $url, $options = array (), $timeout = 15)
-	{
-		// FSOCKOPEN
-		if ($handler == 'fsockopen')
-		{
-			return self::makeFsockopenRequest ($url, $options, $timeout);
-		}
-		// CURL
-		else
-		{
-			return self::makeCurlRequest ($url, $options, $timeout);
-		}
-	}
+        // Send request to the API
+        $result = self::makeHttpRequest($api_connection_handler, $api_resource, array(
+            'api_key' => $api_key,
+            'api_secret' => $api_secret
+        ));
 
-	/**
-	 * Send a HTTP request by using CURL
-	 */
-	public static function makeCurlRequest ($url, $options = array (), $timeout = 15)
-	{
-		// Store the result
-		$result = new stdClass ();
+        // Parse result
+        if (is_object($result) and property_exists($result, 'http_data') and property_exists($result, 'http_code') and $result->http_code == 200)
+        {
+            // Result
+            $json = $result->http_data;
 
-		// Send request
-		$curl = curl_init ();
-		curl_setopt ($curl, CURLOPT_URL, $url);
-		curl_setopt ($curl, CURLOPT_HEADER, 0);
-		curl_setopt ($curl, CURLOPT_TIMEOUT, $timeout);
-		curl_setopt ($curl, CURLOPT_VERBOSE, 0);
-		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_setopt ($curl, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt ($curl, CURLOPT_USERAGENT, OA_USERAGENT);
+            // Decode
+            $json_decoded = @json_decode($json);
 
-		// BASIC AUTH?
-		if (isset ($options ['api_key']) and isset ($options ['api_secret']))
-		{
-			curl_setopt ($curl, CURLOPT_USERPWD, $options ['api_key'] . ":" . $options ['api_secret']);
-		}
+            // Check format
+            if (is_object($json_decoded) and !empty($json_decoded->response->request->status->code) and $json_decoded->response->request->status->code == 200)
+            {
+                $social_data = $json_decoded;
+            }
+        }
 
-		// Make request
-		if (($http_data = curl_exec ($curl)) !== false)
-		{
-			$result->http_code = curl_getinfo ($curl, CURLINFO_HTTP_CODE);
-			$result->http_data = $http_data;
-			$result->http_error = null;
-		}
-		else
-		{
-			$result->http_code = -1;
-			$result->http_data = null;
-			$result->http_error = curl_error ($curl);
-		}
+        return ((isset($social_data) and is_object($social_data)) ? $social_data : null);
+    }
 
-		// Done
-		return $result;
-	}
+    /**
+     * Send a HTTP request by using the given handler
+     */
+    public static function makeHttpRequest($handler, $url, $options = array(), $timeout = 15)
+    {
+        // FSOCKOPEN
+        if ($handler == 'fsockopen')
+        {
+            return self::makeFsockopenRequest($url, $options, $timeout);
+        }
+        // CURL
+        else
+        {
+            return self::makeCurlRequest($url, $options, $timeout);
+        }
+    }
 
-	/**
-	 * Send a HTTP request by using FSOCKOPEN
-	 */
-	public static function makeFsockopenRequest ($url, $options = array (), $timeout = 15)
-	{
-		// Store the result
-		$result = new stdClass ();
+    /**
+     * Send a HTTP request by using CURL
+     */
+    public static function makeCurlRequest($url, $options = array(), $timeout = 15)
+    {
+        // Store the result
+        $result = new stdClass();
 
-		// Make that this is a valid URL
-		if (($uri = parse_url ($url)) == false)
-		{
-			$result->http_code = -1;
-			$result->http_data = null;
-			$result->http_error = 'invalid_uri';
-			return $result;
-		}
+        // Send request
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, $timeout);
+        curl_setopt($curl, CURLOPT_VERBOSE, 0);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_USERAGENT, OA_USERAGENT);
 
-		// Make sure we can handle the schema
-		switch ($uri ['scheme'])
-		{
-			case 'http' :
-				$port = (isset ($uri ['port']) ? $uri ['port'] : 80);
-				$host = ($uri ['host'] . ($port != 80 ? ':' . $port : ''));
-				$fp = @fsockopen ($uri ['host'], $port, $errno, $errstr, $timeout);
-			break;
+        // BASIC AUTH?
+        if (isset($options['api_key']) and isset($options['api_secret']))
+        {
+            curl_setopt($curl, CURLOPT_USERPWD, $options['api_key'] . ":" . $options['api_secret']);
+        }
 
-			case 'https' :
-				$port = (isset ($uri ['port']) ? $uri ['port'] : 443);
-				$host = ($uri ['host'] . ($port != 443 ? ':' . $port : ''));
-				$fp = @fsockopen ('ssl://' . $uri ['host'], $port, $errno, $errstr, $timeout);
-			break;
+        // Make request
+        if (($http_data = curl_exec($curl)) !== false)
+        {
+            $result->http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+            $result->http_data = $http_data;
+            $result->http_error = null;
+        }
+        else
+        {
+            $result->http_code = -1;
+            $result->http_data = null;
+            $result->http_error = curl_error($curl);
+        }
 
-			default :
-				$result->http_code = -1;
-				$result->http_data = null;
-				$result->http_error = 'invalid_schema';
-				return $result;
-			break;
-		}
+        // Done
 
-		// Make sure the socket opened properly
-		if (!$fp)
-		{
-			$result->http_code = -$errno;
-			$result->http_data = null;
-			$result->http_error = trim ($errstr);
-			return $result;
-		}
+        return $result;
+    }
 
-		// Construct the path to act on
-		$path = (isset ($uri ['path']) ? $uri ['path'] : '/');
-		if (isset ($uri ['query']))
-		{
-			$path .= '?' . $uri ['query'];
-		}
+    /**
+     * Send a HTTP request by using FSOCKOPEN
+     */
+    public static function makeFsockopenRequest($url, $options = array(), $timeout = 15)
+    {
+        // Store the result
+        $result = new stdClass();
 
-		// Create HTTP request
-		$defaults = array(
-			'Host' => "Host: $host",
-			'User-Agent' => 'User-Agent: ' . OA_USERAGENT
-		);
+        // Make that this is a valid URL
+        if (($uri = parse_url($url)) == false)
+        {
+            $result->http_code = -1;
+            $result->http_data = null;
+            $result->http_error = 'invalid_uri';
 
-		// BASIC AUTH?
-		if (isset ($options ['api_key']) and isset ($options ['api_secret']))
-		{
-			$defaults ['Authorization'] = 'Authorization: Basic ' . base64_encode ($options ['api_key'] . ":" . $options ['api_secret']);
-		}
+            return $result;
+        }
 
-		// Build and send request
-		$request = 'GET ' . $path . " HTTP/1.0\r\n";
-		$request .= implode ("\r\n", $defaults);
-		$request .= "\r\n\r\n";
-		fwrite ($fp, $request);
+        // Make sure we can handle the schema
+        switch ($uri['scheme'])
+        {
+            case 'http':
+                $port = (isset($uri['port']) ? $uri['port'] : 80);
+                $host = ($uri['host'] . ($port != 80 ? ':' . $port : ''));
+                $fp = @fsockopen($uri['host'], $port, $errno, $errstr, $timeout);
+                break;
 
-		// Fetch response
-		$response = '';
-		while ( !feof ($fp) )
-		{
-			$response .= fread ($fp, 1024);
-		}
+            case 'https':
+                $port = (isset($uri['port']) ? $uri['port'] : 443);
+                $host = ($uri['host'] . ($port != 443 ? ':' . $port : ''));
+                $fp = @fsockopen('ssl://' . $uri['host'], $port, $errno, $errstr, $timeout);
+                break;
 
-		// Close connection
-		fclose ($fp);
+            default:
+                $result->http_code = -1;
+                $result->http_data = null;
+                $result->http_error = 'invalid_schema';
 
-		// Parse response
-		list ($response_header, $response_body) = explode ("\r\n\r\n", $response, 2);
+                return $result;
+                break;
+        }
 
-		// Parse header
-		$response_header = preg_split ("/\r\n|\n|\r/", $response_header);
-		list ($header_protocol, $header_code, $header_status_message) = explode (' ', trim (array_shift ($response_header)), 3);
+        // Make sure the socket opened properly
+        if (!$fp)
+        {
+            $result->http_code = -$errno;
+            $result->http_data = null;
+            $result->http_error = trim($errstr);
 
-		// Build result
-		$result->http_code = $header_code;
-		$result->http_data = $response_body;
+            return $result;
+        }
 
-		// Done
-		return $result;
-	}
+        // Construct the path to act on
+        $path = (isset($uri['path']) ? $uri['path'] : '/');
+        if (isset($uri['query']))
+        {
+            $path .= '?' . $uri['query'];
+        }
 
-	/**
-	 * Get settings
-	 */
-	public static function getSettings ()
-	{
-		// Container
-		$settings = array();
+        // Create HTTP request
+        $defaults = array(
+            'Host' => "Host: $host",
+            'User-Agent' => 'User-Agent: ' . OA_USERAGENT
+        );
 
-		// Get database handle
-		$db = JFactory::getDBO ();
+        // BASIC AUTH?
+        if (isset($options['api_key']) and isset($options['api_secret']))
+        {
+            $defaults['Authorization'] = 'Authorization: Basic ' . base64_encode($options['api_key'] . ":" . $options['api_secret']);
+        }
 
-		// Read settings
-		$sql = "SELECT * FROM #__oasl_settings";
-		$db->setQuery ($sql);
-		$rows = $db->LoadAssocList ();
+        // Build and send request
+        $request = 'GET ' . $path . " HTTP/1.0\r\n";
+        $request .= implode("\r\n", $defaults);
+        $request .= "\r\n\r\n";
+        fwrite($fp, $request);
 
-		if (is_array ($rows))
-		{
-			foreach ($rows as $key => $data)
-			{
-				if ($data ['setting'] == 'providers')
-				{
-					$tmp = @unserialize ($data ['value']);
-					if ($tmp !== false and is_array ($tmp))
-					{
-						$settings [$data ['setting']] = $tmp;
-					}
-					else
-					{
-						$settings [$data ['setting']] = array();
-					}
-				}
-				else
-				{
-					$settings [$data ['setting']] = $data ['value'];
-				}
-			}
-		}
+        // Fetch response
+        $response = '';
+        while (!feof($fp))
+        {
+            $response .= fread($fp, 1024);
+        }
 
-		return $settings;
-	}
+        // Close connection
+        fclose($fp);
+
+        // Parse response
+        list($response_header, $response_body) = explode("\r\n\r\n", $response, 2);
+
+        // Parse header
+        $response_header = preg_split("/\r\n|\n|\r/", $response_header);
+        list($header_protocol, $header_code, $header_status_message) = explode(' ', trim(array_shift($response_header)), 3);
+
+        // Build result
+        $result->http_code = $header_code;
+        $result->http_data = $response_body;
+
+        // Done
+
+        return $result;
+    }
+
+    /**
+     * Get settings
+     */
+    public static function getSettings()
+    {
+        // Container
+        $settings = array();
+
+        // Get database handle
+        $db = JFactory::getDBO();
+
+        // Read settings
+        $sql = "SELECT * FROM #__oasl_settings";
+        $db->setQuery($sql);
+        $rows = $db->LoadAssocList();
+
+        if (is_array($rows))
+        {
+            foreach ($rows as $key => $data)
+            {
+                if ($data['setting'] == 'providers')
+                {
+                    $tmp = @unserialize($data['value']);
+                    if ($tmp !== false and is_array($tmp))
+                    {
+                        $settings[$data['setting']] = $tmp;
+                    }
+                    else
+                    {
+                        $settings[$data['setting']] = array();
+                    }
+                }
+                else
+                {
+                    $settings[$data['setting']] = $data['value'];
+                }
+            }
+        }
+
+        return $settings;
+    }
 }
