@@ -39,7 +39,7 @@ class OneAllSocialLoginModelOneAllSocialLogin extends JModelList
         $db = $this->getDbo();
 
         // Read Settings
-        $settings = Joomla\CMS\Factory::getApplication()->getInput()->get('settings');
+        $settings = Joomla\CMS\Factory::getApplication()->getInput()->getString('settings');
 
         // Cleanup subdomain
         if (!empty($settings['api_subdomain']))
