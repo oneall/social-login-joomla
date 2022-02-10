@@ -41,7 +41,7 @@ class Com_OneAllSocialLoginInstallerScript
             'site' => array(
                 'oneallsociallogin' => array(
                     'title' => 'Social Login',
-                    'position' => 'position-7',
+                    'position' => 'sidebar-right',
                     'order' => 8,
                     'published' => 1,
                     'language' => '*',

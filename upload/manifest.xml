@@ -53,7 +53,7 @@
 	
 	<!-- Modules -->
 	<modules>
-		<module module="mod_oneallsociallogin" title="OneAll Social Login" position="position-7" order="8" client="site" language="*" showtitle="0">
+		<module module="mod_oneallsociallogin" title="OneAll Social Login" position="sidebar-right" order="8" client="site" language="*" showtitle="0">
 			<files folder="mod_oneallsociallogin">
 				<folder>classes</folder>
 				<folder>tmpl</folder>
