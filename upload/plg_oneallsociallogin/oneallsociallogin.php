@@ -35,7 +35,7 @@ if (!defined('DS'))
 // Check if plugin correctly installed
 if (!JFile::exists(dirname(__FILE__) . DS . 'helper.php'))
 {
-    JError::raiseNotice('no_oneallsociallogin_plugin', JText::_('The OneAll Social Login plugin is not installed correctly. Plugin not executed'));
+    JFactory::getApplication()->enqueueMessage(JText::_('The OneAll Social Login plugin is not installed correctly. Plugin not executed'), 'info');
 
     return;
 }
@@ -55,7 +55,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
         // Check settings
         if (empty($settings['api_subdomain']) or empty($settings['api_key']) or empty($settings['api_secret']))
         {
-            JError::raiseNotice('no_oneallsociallogin_plugin', JText::_('The OneAll Social Login API settings are missing. Please correct these in the Joomla administration area.'));
+            JFactory::getApplication()->enqueueMessage(JText::_('The OneAll Social Login API settings are missing. Please correct these in the Joomla administration area.'), 'info');
 
             return;
         }
@@ -276,7 +276,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
                 // Bind the data to the JUser Object
                 if (!$user->bind($data))
                 {
-                    JError::raiseWarning('', JText::_('Could not bind data to user') . ': ' . JText::_($user->getError()));
+                    JFactory::getApplication()->enqueueMessage(JText::_('Could not bind data to user') . ': ' . JText::_($user->getError()), 'warning');
 
                     return false;
                 }
@@ -284,7 +284,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
                 // Save the user
                 if (!$user->save())
                 {
-                    JError::raiseWarning('', JText::_('Could not create user') . ': ' . JText::_($user->getError()));
+                    JFactory::getApplication()->enqueueMessage(JText::_('Could not create user') . ': ' . JText::_($user->getError()), 'warning');
 
                     return false;
                 }

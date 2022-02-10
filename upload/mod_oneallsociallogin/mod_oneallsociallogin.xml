@@ -16,7 +16,6 @@ Contact our support at: <a target="_blank" href="http://www.oneall.com/company/c
 ]]></description>
 	<files>
 		<file module="mod_oneallsociallogin">mod_oneallsociallogin.php</file>
-		<file>index.html</file>
 		<folder>classes</folder>
 		<folder>tmpl</folder>
 	</files>
