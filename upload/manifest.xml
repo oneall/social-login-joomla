@@ -31,6 +31,7 @@
 	<files folder="com_oneallsociallogin">				
 		<file>index.html</file>
 		<file>oneallsociallogin.php</file>		
+		<file>com_oneallsociallogin.xml</file>
 	</files>
 	
 	<!-- Administration -->
