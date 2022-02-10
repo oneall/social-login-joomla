@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [6.0.0] - 2022-02-10
+### Update
+Compatible with Joomla 4
+
 ## [5.8.0] - 2022-01-24
 ### Added
 New provider added :

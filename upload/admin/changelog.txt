@@ -24,6 +24,9 @@
   
 CHANGELOG
 
+6.0.0
+Joomla 4 Compatible
+
 5.8.0
 * Epic Games added
 * Spotify added

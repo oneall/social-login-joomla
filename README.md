@@ -3,9 +3,10 @@
 * [Social Login for Joomla 1.6+](https://github.com/oneall/social-login-joomla/tree/joomla/1.6+)
 * [Social Login for Joomla 1.7+](https://github.com/oneall/social-login-joomla/tree/joomla/1.7+)
 * [Social Login for Joomla 2.5-2.9.x](https://github.com/oneall/social-login-joomla/tree/joomla/2.5-2.9.x)
-* **Social Login for Joomla 3.0+**
+* [Social Login for Joomla 3.0-3.9.x](https://github.com/oneall/social-login-joomla/tree/joomla/3.0+)
+* **Social Login for Joomla 4.0+**
 
-# Social Login 5.8.0 for Joomla 3.0+
+# Social Login 6.0.0 for Joomla 4.0+
 
 Social Login for Joomla allows your users to login and register with 40+ social networks. 
 It increases your Joomla user registration rate by simplifying the registration process for 
