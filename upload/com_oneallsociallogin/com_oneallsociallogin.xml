@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" group="system" method="upgrade">
+	<name>System - OneAll Social Login</name>
+	<license>Open Source License, GPL v2 based</license>
+	<author>OneAll LLC</author>
+	<authorEmail>support@oneall.com</authorEmail>
+	<authorUrl>http://www.oneall.com</authorUrl>
+	<creationDate>2014-10-29</creationDate>
+	<copyright>2011 - Today, OneAll LLC</copyright>
+	<version>2.1</version>
+	<description>
+		<![CDATA[Part of the Social Login component.<br />
+The component help you to setup the plugin settings.<br /><br />
+Visit us at <a target="_blank" href="http://www.oneall.com">http://www.oneall.com/</a><br />
+Contact our support at: <a target="_blank" href="http://www.oneall.com/company/contact-us/">http://www.oneall.com/company/contact-us/</a>
+]]></description>
+	<files>
+		<file component="com_oneallsociallogin">oneallsociallogin.php</file>
+		<file>index.html</file>
+	</files>
+</extension>
