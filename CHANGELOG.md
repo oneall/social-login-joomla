@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased]
 
+## [6.1.0] - 2023-08-16
+### Update
+Fix Get ACL deprecated
+
 ## [6.0.0] - 2022-02-10
 ### Update
 Compatible with Joomla 4

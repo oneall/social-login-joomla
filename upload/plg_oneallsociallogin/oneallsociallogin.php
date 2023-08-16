@@ -29,7 +29,7 @@ jimport('joomla.filesystem.file');
 // Directory Separator
 if (!defined('DS'))
 {
-    define('DS', defined('DIRECTORY_SEPARATOR') ? DIRECTORY_SEPARATOR : '/');
+    define('DS', defined('DIRECTORY_SEPARATOR')  DIRECTORY_SEPARATOR : '/');
 }
 
 // Check if plugin correctly installed
@@ -41,7 +41,7 @@ if (!JFile::exists(dirname(__FILE__) . DS . 'helper.php'))
 }
 require_once dirname(__FILE__) . DS . 'helper.php';
 
-define('OA_USERAGENT', 'SocialLogin/6.0.0 Joomla/4.0 (+http://www.oneall.com/)');
+define('OA_USERAGENT', 'SocialLogin/6.1.0 Joomla/4.0 (+http://www.oneall.com/)');
 class plgSystemOneAllSocialLogin extends JPlugin
 {
     /**
@@ -243,7 +243,7 @@ class plgSystemOneAllSocialLogin extends JPlugin
                 }
 
                 // Get the ACL
-                $acl = JFactory::getACL();
+                $acl = new JAccess();
 
                 // Ggenerate a new JUser Object
                 $user = JFactory::getUser(0);

@@ -6,10 +6,10 @@
 * [Social Login for Joomla 3.0-3.9.x](https://github.com/oneall/social-login-joomla/tree/joomla/3.0+)
 * **Social Login for Joomla 4.0+**
 
-# Social Login 6.0.0 for Joomla 4.0+
+# Social Login 6.1.0 for Joomla 4.0+
 
-Social Login for Joomla allows your users to login and register with 40+ social networks. 
-It increases your Joomla user registration rate by simplifying the registration process for 
+Social Login for Joomla allows your users to login and register with 40+ social networks.
+It increases your Joomla user registration rate by simplifying the registration process for
 new users and provides permission-based social data retrieved from the social network profiles.
 
 
@@ -43,9 +43,9 @@ new users and provides permission-based social data retrieved from the social ne
 * Pinterest
 * PixelPin
 * Reddit
-* Skyrock.com		
-* SoundCloud		
-* Spotify		
+* Skyrock.com
+* SoundCloud
+* Spotify
 * StackExchange
 * Steam
 * Strava
@@ -65,7 +65,7 @@ new users and provides permission-based social data retrieved from the social ne
 
 
 ## About Us
-Social Login has been created and is maintained by [OneAll](http://www.oneall.com/), a technology company offering a set of 
+Social Login has been created and is maintained by [OneAll](http://www.oneall.com/), a technology company offering a set of
 web-delivered tools and services for establishing and optimizing a site's connection with social networks.
 
 
