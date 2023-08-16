@@ -4,6 +4,7 @@
 * [Social Login for Joomla 1.7+](https://github.com/oneall/social-login-joomla/tree/joomla/1.7+)
 * [Social Login for Joomla 2.5-2.9.x](https://github.com/oneall/social-login-joomla/tree/joomla/2.5-2.9.x)
 * **Social Login for Joomla 3.0+**
+* [Social Login for Joomla 4.0+](https://github.com/oneall/social-login-joomla/tree/joomla/4.0+)
 
 # Social Login 5.8.0 for Joomla 3.0+
 
