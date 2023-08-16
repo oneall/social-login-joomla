@@ -29,7 +29,8 @@ jimport('joomla.filesystem.file');
 // Directory Separator
 if (!defined('DS'))
 {
-    define('DS', defined('DIRECTORY_SEPARATOR')  DIRECTORY_SEPARATOR : '/');
+    $sep = defined('DIRECTORY_SEPARATOR') ? DIRECTORY_SEPARATOR : '/';
+    define('DS', $sep);
 }
 
 // Check if plugin correctly installed
