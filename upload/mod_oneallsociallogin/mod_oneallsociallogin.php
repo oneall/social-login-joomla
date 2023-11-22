@@ -48,7 +48,7 @@ $user_status = ((!$user->get ('guest')) ? 'logout' : 'login');
 $return_url = JURI::getInstance ()->toString ();
 
 // Get Module Class Suffix
-$moduleclass_sfx = htmlspecialchars ($params->get ('moduleclass_sfx'));
+$moduleclass_sfx = !empty($params->get ('moduleclass_sfx')) ? htmlspecialchars ($params->get ('moduleclass_sfx')) : null;
 
 // Show template
 require JModuleHelper::getLayoutPath ('mod_oneallsociallogin', $params->get ('layout', 'default'));
