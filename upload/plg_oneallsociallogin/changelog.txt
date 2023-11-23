@@ -24,6 +24,9 @@
  
 CHANGELOG
 
+7.0.0
+Joomla 5 Compatible
+
 6.1.0
 GetACL deprecated fix
 

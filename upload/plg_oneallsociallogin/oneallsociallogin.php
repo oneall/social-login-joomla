@@ -22,6 +22,10 @@
  * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  */
+
+use Joomla\CMS\Event\User\AfterLoginEvent;
+use Joomla\CMS\Event\User\LoginEvent;
+
 defined('_JEXEC') or die('Restricted access');
 jimport('joomla.plugin.plugin');
 jimport('joomla.filesystem.file');
@@ -42,7 +46,7 @@ if (!JFile::exists(dirname(__FILE__) . DS . 'helper.php'))
 }
 require_once dirname(__FILE__) . DS . 'helper.php';
 
-define('OA_USERAGENT', 'SocialLogin/6.1.0 Joomla/4.0 (+http://www.oneall.com/)');
+define('OA_USERAGENT', 'SocialLogin/7.0.0 Joomla/5.0 (+http://www.oneall.com/)');
 class plgSystemOneAllSocialLogin extends JPlugin
 {
     /**
@@ -351,7 +355,11 @@ class plgSystemOneAllSocialLogin extends JPlugin
                         $response->type = 'oneall-social-login';
                         $response->status = \JAuthentication::STATUS_SUCCESS;
 
-                        $loginResult = $app->triggerEvent('onUserLogin', array((array) $response, $options));
+                        
+                        $dispatcher   = $this->getDispatcher();
+                        $loginEvent = new LoginEvent('onUserLogin', ['subject' => (array) $response, 'options' => $options]);
+                        $dispatcher->dispatch('onUserLogin', $loginEvent);
+                        $loginResult = $loginEvent['result'] ?? [];     
 
                         $user = \JFactory::getUser();
                         if (in_array(false, $loginResult, true) == false)
@@ -360,7 +368,10 @@ class plgSystemOneAllSocialLogin extends JPlugin
                             $options['responseType'] = $response->type;
 
                             // The user is successfully logged in. Run the after login events
-                            $app->triggerEvent('onUserAfterLogin', array($options));
+                            $dispatcher->dispatch('onUserAfterLogin', new AfterLoginEvent('onUserAfterLogin', [
+                                'options' => $options,
+                                'subject' => (array) $response,
+                            ]));
                         }
 
                         //Done
